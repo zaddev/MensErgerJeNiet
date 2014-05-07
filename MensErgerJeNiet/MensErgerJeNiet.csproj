@@ -48,10 +48,12 @@
     <Compile Include="SpeelStuk\DobbelSteen\DobbelSteenVlakOog.cs" />
     <Compile Include="SpeelStuk\DobbelSteen\OnEerlijke\DobbelSteen.cs" />
     <Compile Include="SpeelStuk\DobbelSteen\Eerlijke\DobbelSteen.cs" />
+    <Compile Include="SpeelStuk\Pion.cs" />
     <Compile Include="SpeelStuk\SchudBeker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagramMensErgerJeNiet.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="dobbelstenenDiagram.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

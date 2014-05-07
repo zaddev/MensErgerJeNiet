@@ -3,18 +3,15 @@
   <Comment CommentText="rechterstaande is een zogenoemde &quot;eerlijke&quot; dobbelsteen die zich zoveel mogelijk aan een theoretische model probeert te houden">
     <Position X="5.292" Y="0.74" Height="0.75" Width="1.7" />
   </Comment>
-  <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.OnEerlijke.DobbelSteen">
-    <Position X="3.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>SpeelStuk\DobbelSteen\OnEerlijke\DobbelSteen.cs</FileName>
-      <NewMemberFileName>SpeelStuk\DobbelSteen\Eerlijke\DobbelSteen.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.SchudBeker">
     <Position X="8" Y="3.5" Width="2" />
+    <AssociationLine Name="Dobbelstenen" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.11" Y="0.06" Height="0.182" Width="1.172" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAQAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAUAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SpeelStuk\SchudBeker.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -28,10 +25,13 @@
         <Point X="5.125" Y="4.805" />
         <Point X="5.125" Y="6.25" />
       </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.11" Y="0.06" Height="0.182" Width="0.904" />
+      </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="TopWaarde" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelsteenVlak">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.029" Y="0.683" />
+        <Position X="-0.763" Y="0.662" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -47,12 +47,16 @@
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelsteenVlak">
     <Position X="4.75" Y="6.25" Width="1.5" />
+    <AssociationLine Name="Ogen" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelSteenVlakOog">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.287" Y="0.07" Height="0.182" Width="0.85" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAIAAAAAAA=</HashCode>
       <FileName>SpeelStuk\DobbelSteen\DobbelsteenVlak.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Kleur" />
       <Property Name="Size" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
@@ -60,7 +64,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelSteenVlakOog">
-    <Position X="7.5" Y="6.25" Width="1.5" />
+    <Position X="7.5" Y="6.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SpeelStuk\DobbelSteen\DobbelSteenVlakOog.cs</FileName>
@@ -78,9 +82,9 @@
     <InheritanceLine Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen" FixedToPoint="true">
       <Path>
         <Point X="5.5" Y="3.25" />
-        <Point X="5.5" Y="2.108" />
-        <Point X="8" Y="2.108" />
-        <Point X="8" Y="1.733" />
+        <Point X="5.5" Y="2.3" />
+        <Point X="8" Y="2.3" />
+        <Point X="8" Y="1.925" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -88,12 +92,5 @@
       <FileName>SpeelStuk\DobbelSteen\Eerlijke\DobbelSteen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="MensErgerJeNiet.Kleur">
-    <Position X="5.75" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAgAAAABAAAAQAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Kleur.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

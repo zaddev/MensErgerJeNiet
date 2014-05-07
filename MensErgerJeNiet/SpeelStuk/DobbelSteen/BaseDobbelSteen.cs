@@ -41,6 +41,6 @@ namespace MensErgerJeNiet.SpeelStuk.DobbelSteen
             }
         }
     
-        abstract internal void _changeLiging();
+        abstract internal void _changeLiging(Random rnd);
     }
 }

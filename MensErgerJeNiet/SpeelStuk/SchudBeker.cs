@@ -9,7 +9,7 @@ namespace MensErgerJeNiet.SpeelStuk
     public class SchudBeker
     {
         #region private fields
-        private List<MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen> _dobbelstenen;
+        private List<MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen> _dobbelstenen = new List<DobbelSteen.BaseDobbelSteen>();
 
         #endregion
 
@@ -28,13 +28,19 @@ namespace MensErgerJeNiet.SpeelStuk
 
         #endregion
 
+        /// <summary>
+        /// een random object is belangerijk om alle dobbelstenen een verschillende waarde te laten hebben
+        /// </summary>
+        Random rnd = new Random();
+
         public List<MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen> SchudDobbelstenen()
         {
             if(this._dobbelstenen != null && this._dobbelstenen.Count>0)
             {
                 //geef ze allemaal een wisselcommando
                 //logica wordt in het object zelf uitgevoerd om dat de berekening voor ieder soort dobbelsteen kan verschillen
-                this._dobbelstenen.ForEach(dobbelsteen => dobbelsteen._changeLiging());
+                
+                this._dobbelstenen.ForEach(dobbelsteen => dobbelsteen._changeLiging(rnd));
 
                 //de stenen zijn geschud
                 return this.Dobbelstenen;

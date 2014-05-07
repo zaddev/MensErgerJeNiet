@@ -10,7 +10,7 @@ namespace MensErgerJeNiet.SpeelStuk.DobbelSteen.OnEerlijke
     {
         
         #region abstracte methodes to overide
-        internal override void _changeLiging()
+        internal override void _changeLiging(Random rnd)
         {
             throw new NotImplementedException();
         }
