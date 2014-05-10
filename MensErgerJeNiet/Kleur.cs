@@ -12,5 +12,6 @@ namespace MensErgerJeNiet
         blauw,
         wit,
         zwart,
+        paars,
     }
 }

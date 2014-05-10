@@ -41,6 +41,10 @@
   <ItemGroup>
     <Compile Include="Kleur.cs" />
     <Compile Include="Matriaal.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Playground.cs" />
+    <Compile Include="PlaygroundPossition.cs" />
+    <Compile Include="PlaygroundPossitionType.cs" />
     <Compile Include="Size.cs" />
     <Compile Include="SpeelStuk\DobbelSteen\DobbelsteenVlak.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -48,6 +52,7 @@
     <Compile Include="SpeelStuk\DobbelSteen\DobbelSteenVlakOog.cs" />
     <Compile Include="SpeelStuk\DobbelSteen\OnEerlijke\DobbelSteen.cs" />
     <Compile Include="SpeelStuk\DobbelSteen\Eerlijke\DobbelSteen.cs" />
+    <Compile Include="SpeelStuk\IPion.cs" />
     <Compile Include="SpeelStuk\Pion.cs" />
     <Compile Include="SpeelStuk\SchudBeker.cs" />
   </ItemGroup>

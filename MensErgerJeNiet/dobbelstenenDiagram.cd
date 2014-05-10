@@ -4,7 +4,7 @@
     <Position X="5.292" Y="0.74" Height="0.75" Width="1.7" />
   </Comment>
   <Class Name="MensErgerJeNiet.SpeelStuk.SchudBeker">
-    <Position X="8" Y="3.5" Width="2" />
+    <Position X="8" Y="3" Width="2" />
     <AssociationLine Name="Dobbelstenen" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.11" Y="0.06" Height="0.182" Width="1.172" />
@@ -19,11 +19,11 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen">
-    <Position X="4.75" Y="3.25" Width="1.5" />
+    <Position X="4.75" Y="2.75" Width="1.5" />
     <AssociationLine Name="Vlakken" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelsteenVlak" FixedToPoint="true">
       <Path>
-        <Point X="5.125" Y="4.805" />
-        <Point X="5.125" Y="6.25" />
+        <Point X="5.125" Y="4.305" />
+        <Point X="5.125" Y="5.75" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.11" Y="0.06" Height="0.182" Width="0.904" />
@@ -46,7 +46,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelsteenVlak">
-    <Position X="4.75" Y="6.25" Width="1.5" />
+    <Position X="4.75" Y="5.75" Width="1.5" />
     <AssociationLine Name="Ogen" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelSteenVlakOog">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.287" Y="0.07" Height="0.182" Width="0.85" />
@@ -64,14 +64,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.DobbelSteenVlakOog">
-    <Position X="7.5" Y="6.25" Width="1.75" />
+    <Position X="7.5" Y="5.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SpeelStuk\DobbelSteen\DobbelSteenVlakOog.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNiet.Size">
-    <Position X="2" Y="6.25" Width="1.5" />
+    <Position X="2" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Size.cs</FileName>
@@ -81,7 +81,7 @@
     <Position X="7.25" Y="0.5" Width="1.5" />
     <InheritanceLine Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen" FixedToPoint="true">
       <Path>
-        <Point X="5.5" Y="3.25" />
+        <Point X="5.5" Y="2.75" />
         <Point X="5.5" Y="2.3" />
         <Point X="8" Y="2.3" />
         <Point X="8" Y="1.925" />
