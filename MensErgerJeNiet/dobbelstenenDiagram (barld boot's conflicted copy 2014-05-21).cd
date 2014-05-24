@@ -3,12 +3,20 @@
   <Comment CommentText="rechterstaande is een zogenoemde &quot;eerlijke&quot; dobbelsteen die zich zoveel mogelijk aan een theoretische model probeert te houden">
     <Position X="5.292" Y="0.74" Height="0.75" Width="1.7" />
   </Comment>
-  <Class Name="MensErgerJeNiet.SpeelStuk.SchudBeker&lt;Steen&gt;">
+  <Class Name="MensErgerJeNiet.SpeelStuk.SchudBeker">
     <Position X="8" Y="3" Width="2" />
+    <AssociationLine Name="Dobbelstenen" Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.11" Y="0.06" Height="0.182" Width="1.172" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAUAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SpeelStuk\SchudBeker.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Dobbelstenen" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen">
     <Position X="4.75" Y="2.75" Width="1.5" />
@@ -69,7 +77,7 @@
       <FileName>Size.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.Eerlijke.ZesVlaksDobbelSteen">
+  <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.Eerlijke.DobbelSteen">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <InheritanceLine Type="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen" FixedToPoint="true">
       <Path>

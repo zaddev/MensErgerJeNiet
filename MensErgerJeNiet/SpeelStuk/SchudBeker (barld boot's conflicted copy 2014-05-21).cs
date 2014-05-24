@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.SpeelStuk
 {
-    public class SchudBeker<Steen>
-        where Steen : MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen
-    { 
+    public class SchudBeker
+    {
         #region private fields
-        private List<Steen> _dobbelstenen = new List<Steen>();
+        private List<MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen> _dobbelstenen = new List<DobbelSteen.BaseDobbelSteen>();
 
         #endregion
 
         #region public properties
-        public List<Steen> Dobbelstenen
+        public List<MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen> Dobbelstenen
         {
             get
             {
@@ -34,7 +33,7 @@ namespace MensErgerJeNiet.SpeelStuk
         /// </summary>
         Random rnd = new Random();
 
-        public List<Steen> SchudDobbelstenen()
+        public List<MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen> SchudDobbelstenen()
         {
             if(this._dobbelstenen != null && this._dobbelstenen.Count>0)
             {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.SpeelStuk.DobbelSteen.Eerlijke
 {
-    public class ZesVlaksDobbelSteen : MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen
+    public class DobbelSteen : MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen
     {
 
         #region public constructors
-        public ZesVlaksDobbelSteen()
+        public DobbelSteen()
         {
             //zorg dat je 6 vlakken hebt met 1 tm 6
             for(int i=1;i<=6;i++)

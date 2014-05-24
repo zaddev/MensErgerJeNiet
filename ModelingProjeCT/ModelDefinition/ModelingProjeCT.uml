@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="3a834b49-60f9-45d5-9c6a-3efa91d75f76"
+  name="ModelingProjeCT" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <subsystem
+        Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="2967895a-2133-4da9-9769-61e59b5f16a8"
+        name="gebruiker"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="ca10398e-2bb7-4f3c-83fa-2fc513cd11cf"
+            isDerived="false"
+            sourceEndRoleName="gebruiker"
+            targetEndRoleName="Starten Spel"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f2b957c5-ba47-4ad6-a475-53f446aaa075"
+              LastKnownName="Starten Spel"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="243cc01c-107c-438c-adba-e23077043e0d"
+                  name="gebruiker"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0b29fafa-6464-4835-9cf6-3189e166d5f8"
+                  name="Starten Spel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="1e8a1a47-3d95-49b9-9dc3-348ef58fe371"
+        name="speler"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7e651e22-d20b-4427-b671-9160af9eeb12"
+            isDerived="false"
+            sourceEndRoleName="speler"
+            targetEndRoleName="uitvoeren beurt"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="90b7ec71-ce14-4605-b431-4171e192ed66"
+              LastKnownName="uitvoeren beurt"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b4d8676-4271-4a14-8f5f-c120f51b1180"
+                  name="speler"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8888c788-0867-42b7-a915-2a8e9e7e7154"
+                  name="uitvoeren beurt"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f2b957c5-ba47-4ad6-a475-53f446aaa075"
+        name="Starten Spel"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="182db9f1-24ae-4b3f-8262-a85b24ed35c8">
+            <useCaseMoniker
+              Id="de0335d9-3aae-41a2-92ab-f8e907064501"
+              LastKnownName="aanmaken spellers"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="90b7ec71-ce14-4605-b431-4171e192ed66"
+        name="uitvoeren beurt"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="4d415edf-2497-455f-9caf-25a7c8c8e9e5">
+            <useCaseMoniker
+              Id="c7e1d03c-3d6f-46de-8392-a9229ccf8be0"
+              LastKnownName="gooien dobbelsteen"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c7e1d03c-3d6f-46de-8392-a9229ccf8be0"
+        name="gooien dobbelsteen"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="96baa209-923b-4251-a429-d258fdf911b1">
+            <useCaseMoniker
+              Id="3f0c54b6-5f0a-44a0-be84-97b352337194"
+              LastKnownName="Voorstellen  actie"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3c530cf5-885c-443e-9985-9f01377de2c9"
+        name="Neerzetten Nieuwe pion"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bc57297e-3015-4f29-ab03-b0d98862ff86"
+        name="Kiezen Pion"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="de0335d9-3aae-41a2-92ab-f8e907064501"
+        name="aanmaken spellers"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="13bfe1fd-a813-40d6-8117-1a2ca2389230"
+        name="Verplaatsen Pion"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e06b7cbe-8145-4c44-9015-8c73a861bb23"
+        name="Controlle Dobblesteen (6)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2db7e913-86bf-49b1-8d34-0dbc990be983"
+        name="Controlle beschikbare pionnen "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3c4337da-b384-4b5b-9598-b1d69e7ba344"
+        name="6 Gooien"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7ae54b56-7381-4f4f-92c0-c143d88eaad2"
+        name="Controlle dobbelsteen (1 tot 5)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6ecd246c-cf06-4cbe-ac45-6afd1ad8109e"
+        name="controleer beschikbare pionnen"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1e81ba63-1a4f-4b5d-8bf9-304221c25cda"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="bc00e10d-8cfa-42ab-9685-7206554226b8"
+            isDerived="false"
+            sourceEndRoleName="Class1"
+            targetEndRoleName="Class2"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0a27947b-cf85-4692-9a34-9bfd1e0ffeae"
+              LastKnownName="Class2"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="afb97017-45eb-40e3-9e36-97048fa4169b"
+                  name="Class1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4ea08271-fb72-44d0-8597-5fc12017c15c"
+                  name="Class2"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0a27947b-cf85-4692-9a34-9bfd1e0ffeae"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3f0c54b6-5f0a-44a0-be84-97b352337194"
+        name="Voorstellen  actie"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="48effa87-1f3b-468c-90bf-3a7dd74552ce"
+        name="plaatsen nieuwe pion"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="7c95cd06-9f82-4c91-9381-28a0aed8fb0c">
+            <useCaseMoniker
+              Id="3f0c54b6-5f0a-44a0-be84-97b352337194"
+              LastKnownName="Voorstellen  actie"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1b637271-4f9f-4388-b893-eaedf3cf1edf"
+        name="kiezen pion"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="91074716-2076-43d5-a0cc-6e2d36fe4b51">
+            <useCaseMoniker
+              Id="3f0c54b6-5f0a-44a0-be84-97b352337194"
+              LastKnownName="Voorstellen  actie"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="a83f1ff0-cd69-4470-81f8-6538db7b7ff2">
+            <useCaseMoniker
+              Id="72c88de4-3a2f-4589-9347-c3016a12e8f1"
+              LastKnownName="verplaatsen pion"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="72c88de4-3a2f-4589-9347-c3016a12e8f1"
+        name="verplaatsen pion"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="147f96c1-1ab6-4c5e-9ad5-242706c5388c"
+        name="slaan pion"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="8c8fd77d-479d-4263-bc10-098088e106fc">
+            <useCaseMoniker
+              Id="72c88de4-3a2f-4589-9347-c3016a12e8f1"
+              LastKnownName="verplaatsen pion"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </extend>
+          <extend
+            Id="a3a1ba2b-8071-45b3-b59a-00339c51d614">
+            <useCaseMoniker
+              Id="48effa87-1f3b-468c-90bf-3a7dd74552ce"
+              LastKnownName="plaatsen nieuwe pion"
+              LastKnownLocation="ModelingProjeCT.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="ModelingProjeCT.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="0facd1ab-709c-4211-a372-4f7977488749"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="012b1fdd-406d-4dff-b040-9ef466f6cc58"
+            name="Start beurt"
+            isLeaf="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="d68a888e-3776-41c8-a6ae-2832fbd6e702"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <objectNodeMoniker
+                  Id="d5592f4b-b339-48b4-899c-badba7f4baf7"
+                  LastKnownName="gooien dobbelsteen"
+                  LastKnownLocation="ModelingProjeCT.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </opaqueAction>
+          <objectNode
+            Id="d5592f4b-b339-48b4-899c-badba7f4baf7"
+            name="gooien dobbelsteen"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="b1789b31-d1d5-4921-806c-ddd273f6e996"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <decisionNode
+            Id="524cad59-e39f-4d9e-ad6c-e3dc331cfa52"
+            name="Decision1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

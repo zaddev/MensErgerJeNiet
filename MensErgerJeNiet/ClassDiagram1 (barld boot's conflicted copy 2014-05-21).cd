@@ -50,12 +50,15 @@
       <Property Name="Pion" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="MensErgerJeNiet.SpeelStuk.SchudBeker&lt;Steen&gt;">
+  <Class Name="MensErgerJeNiet.SpeelStuk.SchudBeker">
     <Position X="11" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAUAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SpeelStuk\SchudBeker.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Dobbelstenen" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNiet.SpeelStuk.DobbelSteen.BaseDobbelSteen" Collapsed="true">
     <Position X="14.5" Y="1.25" Width="1.5" />
@@ -71,7 +74,7 @@
       <FileName>SpeelStuk\IPion.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="MensErgerJeNiet.Kleur">
+  <Enum Name="MensErgerJeNiet.Kleur" Collapsed="true">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAgAAAABAABAQAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
