@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="ba1a8ff7-dd16-4fa0-8331-20723b3667de" name="UMLUseCaseDiagram1" linkedPackageId="a4c4f833-9421-49d0-9c80-0a44f4ce672a" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ba1a8ff7-dd16-4fa0-8331-20723b3667de" name="UMLUseCaseDiagram1" linkedPackageId="a4c4f833-9421-49d0-9c80-0a44f4ce672a" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <subsystem Id="708d372b-98f8-4c43-81ed-b6458bb446f8" name="Subsystem1" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -69,26 +69,6 @@
     <packageHasNamedElement>
       <useCase Id="de6c63b2-7d8b-443a-8fdb-a2c72938ce7a" name="uitvoeren beurt" isAbstract="false" isLeaf="false">
         <elementDefinition Id="90b7ec71-ce14-4605-b431-4171e192ed66" />
-        <additions>
-          <include Id="61c59061-22a9-40c9-b21e-d67fc9b2d2ac">
-            <useCaseMoniker Id="bca8de14-3a51-488c-ae2a-936fadba7954" LastKnownName="gooien dobbelsteen" />
-            <elementDefinition Id="4d415edf-2497-455f-9caf-25a7c8c8e9e5" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="bca8de14-3a51-488c-ae2a-936fadba7954" name="gooien dobbelsteen" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="c7e1d03c-3d6f-46de-8392-a9229ccf8be0" />
-        <additions>
-          <include Id="6279b521-4428-4234-93bf-eb790c2cd2e4">
-            <useCaseMoniker Id="f5e4b081-6fa8-4d94-a530-d459d5cffde0" LastKnownName="Voorstellen  actie" />
-            <elementDefinition Id="96baa209-923b-4251-a429-d258fdf911b1" />
-          </include>
-        </additions>
         <subjects>
           <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
         </subjects>
@@ -97,74 +77,6 @@
     <packageHasNamedElement>
       <useCase Id="dd1a9473-7bc5-4d4e-b976-a619cbfd389e" name="aanmaken spellers" isAbstract="false" isLeaf="false">
         <elementDefinition Id="de0335d9-3aae-41a2-92ab-f8e907064501" />
-        <subjects>
-          <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="f5e4b081-6fa8-4d94-a530-d459d5cffde0" name="Voorstellen  actie" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="3f0c54b6-5f0a-44a0-be84-97b352337194" />
-        <subjects>
-          <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="06808f62-5385-42eb-884b-c375e80a7b6a" name="plaatsen nieuwe pion" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="48effa87-1f3b-468c-90bf-3a7dd74552ce" />
-        <extendedCases>
-          <extend Id="0b591ff5-5574-4546-a2b7-dab35ec567e0">
-            <useCaseMoniker Id="f5e4b081-6fa8-4d94-a530-d459d5cffde0" LastKnownName="Voorstellen  actie" />
-            <elementDefinition Id="7c95cd06-9f82-4c91-9381-28a0aed8fb0c" />
-          </extend>
-        </extendedCases>
-        <subjects>
-          <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="17ce177b-523f-45a9-b8d2-850c15a34a75" name="kiezen pion" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="1b637271-4f9f-4388-b893-eaedf3cf1edf" />
-        <extendedCases>
-          <extend Id="c178de6a-daf8-4a40-9868-61fe7692fd19">
-            <useCaseMoniker Id="f5e4b081-6fa8-4d94-a530-d459d5cffde0" LastKnownName="Voorstellen  actie" />
-            <elementDefinition Id="91074716-2076-43d5-a0cc-6e2d36fe4b51" />
-          </extend>
-        </extendedCases>
-        <additions>
-          <include Id="86aaff8e-4d68-48c2-98b2-4f682e5b60a0">
-            <useCaseMoniker Id="beba2606-1900-4e97-ae15-4715796097a8" LastKnownName="verplaatsen pion" />
-            <elementDefinition Id="a83f1ff0-cd69-4470-81f8-6538db7b7ff2" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="beba2606-1900-4e97-ae15-4715796097a8" name="verplaatsen pion" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="72c88de4-3a2f-4589-9347-c3016a12e8f1" />
-        <subjects>
-          <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="8a3c648e-6e4f-4a7b-86b3-df216cfc658d" name="slaan pion" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="147f96c1-1ab6-4c5e-9ad5-242706c5388c" />
-        <extendedCases>
-          <extend Id="e86579e8-6993-4756-bed5-419d8b7efabe">
-            <useCaseMoniker Id="beba2606-1900-4e97-ae15-4715796097a8" LastKnownName="verplaatsen pion" />
-            <elementDefinition Id="8c8fd77d-479d-4263-bc10-098088e106fc" />
-          </extend>
-          <extend Id="67c2a631-535c-48dc-8a2b-d219ab9d9161">
-            <useCaseMoniker Id="06808f62-5385-42eb-884b-c375e80a7b6a" LastKnownName="plaatsen nieuwe pion" />
-            <elementDefinition Id="a3a1ba2b-8071-45b3-b59a-00339c51d614" />
-          </extend>
-        </extendedCases>
         <subjects>
           <subsystemMoniker Id="708d372b-98f8-4c43-81ed-b6458bb446f8" LastKnownName="Subsystem1" />
         </subjects>
