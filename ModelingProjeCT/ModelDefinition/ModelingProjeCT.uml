@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="3a834b49-60f9-45d5-9c6a-3efa91d75f76"
   name="ModelingProjeCT" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -185,12 +185,6 @@
               LastKnownLocation="ModelingProjeCT.uml" />
           </include>
         </additions>
-        <subjects>
-          <subsystemMoniker
-            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
-            LastKnownName="Subsystem1"
-            LastKnownLocation="ModelingProjeCT.uml" />
-        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -326,14 +320,7 @@
         Id="3f0c54b6-5f0a-44a0-be84-97b352337194"
         name="Voorstellen  actie"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
-            LastKnownName="Subsystem1"
-            LastKnownLocation="ModelingProjeCT.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -350,12 +337,6 @@
               LastKnownLocation="ModelingProjeCT.uml" />
           </extend>
         </extendedCases>
-        <subjects>
-          <subsystemMoniker
-            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
-            LastKnownName="Subsystem1"
-            LastKnownLocation="ModelingProjeCT.uml" />
-        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -382,12 +363,6 @@
               LastKnownLocation="ModelingProjeCT.uml" />
           </include>
         </additions>
-        <subjects>
-          <subsystemMoniker
-            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
-            LastKnownName="Subsystem1"
-            LastKnownLocation="ModelingProjeCT.uml" />
-        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -395,14 +370,7 @@
         Id="72c88de4-3a2f-4589-9347-c3016a12e8f1"
         name="verplaatsen pion"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
-            LastKnownName="Subsystem1"
-            LastKnownLocation="ModelingProjeCT.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -426,12 +394,6 @@
               LastKnownLocation="ModelingProjeCT.uml" />
           </extend>
         </extendedCases>
-        <subjects>
-          <subsystemMoniker
-            Id="4a4a55b1-cfd6-4c32-8561-e5b1e96164a4"
-            LastKnownName="Subsystem1"
-            LastKnownLocation="ModelingProjeCT.uml" />
-        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
