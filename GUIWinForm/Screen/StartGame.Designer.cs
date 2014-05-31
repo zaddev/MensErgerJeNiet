@@ -46,8 +46,8 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.AantalSpelers);
             this.splitContainer1.Panel1.Controls.Add(this.labelAantalSpelers);
-            this.splitContainer1.Size = new System.Drawing.Size(1425, 688);
-            this.splitContainer1.SplitterDistance = 431;
+            this.splitContainer1.Size = new System.Drawing.Size(1355, 688);
+            this.splitContainer1.SplitterDistance = 409;
             this.splitContainer1.TabIndex = 0;
             // 
             // AantalSpelers
@@ -62,6 +62,7 @@
             this.AantalSpelers.Size = new System.Drawing.Size(65, 21);
             this.AantalSpelers.TabIndex = 3;
             this.AantalSpelers.Text = "2";
+            this.AantalSpelers.TextChanged += new System.EventHandler(this.AantalSpelers_TextChanged);
             // 
             // labelAantalSpelers
             // 
@@ -78,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Name = "StartGame";
-            this.Size = new System.Drawing.Size(1425, 688);
+            this.Size = new System.Drawing.Size(1355, 688);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
