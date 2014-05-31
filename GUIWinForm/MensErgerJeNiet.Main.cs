@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GUIWinForm.Screen;
 
 namespace GUIWinForm
 {
-    public partial class Form1 : Form
+    public partial class MensErgerJeNiet : Form
     {
-        public Form1()
+        public MensErgerJeNiet()
         {
             InitializeComponent();
+
+            this.Controls.Add(new Screen.StartGame());
         }
     }
 }
