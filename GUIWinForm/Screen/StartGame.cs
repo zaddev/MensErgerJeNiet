@@ -33,8 +33,8 @@ namespace GUIWinForm.Screen
 
             for(int i = 0; i<spelers;i++)
             {
-                NewPlayer t = new NewPlayer();
-                t.Top += i * 50;
+                NewPlayer t = new NewPlayer(i);
+                t.Top += i * 55;
                 this.splitContainer1.Panel2.Controls.Add(t);
             }
         }

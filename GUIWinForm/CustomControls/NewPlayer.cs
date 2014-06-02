@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GUIWinForm;
 
 namespace GUIWinForm.CustomControls
 {
@@ -18,10 +19,11 @@ namespace GUIWinForm.CustomControls
 
 
         #region constructors
-        public NewPlayer()
+        public NewPlayer(int nummer)
         {
+            Color kleur = (Color)nummer;
             this.Top = 40;
-            this.Text = "Speler {0}";
+            this.Text = string.Format("Speler {0}", kleur);
             this.Size = new System.Drawing.Size(200, 50);
 
             //lnaam is een label met de text
