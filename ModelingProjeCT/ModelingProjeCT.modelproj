@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>DomeinKlasseDiagram.classdiagram</DependentUpon>
     </Content>
+    <Content Include="SpelStarten.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SpelStarten.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>SpelStarten.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="UseCaseDiagramMEJN.usecasediagram">
       <SubType>Content</SubType>
     </Content>

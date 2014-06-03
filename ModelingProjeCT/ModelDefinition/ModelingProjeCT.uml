@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="3a834b49-60f9-45d5-9c6a-3efa91d75f76"
   name="ModelingProjeCT" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -15,6 +15,12 @@
       <profileInstance
         Id="532ea607-fb19-44b8-8502-3351b05452be"
         name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="6d53d428-f49c-4fac-8f91-aa20c1cee207">
+      <profileInstance
+        Id="dde2aa9e-acd7-4d0d-a2f4-d1a2b1e9a05f"
+        name="TextTemplateBindings" />
     </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
@@ -443,6 +449,626 @@
             isLeaf="false" />
         </nodes>
       </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ff48d814-6099-4fc1-97fc-34e0135e5011"
+        name="Speler"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="ba342f41-e44e-41f1-85b8-374d7608e39d"
+            isDerived="false"
+            sourceEndRoleName="Speler"
+            targetEndRoleName="dobbelsteen"
+            isLeaf="false"
+            name="werpt"
+            isAbstract="false">
+            <classMoniker
+              Id="51ce17fe-89e1-4135-9b2f-668e91076b13"
+              LastKnownName="dobbelsteen"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0ab274ed-4642-432b-bb4e-c52ddb7c1206"
+                  name="Speler"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7c441077-adc5-410c-8347-250ac6611a5b"
+                  name="dobbelsteen"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5d8244fe-fbac-4f13-a42b-c040e3e829fb"
+            isDerived="false"
+            sourceEndRoleName="Speler"
+            targetEndRoleName="hand"
+            isLeaf="false"
+            name="speelt met"
+            isAbstract="false">
+            <classMoniker
+              Id="14776da1-92df-421b-9681-3153f9464ed8"
+              LastKnownName="hand"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fc376d1-d344-44c4-aa19-b08b8a5243bd"
+                  name="Speler"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7cc42928-f769-494c-bb49-040383306d2b"
+                  name="hand"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="86b6e359-96e9-4334-add0-3618877e2999"
+            name="id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8a78b382-94f8-456e-8deb-9b2e807dd4a8"
+            name="naam"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ef6a3bcd-919f-447f-9e7b-47aa765d95c9"
+            name="Kleur"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="005fed4f-1ae8-4f38-abdd-4501aa001d25"
+        name="pion"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="d77eef4e-bf4d-4b25-a431-c6874db8da88"
+            name="kleur"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="48b5e80a-53f6-4446-8719-aa9536309917"
+            name="positie"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fca43569-9a3e-47dc-9c52-ac6415c591a2"
+            name="verplaatsen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="51ce17fe-89e1-4135-9b2f-668e91076b13"
+        name="dobbelsteen"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="6b822247-28ae-480f-b1dc-faf63b6d7e3c"
+            name="OgenOpTopvlak"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7b8d805e-868b-463f-9143-7805abd9ccaf"
+            name="Rol"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="01ffaa6e-2b2a-4cf7-aec6-95a21d035f30"
+        name="bord"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="30cf6b32-ca4a-4786-8210-0b315c8c05c6"
+        name="MensErgerJeNiet"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="621463a9-22c2-4b79-9c87-9dc244c25490"
+            isDerived="false"
+            sourceEndRoleName="spel"
+            targetEndRoleName="Speler"
+            isLeaf="false"
+            name="gespeeld door"
+            isAbstract="false">
+            <classMoniker
+              Id="ff48d814-6099-4fc1-97fc-34e0135e5011"
+              LastKnownName="Speler"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0290b7f4-2a30-4557-a3c0-0463767b413a"
+                  name="spel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="230f693b-3152-48e0-9101-08cef838bb6b"
+                  name="Speler"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4258219d-c20a-48b3-b384-ff6baed175a0"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="66b98fe4-80a6-4677-bb48-de5be315679c"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ce594968-6b6d-4a99-94f1-9732b6be0d80"
+            isDerived="false"
+            sourceEndRoleName="spel"
+            targetEndRoleName="dobbelsteen"
+            isLeaf="false"
+            name="gespeeld met"
+            isAbstract="false">
+            <classMoniker
+              Id="51ce17fe-89e1-4135-9b2f-668e91076b13"
+              LastKnownName="dobbelsteen"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="41b39852-0d31-4238-9da9-982f5708b6a5"
+                  name="spel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14aa7251-c5a2-482c-abf8-ed0e60adc7e7"
+                  name="dobbelsteen"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="98a470f7-e189-454b-80f6-01d0afe208c8"
+            name="Speel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3b52bda2-27c7-4a4c-bad2-a0877b1f2b09"
+                  name="Speler"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="14776da1-92df-421b-9681-3153f9464ed8"
+        name="hand"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4db778dc-ae3d-4a21-b71f-e6b7ddf43f46"
+            isDerived="false"
+            sourceEndRoleName="hand"
+            targetEndRoleName="pion"
+            isLeaf="false"
+            name="bestaat uit"
+            isAbstract="false">
+            <classMoniker
+              Id="005fed4f-1ae8-4f38-abdd-4501aa001d25"
+              LastKnownName="pion"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1ec4df8b-00ef-43d1-8fd2-e11a469f4487"
+                  name="hand"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="400f646d-b33b-4370-94de-5d6d0a3d23bf"
+                  name="pion"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5c5cda7e-42ae-4bb9-be05-79ba5434a926"
+                      name="Lower"
+                      value="4" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="551b0dc3-326c-4d7c-b4ee-f287027b0878"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="f4f78e2b-d9c0-480b-9f1e-ad96c1bdb6b9"
+            name="Pionnen"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="d9f07aa2-27ab-45d4-8527-7042860c7f88"
+        name="SpelStarten"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="ab361fa7-9c4a-4da3-901e-8d52a9f1c51d"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="2910a239-fa3c-4164-a38b-a3319b19ee40"
+                LastKnownName="Spel"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="4f74527d-5180-4bb1-958c-e9d9619c0783"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="8e75b430-c62a-47af-abae-accc01281c55"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="f77b1ae9-7598-47cb-aa21-d7716c80b52b"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="ModelingProjeCT.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="75b8124c-b717-4a18-9ced-8df5535b44c1"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="8e75b430-c62a-47af-abae-accc01281c55"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="128842f1-71d8-4225-a686-1ea1f48e772b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProjeCT.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2910a239-fa3c-4164-a38b-a3319b19ee40"
+                LastKnownName="Spel"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bfc8bea8-ec2b-4002-bdfe-bacf5d365cb2"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="80392dc1-f109-41a7-96ce-280fae28af39"
+                LastKnownName="UI StartSchermController"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f77b1ae9-7598-47cb-aa21-d7716c80b52b"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="2910a239-fa3c-4164-a38b-a3319b19ee40"
+                LastKnownName="Spel"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="75b8124c-b717-4a18-9ced-8df5535b44c1"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="2910a239-fa3c-4164-a38b-a3319b19ee40"
+                LastKnownName="Spel"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b037e7ed-36ce-4569-8a53-97297a6c6a4e"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="80392dc1-f109-41a7-96ce-280fae28af39"
+                LastKnownName="UI StartSchermController"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="4f74527d-5180-4bb1-958c-e9d9619c0783"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f0cd1d05-d616-42f5-915a-5eae1a382894"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProjeCT.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2910a239-fa3c-4164-a38b-a3319b19ee40"
+                LastKnownName="Spel"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="80392dc1-f109-41a7-96ce-280fae28af39"
+            name="UI StartSchermController"
+            isActor="false"
+            lifelineDisplayName="UI StartSchermController">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="bfc8bea8-ec2b-4002-bdfe-bacf5d365cb2"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="ModelingProjeCT.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b037e7ed-36ce-4569-8a53-97297a6c6a4e"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="2910a239-fa3c-4164-a38b-a3319b19ee40"
+            name="Spel"
+            isActor="false"
+            lifelineDisplayName="Spel">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="8e75b430-c62a-47af-abae-accc01281c55"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="ModelingProjeCT.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="4f74527d-5180-4bb1-958c-e9d9619c0783"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="6d7aea63-b418-4f1c-b187-2fc1b576a6a8"
+            name="players"
+            isActor="false"
+            lifelineDisplayName="players" />
+        </lifelines>
+        <messages>
+          <message
+            Id="8cc99cca-e7ca-4e41-9a94-a8f008e82d2e"
+            name="AddSpeler(naam)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bfc8bea8-ec2b-4002-bdfe-bacf5d365cb2"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f77b1ae9-7598-47cb-aa21-d7716c80b52b"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="831555b3-553c-442b-8f96-bbedf0a7b2f2"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="75b8124c-b717-4a18-9ced-8df5535b44c1"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b037e7ed-36ce-4569-8a53-97297a6c6a4e"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="ModelingProjeCT.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="128842f1-71d8-4225-a686-1ea1f48e772b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f0cd1d05-d616-42f5-915a-5eae1a382894"
+        name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
