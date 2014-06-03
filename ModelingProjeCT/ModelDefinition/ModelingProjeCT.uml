@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="3a834b49-60f9-45d5-9c6a-3efa91d75f76"
   name="ModelingProjeCT" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -538,6 +538,71 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="90281510-697e-4fb7-9c0f-6782ca79710b"
+            isDerived="false"
+            sourceEndRoleName="Speler"
+            targetEndRoleName="MensErgerJeNiet"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="30cf6b32-ca4a-4786-8210-0b315c8c05c6"
+              LastKnownName="MensErgerJeNiet"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2894a778-38ff-4647-a9fa-034256a01fb8"
+                  name="Speler"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="189fc2a2-a259-4072-84b4-f46bcccf5c23"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="815fbe00-91f2-4b4a-a02e-1b2cdee094cc"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fc938a0e-0f5c-45e2-81ff-45252ff8b9b0"
+                  name="MensErgerJeNiet"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="82c3ba7d-e675-4fc8-b0c2-599e89a8f972"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="80b99929-8fc1-4bd5-816d-b512da4ded5d"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -583,6 +648,100 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="61605ca6-3b08-4bb6-a1d3-33193c366445"
+            isDerived="false"
+            sourceEndRoleName="pion"
+            targetEndRoleName="hand"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="14776da1-92df-421b-9681-3153f9464ed8"
+              LastKnownName="hand"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3998cd12-11cb-40a3-82be-e0d61f8b8494"
+                  name="pion"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3e80d496-cb10-4e64-8540-4ff97af647f1"
+                      name="Lower"
+                      value="4" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6c558b19-08bb-493e-bf3d-70c1b8694931"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b958237a-5fdc-4520-bc6a-7fa9aa85167b"
+                  name="hand"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9d579a7a-0428-47ad-b049-dcdcdfc25433"
+            isDerived="false"
+            sourceEndRoleName="pion"
+            targetEndRoleName="VeldStatus"
+            isLeaf="false"
+            name="bezet"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="e78e4378-3cf1-4400-b0b6-f53f1fdf523f"
+              LastKnownName="VeldStatus"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2e8ab975-1f09-4f19-968a-3cbbe6200e38"
+                  name="pion"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9c68d282-6302-4d40-9d2c-3235cea9e5ae"
+                  name="VeldStatus"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="d77eef4e-bf4d-4b25-a431-c6874db8da88"
@@ -668,59 +827,6 @@
         isActiveClass="false">
         <targetEnds>
           <association
-            Id="621463a9-22c2-4b79-9c87-9dc244c25490"
-            isDerived="false"
-            sourceEndRoleName="spel"
-            targetEndRoleName="Speler"
-            isLeaf="false"
-            name="gespeeld door"
-            isAbstract="false">
-            <classMoniker
-              Id="ff48d814-6099-4fc1-97fc-34e0135e5011"
-              LastKnownName="Speler"
-              LastKnownLocation="ModelingProjeCT.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0290b7f4-2a30-4557-a3c0-0463767b413a"
-                  name="spel"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="230f693b-3152-48e0-9101-08cef838bb6b"
-                  name="Speler"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="4258219d-c20a-48b3-b384-ff6baed175a0"
-                      name="Lower"
-                      value="2" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="66b98fe4-80a6-4677-bb48-de5be315679c"
-                      name="Upper"
-                      value="4" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="ce594968-6b6d-4a99-94f1-9732b6be0d80"
             isDerived="false"
             sourceEndRoleName="spel"
@@ -750,6 +856,46 @@
                 <memberEnd
                   Id="14aa7251-c5a2-482c-abf8-ed0e60adc7e7"
                   name="dobbelsteen"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a7447503-b22d-4ab5-b57f-b295dc84c008"
+            isDerived="false"
+            sourceEndRoleName="MensErgerJeNiet"
+            targetEndRoleName="bord"
+            isLeaf="false"
+            name="met"
+            isAbstract="false">
+            <classMoniker
+              Id="261c9c59-fb28-461c-bcc9-084b8ee00d53"
+              LastKnownName="bord"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2dfef398-7962-45ab-84c2-8f5d1b912e48"
+                  name="MensErgerJeNiet"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5ad47265-5da2-46e4-9c5f-279dbdfd2b33"
+                  name="bord"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -790,61 +936,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <targetEnds>
-          <association
-            Id="4db778dc-ae3d-4a21-b71f-e6b7ddf43f46"
-            isDerived="false"
-            sourceEndRoleName="hand"
-            targetEndRoleName="pion"
-            isLeaf="false"
-            name="bestaat uit"
-            isAbstract="false">
-            <classMoniker
-              Id="005fed4f-1ae8-4f38-abdd-4501aa001d25"
-              LastKnownName="pion"
-              LastKnownLocation="ModelingProjeCT.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="1ec4df8b-00ef-43d1-8fd2-e11a469f4487"
-                  name="hand"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="400f646d-b33b-4370-94de-5d6d0a3d23bf"
-                  name="pion"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="5c5cda7e-42ae-4bb9-be05-79ba5434a926"
-                      name="Lower"
-                      value="4" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="551b0dc3-326c-4d7c-b4ee-f287027b0878"
-                      name="Upper"
-                      value="4" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="f4f78e2b-d9c0-480b-9f1e-ad96c1bdb6b9"
@@ -1069,6 +1160,204 @@
       <executionEvent
         Id="f0cd1d05-d616-42f5-915a-5eae1a382894"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="261c9c59-fb28-461c-bcc9-084b8ee00d53"
+        name="bord"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="523f5bb6-6e7d-42b5-8294-918c25562669"
+        name="veld"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="e7e47e14-cee2-4bfa-9910-cab5a184a86a"
+            isDerived="false"
+            sourceEndRoleName="veld"
+            targetEndRoleName="bord"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="261c9c59-fb28-461c-bcc9-084b8ee00d53"
+              LastKnownName="bord"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="459f3bda-11ba-41ba-aa64-93ebb93afb1a"
+                  name="veld"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="38f61a61-a0ff-43d1-a96c-74be6e88e046"
+                      name="Lower"
+                      value="72" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="5ae6c3e0-8526-4de3-8bcc-bc2e456e0369"
+                      name="Upper"
+                      value="72" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c371ce68-6bcf-4941-a77f-3741c8c75593"
+                  name="bord"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="15a4e466-9c82-43d0-a2a8-c3989afd5103"
+            isDerived="false"
+            sourceEndRoleName="veld"
+            targetEndRoleName="VeldStatus"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="e78e4378-3cf1-4400-b0b6-f53f1fdf523f"
+              LastKnownName="VeldStatus"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1e18278a-bf58-411c-bfe7-a3265c1cb63b"
+                  name="veld"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2145928f-ad8b-4bd6-96c0-1a9c1d3712b0"
+                  name="VeldStatus"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b065e762-4956-439e-ab25-be47cd6191c5"
+        name="veldstatus"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="e78e4378-3cf1-4400-b0b6-f53f1fdf523f"
+        name="VeldStatus"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e4693510-9dbf-4ab7-9b8e-b6fd9703a754"
+            isDerived="false"
+            sourceEndRoleName="VeldStatus"
+            targetEndRoleName="bord"
+            isLeaf="false"
+            name="bestaat uit"
+            isAbstract="false">
+            <classMoniker
+              Id="261c9c59-fb28-461c-bcc9-084b8ee00d53"
+              LastKnownName="bord"
+              LastKnownLocation="ModelingProjeCT.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e81dff6a-a664-4123-97a4-c56dd2e0e4a3"
+                  name="VeldStatus"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8585701b-03ad-43a2-b8e6-cb0478d9dde3"
+                      name="Lower"
+                      value="72" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="2710c1d3-ba43-4006-92a9-99c053c63b5a"
+                      name="Upper"
+                      value="72" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9c96f7ee-1bc5-4876-b32f-8828762bdcd6"
+                  name="bord"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="ea3061ac-e58c-4c8e-a7f0-57c526e9f339"
+            name="rood" />
+          <enumerationLiteral
+            Id="ca23da1e-763c-404d-ab44-256b7a7eedd8"
+            name="bezet" />
+          <enumerationLiteral
+            Id="9a0bf7c5-1dc3-4a0f-89cc-5daaeb7f4d9d"
+            name="blauw" />
+          <enumerationLiteral
+            Id="05ca445c-d5ce-4ab4-b713-3354123e38c9"
+            name="groen" />
+          <enumerationLiteral
+            Id="bd22faeb-bf81-45bb-ab97-dec8add62327"
+            name="geel" />
+        </ownedLiterals>
+      </enumeration>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

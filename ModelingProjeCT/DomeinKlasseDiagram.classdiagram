@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="3ebab2c0-c89a-4650-82c4-b699602d38c7" name="DomeinKlasseDiagram" linkedPackageId="55da2dce-3568-4728-bd7d-3b2f446e2796" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="044434e4-b8cb-4eca-91af-8fb7925d2086">
-      <profileInstance Id="21fbdc79-61b0-45b7-a35c-8d2dab9d8cc1" name="TextTemplateBindings">
-        <elementDefinition Id="dde2aa9e-acd7-4d0d-a2f4-d1a2b1e9a05f" />
-      </profileInstance>
-      <elementDefinition Id="6d53d428-f49c-4fac-8f91-aa20c1cee207" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="3ebab2c0-c89a-4650-82c4-b699602d38c7" name="DomeinKlasseDiagram" linkedPackageId="55da2dce-3568-4728-bd7d-3b2f446e2796" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="ce6b9bbb-230b-44da-9adf-84c85186518d" name="Speler" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -45,6 +37,42 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="5d8244fe-fbac-4f13-a42b-c040e3e829fb" />
           </association>
+          <association Id="925bfc51-5a6d-4ba4-aced-0b39c52b68fa" isDerived="false" sourceEndRoleName="Speler" targetEndRoleName="MensErgerJeNiet" isLeaf="false" isAbstract="false">
+            <classMoniker Id="58ec3f5e-b25e-4cbe-a48d-1e19f21ca71b" LastKnownName="MensErgerJeNiet" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="65c88413-9cb1-4299-b8b0-6bee7b9488fc" name="Speler" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="537ec436-dc60-46bf-adbb-b5eac7c55514" name="Lower" value="1">
+                      <elementDefinition Id="189fc2a2-a259-4072-84b4-f46bcccf5c23" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="47de0484-8ee2-44da-ab85-4c657208c9fa" name="Upper" value="1">
+                      <elementDefinition Id="815fbe00-91f2-4b4a-a02e-1b2cdee094cc" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="2894a778-38ff-4647-a9fa-034256a01fb8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="40d87afc-0fb5-4b7b-a4e3-fc45e12adfa2" name="MensErgerJeNiet" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="cb4f7db4-e3bf-4ed3-898b-75b31d3f0587" name="Lower" value="2">
+                      <elementDefinition Id="82c3ba7d-e675-4fc8-b0c2-599e89a8f972" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="18d565c3-0bb8-48fa-a54e-35e8e7ab7290" name="Upper" value="4">
+                      <elementDefinition Id="80b99929-8fc1-4bd5-816d-b512da4ded5d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="fc938a0e-0f5c-45e2-81ff-45252ff8b9b0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="90281510-697e-4fb7-9c0f-6782ca79710b" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="c0ae2641-f5ea-4281-b46a-102a785c4e0c" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -62,6 +90,50 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="e59d04da-741d-4f78-8f56-d89b3437d356" name="pion" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="005fed4f-1ae8-4f38-abdd-4501aa001d25" />
+        <targetEnds>
+          <association Id="0068a8a7-9324-4911-b0f8-01bff2d6dfe8" isDerived="false" sourceEndRoleName="pion" targetEndRoleName="hand" isLeaf="false" isAbstract="false">
+            <classMoniker Id="56e2fd70-564f-49e0-9e6b-60ed6a4f5c1e" LastKnownName="hand" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="320737cc-4706-4bd8-a89c-31e0a99c6e63" name="pion" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="3331761a-b1ce-4f1b-9987-b3becd02b338" name="Lower" value="4">
+                      <elementDefinition Id="3e80d496-cb10-4e64-8540-4ff97af647f1" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8ddc7327-7fb7-4f13-af55-efdfae9e67e7" name="Upper" value="4">
+                      <elementDefinition Id="6c558b19-08bb-493e-bf3d-70c1b8694931" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="3998cd12-11cb-40a3-82be-e0d61f8b8494" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2a92d4d1-4148-489e-97a0-65cc4a853004" name="hand" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="b958237a-5fdc-4520-bc6a-7fa9aa85167b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="61605ca6-3b08-4bb6-a1d3-33193c366445" />
+          </association>
+          <association Id="a6faf3ae-bc0d-403d-9a18-bfbc40e3292d" isDerived="false" sourceEndRoleName="pion" targetEndRoleName="VeldStatus" isLeaf="false" name="bezet" isAbstract="false">
+            <enumerationMoniker Id="44b06a19-b3a5-4613-ab50-51916976b57d" LastKnownName="VeldStatus" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bf23f841-3ab5-458a-a750-64bca9bc2fce" name="pion" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2e8ab975-1f09-4f19-968a-3cbbe6200e38" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d5e7dc18-24d5-4ef9-b8a6-4c8d4558ea3e" name="VeldStatus" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9c68d282-6302-4d40-9d2c-3235cea9e5ae" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9d579a7a-0428-47ad-b049-dcdcdfc25433" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="0dbde82f-3ad0-41a8-aa86-d00b51272365" name="kleur" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="d77eef4e-bf4d-4b25-a431-c6874db8da88" />
@@ -96,32 +168,6 @@
       <class Id="58ec3f5e-b25e-4cbe-a48d-1e19f21ca71b" name="MensErgerJeNiet" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="30cf6b32-ca4a-4786-8210-0b315c8c05c6" />
         <targetEnds>
-          <association Id="397366c0-3fe4-41ab-8d9c-450c7319460f" isDerived="false" sourceEndRoleName="spel" targetEndRoleName="Speler" isLeaf="false" name="gespeeld door" isAbstract="false">
-            <classMoniker Id="ce6b9bbb-230b-44da-9adf-84c85186518d" LastKnownName="Speler" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="58de5745-ce75-47b3-bf29-8a3ba1bc2714" name="spel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="0290b7f4-2a30-4557-a3c0-0463767b413a" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="ce6e3844-c2d7-4b6f-a11a-86e35048efa1" name="Speler" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="d2a2a244-7dd1-4397-b8c4-7fcbcee473c3" name="Lower" value="2">
-                      <elementDefinition Id="4258219d-c20a-48b3-b384-ff6baed175a0" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="b64938e8-1d35-4542-96e2-15d424bb5caf" name="Upper" value="4">
-                      <elementDefinition Id="66b98fe4-80a6-4677-bb48-de5be315679c" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="230f693b-3152-48e0-9101-08cef838bb6b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="621463a9-22c2-4b79-9c87-9dc244c25490" />
-          </association>
           <association Id="43ba063e-49bf-43bc-97db-fce882b08875" isDerived="false" sourceEndRoleName="spel" targetEndRoleName="dobbelsteen" isLeaf="false" name="gespeeld met" isAbstract="false">
             <classMoniker Id="bee00772-9d70-443a-8cf6-fbc31fa2f2bd" LastKnownName="dobbelsteen" />
             <relationshipOwnedElementsInternal>
@@ -137,6 +183,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="ce594968-6b6d-4a99-94f1-9732b6be0d80" />
+          </association>
+          <association Id="a7ef4834-56f4-4c39-abae-d1309b773cf1" isDerived="false" sourceEndRoleName="MensErgerJeNiet" targetEndRoleName="bord" isLeaf="false" name="met" isAbstract="false">
+            <classMoniker Id="fc5f0fd8-3bbf-49e3-9234-8c57c83b3607" LastKnownName="bord" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d3f481e8-416d-4c36-b2c7-2ffe705fbed8" name="MensErgerJeNiet" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2dfef398-7962-45ab-84c2-8f5d1b912e48" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2073573e-5a1f-4dc3-b66e-5e2834b071d7" name="bord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5ad47265-5da2-46e4-9c5f-279dbdfd2b33" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a7447503-b22d-4ab5-b57f-b295dc84c008" />
           </association>
         </targetEnds>
         <ownedOperationsInternal>
@@ -156,40 +218,67 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="56e2fd70-564f-49e0-9e6b-60ed6a4f5c1e" name="hand" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="14776da1-92df-421b-9681-3153f9464ed8" />
-        <targetEnds>
-          <association Id="e897346e-64c7-42e7-bda6-0797a97296db" isDerived="false" sourceEndRoleName="hand" targetEndRoleName="pion" isLeaf="false" name="bestaat uit" isAbstract="false">
-            <classMoniker Id="e59d04da-741d-4f78-8f56-d89b3437d356" LastKnownName="pion" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="5a8f470b-2877-4c01-b4fc-db399315ef07" name="hand" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1ec4df8b-00ef-43d1-8fd2-e11a469f4487" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="cb8007cb-f1d3-4db5-bf9c-be0c3eb2d7e0" name="pion" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <lowerValueInternal>
-                    <literalString Id="08e89b72-5585-4b60-9791-6437dfb3b454" name="Lower" value="4">
-                      <elementDefinition Id="5c5cda7e-42ae-4bb9-be05-79ba5434a926" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="fc5974d7-a749-4af4-a405-30cf336217d6" name="Upper" value="4">
-                      <elementDefinition Id="551b0dc3-326c-4d7c-b4ee-f287027b0878" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="400f646d-b33b-4370-94de-5d6d0a3d23bf" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="4db778dc-ae3d-4a21-b71f-e6b7ddf43f46" />
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property Id="5cc3095e-694a-4cb1-8193-0fd58cbab6a1" name="Pionnen" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f4f78e2b-d9c0-480b-9f1e-ad96c1bdb6b9" />
           </property>
         </ownedAttributesInternal>
       </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fc5f0fd8-3bbf-49e3-9234-8c57c83b3607" name="bord" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="261c9c59-fb28-461c-bcc9-084b8ee00d53" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="44b06a19-b3a5-4613-ab50-51916976b57d" name="VeldStatus" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e78e4378-3cf1-4400-b0b6-f53f1fdf523f" />
+        <targetEnds>
+          <association Id="d3869652-ca5f-4c01-94a6-edfe4b4a640c" isDerived="false" sourceEndRoleName="VeldStatus" targetEndRoleName="bord" isLeaf="false" name="bestaat uit" isAbstract="false">
+            <classMoniker Id="fc5f0fd8-3bbf-49e3-9234-8c57c83b3607" LastKnownName="bord" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9e4d957c-d18a-4512-b063-3a41cad70f5d" name="VeldStatus" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="069c3380-a453-464f-916d-99f9600ca747" name="Lower" value="72">
+                      <elementDefinition Id="8585701b-03ad-43a2-b8e6-cb0478d9dde3" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8642f19f-fe4f-4bac-a2d5-b2dcf9c70d97" name="Upper" value="72">
+                      <elementDefinition Id="2710c1d3-ba43-4006-92a9-99c053c63b5a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e81dff6a-a664-4123-97a4-c56dd2e0e4a3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8604bbad-d486-4cd4-ade8-c6096ec1b4d1" name="bord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="9c96f7ee-1bc5-4876-b32f-8828762bdcd6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e4693510-9dbf-4ab7-9b8e-b6fd9703a754" />
+          </association>
+        </targetEnds>
+        <ownedLiterals>
+          <enumerationLiteral Id="e77bb5b3-775a-420f-9af9-4efd078b5452" name="rood">
+            <elementDefinition Id="ea3061ac-e58c-4c8e-a7f0-57c526e9f339" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="b3937a94-4ba5-4db1-8902-38eacb865c8d" name="bezet">
+            <elementDefinition Id="ca23da1e-763c-404d-ab44-256b7a7eedd8" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="190b50f2-41a8-4850-84bb-fb7a1e5ff3cd" name="blauw">
+            <elementDefinition Id="9a0bf7c5-1dc3-4a0f-89cc-5daaeb7f4d9d" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="507a1193-13e4-443f-93e4-04d65fc8233a" name="groen">
+            <elementDefinition Id="05ca445c-d5ce-4ab4-b713-3354123e38c9" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="1f3948f7-6fd1-4117-8634-a984891f1ab2" name="geel">
+            <elementDefinition Id="bd22faeb-bf81-45bb-ab97-dec8add62327" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="55da2dce-3568-4728-bd7d-3b2f446e2796" name="ModelingProjeCT">
@@ -206,6 +295,12 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="044434e4-b8cb-4eca-91af-8fb7925d2086">
+        <profileInstance Id="21fbdc79-61b0-45b7-a35c-8d2dab9d8cc1" name="TextTemplateBindings">
+          <elementDefinition Id="dde2aa9e-acd7-4d0d-a2f4-d1a2b1e9a05f" />
+        </profileInstance>
+        <elementDefinition Id="6d53d428-f49c-4fac-8f91-aa20c1cee207" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>
