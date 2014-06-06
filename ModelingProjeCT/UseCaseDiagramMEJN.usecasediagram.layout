@@ -22,7 +22,7 @@
           <relativeChildShapes />
         </useCaseShape>
         <useCaseShape Id="8459a6c3-f8c3-4518-ad82-932735085bb1" absoluteBounds="7.125, 2.125, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
-          <useCaseMoniker Id="dd1a9473-7bc5-4d4e-b976-a619cbfd389e" LastKnownName="aanmaken spellers" />
+          <useCaseMoniker Id="dd1a9473-7bc5-4d4e-b976-a619cbfd389e" LastKnownName="aanmaken spelers" />
           <relativeChildShapes />
         </useCaseShape>
       </nestedChildShapes>

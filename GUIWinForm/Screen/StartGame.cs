@@ -37,6 +37,32 @@ namespace GUIWinForm.Screen
                 t.Top += i * 55;
                 this.splitContainer1.Panel2.Controls.Add(t);
             }
+
+        }
+
+        /// <summary>
+        /// het af vangen van de button click er wordt gekeken of je een game mag starten en als alles klopt mag je verder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonStartGame_Click(object sender, EventArgs e)
+        {
+            foreach (NewPlayer speler in  this.splitContainer1.Panel2.Controls)
+            {
+                if(string.IsNullOrWhiteSpace(speler.SpelersNaam))
+                {
+                    MessageBox.Show("Één of meerdere velden zijn niet goed ingevuld");
+                    return;
+                }
+            }
+
+            //logica voor toevoegen spelers
+            //TODO: Spelers werkelijk toevoegen
+            
+
+            //Wisselen van scherm
+            Global.MainScreen.SetGameScreen();
+
         }
     }
 }

@@ -17,6 +17,14 @@ namespace GUIWinForm.CustomControls
 
         #endregion
 
+        public string SpelersNaam
+        {
+            get
+            {
+                return this.tNaam.Text;
+            }
+        }
+
 
         #region constructors
         public NewPlayer(int nummer)
@@ -37,6 +45,8 @@ namespace GUIWinForm.CustomControls
             this.tNaam.Left = 80;
             this.tNaam.Top = 15;
             this.Controls.Add(this.tNaam);
+
+            this.tNaam.Text = "bootstrap";
         }
 
         #endregion
