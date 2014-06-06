@@ -15,8 +15,8 @@ namespace GUIWinForm
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MensErgerJeNiet());
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(Global.MainScreen);
         }
     }
 }

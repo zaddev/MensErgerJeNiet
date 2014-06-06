@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace GUIWinForm
 {
-    public enum Color
+    public static class Global
     {
-        rood,
-        blauw,
-        geel,
-        groen
+        public static MensErgerJeNiet MainScreen = new MensErgerJeNiet();
     }
 }

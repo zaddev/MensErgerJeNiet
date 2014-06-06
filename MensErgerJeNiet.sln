@@ -11,6 +11,8 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProjeCT", "Modeling
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIWinForm", "GUIWinForm\GUIWinForm.csproj", "{0C98832D-2DFF-4D5E-A524-D143F7EF1382}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelingProjeCTLib", "ModelingProjeCTLib\ModelingProjeCTLib.csproj", "{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0C98832D-2DFF-4D5E-A524-D143F7EF1382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C98832D-2DFF-4D5E-A524-D143F7EF1382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C98832D-2DFF-4D5E-A524-D143F7EF1382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="ef409f02-aeaf-45e6-8abc-f65a573bfa4f" name="SpelStarten" linkedPackageId="0fb64425-a8a8-4b35-bedb-2774406308f1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="a138dcc6-83ff-4947-a4e5-c2ae7649ce37">
+      <profileInstance Id="07601155-3dba-42f4-97d2-4236dca133cb" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="30db5b4b-38f8-4262-903c-f25824c4f5e9">
+      <profileInstance Id="1e011c0c-5de9-45a0-b896-db3507de42ca" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="35707128-062c-4ee8-a25b-834babce9953" name="SpelStarten" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="d9f07aa2-27ab-45d4-8527-7042860c7f88" />
+        <fragments>
+          <behaviorExecutionSpecification Id="ee5cfae3-89d1-42e0-8c47-617f638a9e42" name="BehaviorExecutionSpecification3">
+            <elementDefinition Id="ab361fa7-9c4a-4da3-901e-8d52a9f1c51d" />
+            <coveredLifelines>
+              <lifelineMoniker Id="69358110-001f-4197-a539-125a70f7c048" LastKnownName="Spel" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="5cff82b7-6e96-4c9d-ad57-f0e4a47e3ace" LastKnownName="ExecutionOccurrenceSpecification6" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="31c2e424-a529-4ca2-b4ee-25a814f6f98f" LastKnownName="ExecutionOccurrenceSpecification5" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="66237b87-0b2d-4a41-91b7-7b6424cbb9ba" LastKnownName="MessageOccurrenceSpecification10" />
+              <messageOccurrenceSpecificationMoniker Id="5164bfdc-4c43-41bb-a963-2b8607b2c661" LastKnownName="MessageOccurrenceSpecification11" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="31c2e424-a529-4ca2-b4ee-25a814f6f98f" name="ExecutionOccurrenceSpecification5">
+            <elementDefinition Id="8e75b430-c62a-47af-abae-accc01281c55" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="8a01ae02-6f94-49f0-ab13-76fb8a084e34" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="69358110-001f-4197-a539-125a70f7c048" LastKnownName="Spel" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="54742aa9-0dc7-4601-be70-617a7f7dcc53" name="MessageOccurrenceSpecification9">
+            <elementDefinition Id="bfc8bea8-ec2b-4002-bdfe-bacf5d365cb2" />
+            <covered>
+              <lifelineMoniker Id="4dc6b063-b1db-44e6-b7a5-46a657d03a5b" LastKnownName="UI StartSchermController" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="66237b87-0b2d-4a41-91b7-7b6424cbb9ba" name="MessageOccurrenceSpecification10">
+            <elementDefinition Id="f77b1ae9-7598-47cb-aa21-d7716c80b52b" />
+            <covered>
+              <lifelineMoniker Id="69358110-001f-4197-a539-125a70f7c048" LastKnownName="Spel" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="5164bfdc-4c43-41bb-a963-2b8607b2c661" name="MessageOccurrenceSpecification11">
+            <elementDefinition Id="75b8124c-b717-4a18-9ced-8df5535b44c1" />
+            <covered>
+              <lifelineMoniker Id="69358110-001f-4197-a539-125a70f7c048" LastKnownName="Spel" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="0cb25e10-8d9c-4572-9ebe-0c7ffb202e9c" name="MessageOccurrenceSpecification12">
+            <elementDefinition Id="b037e7ed-36ce-4569-8a53-97297a6c6a4e" />
+            <covered>
+              <lifelineMoniker Id="4dc6b063-b1db-44e6-b7a5-46a657d03a5b" LastKnownName="UI StartSchermController" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="5cff82b7-6e96-4c9d-ad57-f0e4a47e3ace" name="ExecutionOccurrenceSpecification6">
+            <elementDefinition Id="4f74527d-5180-4bb1-958c-e9d9619c0783" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="4b15ea2b-73a5-4536-a218-0c891a40e394" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="69358110-001f-4197-a539-125a70f7c048" LastKnownName="Spel" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="4dc6b063-b1db-44e6-b7a5-46a657d03a5b" name="UI StartSchermController" isActor="false" lifelineDisplayName="UI StartSchermController">
+            <elementDefinition Id="80392dc1-f109-41a7-96ce-280fae28af39" />
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="54742aa9-0dc7-4601-be70-617a7f7dcc53" LastKnownName="MessageOccurrenceSpecification9" />
+              <messageOccurrenceSpecificationMoniker Id="0cb25e10-8d9c-4572-9ebe-0c7ffb202e9c" LastKnownName="MessageOccurrenceSpecification12" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="69358110-001f-4197-a539-125a70f7c048" name="Spel" isActor="false" lifelineDisplayName="Spel">
+            <elementDefinition Id="2910a239-fa3c-4164-a38b-a3319b19ee40" />
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="31c2e424-a529-4ca2-b4ee-25a814f6f98f" LastKnownName="ExecutionOccurrenceSpecification5" />
+              <executionOccurrenceSpecificationMoniker Id="5cff82b7-6e96-4c9d-ad57-f0e4a47e3ace" LastKnownName="ExecutionOccurrenceSpecification6" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="54c0728b-43ae-4db5-98e4-36c922628f31" name="players" isActor="false" lifelineDisplayName="players">
+            <elementDefinition Id="6d7aea63-b418-4f1c-b187-2fc1b576a6a8" />
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="f560a157-b8f4-4f5c-9379-2988266872d6" name="AddSpeler(naam)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="8cc99cca-e7ca-4e41-9a94-a8f008e82d2e" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="54742aa9-0dc7-4601-be70-617a7f7dcc53" LastKnownName="MessageOccurrenceSpecification9" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="66237b87-0b2d-4a41-91b7-7b6424cbb9ba" LastKnownName="MessageOccurrenceSpecification10" />
+            </receiveEvent>
+          </message>
+          <message Id="e9e05d13-efc6-4f54-8483-29002fbc9fa3" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="831555b3-553c-442b-8f96-bbedf0a7b2f2" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="5164bfdc-4c43-41bb-a963-2b8607b2c661" LastKnownName="MessageOccurrenceSpecification11" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="0cb25e10-8d9c-4572-9ebe-0c7ffb202e9c" LastKnownName="MessageOccurrenceSpecification12" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="8a01ae02-6f94-49f0-ab13-76fb8a084e34" name="ExecutionEvent">
+        <elementDefinition Id="128842f1-71d8-4225-a686-1ea1f48e772b" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="4b15ea2b-73a5-4536-a218-0c891a40e394" name="ExecutionEvent">
+        <elementDefinition Id="f0cd1d05-d616-42f5-915a-5eae1a382894" />
+      </executionEvent>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="0fb64425-a8a8-4b35-bedb-2774406308f1" name="ModelingProjeCT">
+    <elementDefinition Id="3a834b49-60f9-45d5-9c6a-3efa91d75f76" />
+    <profileInstances>
+      <packageHasProfileInstances Id="0c471cbb-291a-4956-874f-0d4f8a837275">
+        <profileInstance Id="935ca43a-72c0-4a1d-b3e6-c627e70f6829" name="TextTemplateBindings">
+          <elementDefinition Id="dde2aa9e-acd7-4d0d-a2f4-d1a2b1e9a05f" />
+        </profileInstance>
+        <elementDefinition Id="6d53d428-f49c-4fac-8f91-aa20c1cee207" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</SequenceDesignerModel>
