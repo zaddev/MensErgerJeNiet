@@ -13,7 +13,7 @@ namespace GUIWinForm
         #region constructors
         
         /// <summary>
-        /// 
+        /// maak een pion en bepaal de kleur
         /// </summary>
         /// <param name="kleur">kleur die hij in het spel krijgt</param>
         public PionImage(Color kleur)
@@ -23,22 +23,17 @@ namespace GUIWinForm
             this.configPion();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="kleur"></param>
-        /// <param name="parent"></param>
-        public PionImage(Color kleur, PictureBox parent)
-        {
-            this.SetCollorImage(kleur);
-        }
-
         #endregion
 
 
         private void configPion()
         {
             this.Size = new System.Drawing.Size(42, 65);
+            this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TabIndex = 8;
+            this.TabStop = false;
+            this.BackColor = System.Drawing.Color.Transparent;
+
         }
 
         void SetCollorImage(Color kleur)
