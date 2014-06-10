@@ -20,6 +20,12 @@ namespace GUIWinForm.Screen
             this.pictureBox2.Parent = this.pictureBox1;
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
 
+            PionImage pa1 = new PionImage(Color.rood);
+            //pa1.Parent = this.pictureBox1;//dit is niet nodig om dat je hem aan de controlls van de picturebox
+            //let op de verhoudingen hierdoor zijn afhankelijk van de image
+
+            this.pictureBox1.Controls.Add(pa1);
+
         }
 
         private void Game_VisibleChanged(object sender, EventArgs e)
@@ -85,6 +91,27 @@ namespace GUIWinForm.Screen
         private void button1_Click(object sender, EventArgs e)
         {
             DobbelsteenImage.Click += this.DobbelsteenImage_Click;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.label2.Text = ""+(new BordPositions()).GetPosition(int.Parse(this.textBox1.Text));
+
+            this.pictureBox2.Location = new Point(
+                (new BordPositions()).GetPosition(int.Parse(this.textBox1.Text)).X * 66 + 432, 
+                -1*(new BordPositions()).GetPosition(int.Parse(this.textBox1.Text)).Y * 66 + 3
+                );
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            this.label2.Text = "" + (new BordPositions()).GetPosition(this.trackBar1.Value);
+
+            this.pictureBox2.Location = new Point(
+                (new BordPositions()).GetPosition(this.trackBar1.Value).X * 66 + 432,
+                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 66 + 3
+                );
         }
 
    
