@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///D:/PROGRAMS/NIEUWE MAP/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjeCTLib\ModelingProjeCTLib.csproj" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAMS\NIEUWE MAP\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAMS\NIEUWE MAP\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-06-05T09:20:28" Importance="Medium" Text="ModelingProjeCT's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProjeCT::Speler' -  (Class), 'ModelingProjeCT::hand' -  (Class), 'ModelingProjeCT::pion' -  (Class), 'ModelingProjeCT::dobbelsteen' -  (Class), 'ModelingProjeCT::MensErgerJeNiet' -  (Class), 'ModelingProjeCT::bord' -  (Class) " />
+  <Message Timestamp="2014-06-05T09:20:34" Importance="Medium" Text="Project Added: D:\MensErgerJeNietProject\ModelingProjeCTLib\ModelingProjeCTLib.csproj" />
+  <Message Timestamp="2014-06-05T09:20:34" Importance="Medium" Text="'ModelingProjeCT::Speler' -  (Class) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\Speler.cs" />
+  <Message Timestamp="2014-06-05T09:20:34" Importance="Medium" Text="'ModelingProjeCT::hand' -  (Class) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\hand.cs" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Medium" Text="'ModelingProjeCT::pion' -  (Class) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\pion.cs" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Medium" Text="'ModelingProjeCT::dobbelsteen' -  (Class) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\dobbelsteen.cs" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Medium" Text="'ModelingProjeCT::MensErgerJeNiet' -  (Class) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\MensErgerJeNiet.cs" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Medium" Text="'ModelingProjeCT::bord' -  (Class) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\bord.cs" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="Name = EnumTemplate" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjeCTLib\ModelingProjeCTLib.csproj" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAMS\NIEUWE MAP\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAMS\NIEUWE MAP\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2014-06-05T09:20:35" Importance="Medium" Text="ModelingProjeCT's Text Template Binding: 'EnumTemplate' will apply EnumTemplate.t4 to: 'ModelingProjeCT::VeldStatus' -  (Enumeration) " />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Medium" Text="'ModelingProjeCT::VeldStatus' -  (Enumeration) : success (file created) - D:\MensErgerJeNietProject\ModelingProjeCTLib\GeneratedCode\VeldStatus.cs" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjeCTLib\ModelingProjeCTLib.csproj" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAMS\NIEUWE MAP\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAMS\NIEUWE MAP\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Medium" Text="ModelingProjeCT's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProjeCT::Speler' -  (Class), 'ModelingProjeCT::hand' -  (Class), 'ModelingProjeCT::pion' -  (Class), 'ModelingProjeCT::dobbelsteen' -  (Class), 'ModelingProjeCT::MensErgerJeNiet' -  (Class), 'ModelingProjeCT::bord' -  (Class) " />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::Speler' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::hand' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::pion' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::dobbelsteen' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::MensErgerJeNiet' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::bord' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="The selection included 8 elements which were not bound to a template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::werpt' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::speelt met' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::gespeeld met' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::bezet' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::met' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="Diagnostic" Text="'ModelingProjeCT::bestaat uit' -  (Association): no bound template." />
+  <Message Timestamp="2014-06-05T09:20:36" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
