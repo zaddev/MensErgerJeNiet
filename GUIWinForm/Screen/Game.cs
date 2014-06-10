@@ -93,6 +93,27 @@ namespace GUIWinForm.Screen
             DobbelsteenImage.Click += this.DobbelsteenImage_Click;
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.label2.Text = ""+(new BordPositions()).GetPosition(int.Parse(this.textBox1.Text));
+
+            this.pictureBox2.Location = new Point(
+                (new BordPositions()).GetPosition(int.Parse(this.textBox1.Text)).X * 66 + 432, 
+                -1*(new BordPositions()).GetPosition(int.Parse(this.textBox1.Text)).Y * 66 + 3
+                );
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            this.label2.Text = "" + (new BordPositions()).GetPosition(this.trackBar1.Value);
+
+            this.pictureBox2.Location = new Point(
+                (new BordPositions()).GetPosition(this.trackBar1.Value).X * 66 + 432,
+                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 66 + 3
+                );
+        }
+
    
     }
 }

@@ -52,13 +52,17 @@ namespace GUIWinForm
                 {
                     if(Math.Abs( this.lafwijkingen[item].afwijking) > pos)
                     {
+                        int positief = 1;
+                        if (this.lafwijkingen[item].afwijking < 0)
+                            positief = -1;
+
                         if(this.lafwijkingen[item].vorm == "x")
                         {
-                            x += pos;
+                            x += pos * positief;
                         }
                         else
                         {
-                            y += pos;
+                            y += pos * positief;
                         }
                         pos = 0;
                         break;
