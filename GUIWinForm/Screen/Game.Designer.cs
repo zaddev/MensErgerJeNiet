@@ -28,24 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.player1 = new System.Windows.Forms.Label();
             this.player2 = new System.Windows.Forms.Label();
             this.player3 = new System.Windows.Forms.Label();
             this.player4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.DobbelsteenImage = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BeurtSpeler = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.DobbelsteenImage = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DobbelsteenImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // player1
@@ -53,8 +52,8 @@
             this.player1.AutoSize = true;
             this.player1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1.ForeColor = System.Drawing.Color.Red;
-            this.player1.Location = new System.Drawing.Point(91, 183);
+            this.player1.ForeColor = System.Drawing.Color.Yellow;
+            this.player1.Location = new System.Drawing.Point(117, 199);
             this.player1.Name = "player1";
             this.player1.Size = new System.Drawing.Size(0, 16);
             this.player1.TabIndex = 1;
@@ -64,8 +63,8 @@
             this.player2.AutoSize = true;
             this.player2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2.ForeColor = System.Drawing.Color.Blue;
-            this.player2.Location = new System.Drawing.Point(687, 183);
+            this.player2.ForeColor = System.Drawing.Color.Green;
+            this.player2.Location = new System.Drawing.Point(701, 199);
             this.player2.Name = "player2";
             this.player2.Size = new System.Drawing.Size(0, 16);
             this.player2.TabIndex = 2;
@@ -75,8 +74,8 @@
             this.player3.AutoSize = true;
             this.player3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player3.ForeColor = System.Drawing.Color.Yellow;
-            this.player3.Location = new System.Drawing.Point(94, 613);
+            this.player3.ForeColor = System.Drawing.Color.Blue;
+            this.player3.Location = new System.Drawing.Point(117, 589);
             this.player3.Name = "player3";
             this.player3.Size = new System.Drawing.Size(0, 16);
             this.player3.TabIndex = 3;
@@ -86,8 +85,8 @@
             this.player4.AutoSize = true;
             this.player4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player4.ForeColor = System.Drawing.Color.Green;
-            this.player4.Location = new System.Drawing.Point(690, 612);
+            this.player4.ForeColor = System.Drawing.Color.Red;
+            this.player4.Location = new System.Drawing.Point(701, 589);
             this.player4.Name = "player4";
             this.player4.Size = new System.Drawing.Size(0, 16);
             this.player4.TabIndex = 4;
@@ -111,37 +110,6 @@
             this.button1.Text = "Eindig Beurt";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GUIWinForm.Properties.Resources.pion_rood;
-            this.pictureBox2.Location = new System.Drawing.Point(432, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(42, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
-            // DobbelsteenImage
-            // 
-            this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_1;
-            this.DobbelsteenImage.Location = new System.Drawing.Point(903, 360);
-            this.DobbelsteenImage.Name = "DobbelsteenImage";
-            this.DobbelsteenImage.Size = new System.Drawing.Size(132, 132);
-            this.DobbelsteenImage.TabIndex = 5;
-            this.DobbelsteenImage.TabStop = false;
-            this.DobbelsteenImage.Click += new System.EventHandler(this.DobbelsteenImage_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(60, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(772, 776);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // BeurtSpeler
             // 
@@ -179,6 +147,37 @@
             this.trackBar1.TabIndex = 40;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GUIWinForm.Properties.Resources.pion_rood;
+            this.pictureBox2.Location = new System.Drawing.Point(454, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(42, 65);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // DobbelsteenImage
+            // 
+            this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_1;
+            this.DobbelsteenImage.Location = new System.Drawing.Point(903, 360);
+            this.DobbelsteenImage.Name = "DobbelsteenImage";
+            this.DobbelsteenImage.Size = new System.Drawing.Size(132, 132);
+            this.DobbelsteenImage.TabIndex = 5;
+            this.DobbelsteenImage.TabStop = false;
+            this.DobbelsteenImage.Click += new System.EventHandler(this.DobbelsteenImage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
+            this.pictureBox1.Image = global::GUIWinForm.Properties.Resources.EigenBord2;
+            this.pictureBox1.Location = new System.Drawing.Point(52, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(828, 743);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,10 +199,10 @@
             this.Size = new System.Drawing.Size(1124, 863);
             this.Load += new System.EventHandler(this.Game_Load);
             this.VisibleChanged += new System.EventHandler(this.Game_VisibleChanged);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DobbelsteenImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
