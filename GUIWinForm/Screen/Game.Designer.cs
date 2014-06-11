@@ -140,17 +140,17 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(945, 183);
-            this.trackBar1.Maximum = 39;
+            this.trackBar1.Location = new System.Drawing.Point(886, 170);
+            this.trackBar1.Maximum = 71;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
-            this.trackBar1.TabIndex = 40;
+            this.trackBar1.Size = new System.Drawing.Size(235, 45);
+            this.trackBar1.TabIndex = 72;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::GUIWinForm.Properties.Resources.pion_rood;
-            this.pictureBox2.Location = new System.Drawing.Point(454, 33);
+            this.pictureBox2.Image = global::GUIWinForm.Properties.Resources.pion_groen;
+            this.pictureBox2.Location = new System.Drawing.Point(453, 26);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
