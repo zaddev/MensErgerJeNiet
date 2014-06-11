@@ -123,6 +123,26 @@ namespace GUIWinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EigenBord {
+            get {
+                object obj = ResourceManager.GetObject("EigenBord", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EigenBord2 {
+            get {
+                object obj = ResourceManager.GetObject("EigenBord2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pion_blauw {
             get {
                 object obj = ResourceManager.GetObject("pion-blauw", resourceCulture);

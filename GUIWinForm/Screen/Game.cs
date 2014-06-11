@@ -109,8 +109,8 @@ namespace GUIWinForm.Screen
             this.label2.Text = "" + (new BordPositions()).GetPosition(this.trackBar1.Value);
 
             this.pictureBox2.Location = new Point(
-                (new BordPositions()).GetPosition(this.trackBar1.Value).X * 66 + 432,
-                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 66 + 3
+                (new BordPositions()).GetPosition(this.trackBar1.Value).X * 65 + 454,
+                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 59 + 33
                 );
         }
 
