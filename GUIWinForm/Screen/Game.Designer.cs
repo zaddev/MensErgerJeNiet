@@ -52,8 +52,8 @@
             this.player1.AutoSize = true;
             this.player1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1.ForeColor = System.Drawing.Color.Yellow;
-            this.player1.Location = new System.Drawing.Point(117, 199);
+            this.player1.ForeColor = System.Drawing.Color.Green;
+            this.player1.Location = new System.Drawing.Point(567, 144);
             this.player1.Name = "player1";
             this.player1.Size = new System.Drawing.Size(0, 16);
             this.player1.TabIndex = 1;
@@ -63,8 +63,8 @@
             this.player2.AutoSize = true;
             this.player2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2.ForeColor = System.Drawing.Color.Green;
-            this.player2.Location = new System.Drawing.Point(701, 199);
+            this.player2.ForeColor = System.Drawing.Color.Red;
+            this.player2.Location = new System.Drawing.Point(567, 577);
             this.player2.Name = "player2";
             this.player2.Size = new System.Drawing.Size(0, 16);
             this.player2.TabIndex = 2;
@@ -75,18 +75,19 @@
             this.player3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.player3.ForeColor = System.Drawing.Color.Blue;
-            this.player3.Location = new System.Drawing.Point(117, 589);
+            this.player3.Location = new System.Drawing.Point(187, 577);
             this.player3.Name = "player3";
             this.player3.Size = new System.Drawing.Size(0, 16);
             this.player3.TabIndex = 3;
+            this.player3.Tag = "";
             // 
             // player4
             // 
             this.player4.AutoSize = true;
             this.player4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
             this.player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player4.ForeColor = System.Drawing.Color.Red;
-            this.player4.Location = new System.Drawing.Point(701, 589);
+            this.player4.ForeColor = System.Drawing.Color.Yellow;
+            this.player4.Location = new System.Drawing.Point(187, 144);
             this.player4.Name = "player4";
             this.player4.Size = new System.Drawing.Size(0, 16);
             this.player4.TabIndex = 4;
@@ -95,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(879, 308);
+            this.label1.Location = new System.Drawing.Point(888, 235);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 20);
             this.label1.TabIndex = 6;
@@ -103,7 +104,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(903, 539);
+            this.button1.Location = new System.Drawing.Point(913, 392);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 23);
             this.button1.TabIndex = 7;
@@ -132,7 +133,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(945, 96);
+            this.textBox1.Location = new System.Drawing.Point(913, 95);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 11;
@@ -149,8 +150,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::GUIWinForm.Properties.Resources.pion_groen;
-            this.pictureBox2.Location = new System.Drawing.Point(453, 26);
+            this.pictureBox2.Location = new System.Drawing.Point(831, 20);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -160,20 +160,22 @@
             // DobbelsteenImage
             // 
             this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_1;
-            this.DobbelsteenImage.Location = new System.Drawing.Point(903, 360);
+            this.DobbelsteenImage.Location = new System.Drawing.Point(945, 289);
             this.DobbelsteenImage.Name = "DobbelsteenImage";
-            this.DobbelsteenImage.Size = new System.Drawing.Size(132, 132);
+            this.DobbelsteenImage.Size = new System.Drawing.Size(61, 62);
+            this.DobbelsteenImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.DobbelsteenImage.TabIndex = 5;
             this.DobbelsteenImage.TabStop = false;
             this.DobbelsteenImage.Click += new System.EventHandler(this.DobbelsteenImage_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(137)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::GUIWinForm.Properties.Resources.EigenBord2;
-            this.pictureBox1.Location = new System.Drawing.Point(52, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(828, 743);
+            this.pictureBox1.Size = new System.Drawing.Size(1124, 863);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
