@@ -8,9 +8,9 @@ namespace GUIWinForm
 {
     public enum Color
     {
+        groen,
         rood,
         blauw,
-        geel,
-        groen
+        geel
     }
 }

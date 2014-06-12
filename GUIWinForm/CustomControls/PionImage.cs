@@ -28,7 +28,7 @@ namespace GUIWinForm
 
         private void configPion()
         {
-            this.Size = new System.Drawing.Size(42, 65);
+            this.Size = new System.Drawing.Size(42, 60);
             this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TabIndex = 8;
             this.TabStop = false;

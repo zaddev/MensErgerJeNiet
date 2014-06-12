@@ -19,7 +19,7 @@ namespace MensErgerJeNietLogic
             this.id = kleur * 4 + nummer;
             this.kleur = kleur;
 
-            locatie = 55 + this.id;
+            locatie = 56 + this.id;
         }
 
         public int ID
