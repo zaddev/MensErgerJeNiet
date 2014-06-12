@@ -20,7 +20,7 @@ namespace MensErgerJeNietLogic
             
             for(int i = 0; i<4;i++)
             {
-                this.hand.Add(new Pion());
+                this.hand.Add(new Pion(i, id));
             }
         }
     

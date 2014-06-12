@@ -198,7 +198,6 @@
             this.Name = "Game";
             this.Size = new System.Drawing.Size(1124, 863);
             this.Load += new System.EventHandler(this.Game_Load);
-            this.VisibleChanged += new System.EventHandler(this.Game_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DobbelsteenImage)).EndInit();
