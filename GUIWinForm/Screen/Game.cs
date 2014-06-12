@@ -14,6 +14,7 @@ namespace GUIWinForm.Screen
     {
         public Game()
         {
+            
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
@@ -35,12 +36,12 @@ namespace GUIWinForm.Screen
             //spel benaderen voor namen
 
             //tijdelijke namen
-            string[] namen = new string[]{ "jantje", "gerrit", "henk", "pietje" };
+            //string[] namen = new string[]{ "jantje", "gerrit", "henk", "pietje" };
 
-            this.player1.Text = namen[0];
-            this.player2.Text = namen[1];
-            this.player3.Text = namen[2];
-            this.player4.Text = namen[3];
+            //this.player1.Text = namen[0];
+            //this.player2.Text = namen[1];
+            //this.player3.Text = namen[2];
+            //this.player4.Text = namen[3];
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -112,7 +113,7 @@ namespace GUIWinForm.Screen
 
             this.pictureBox2.Location = new Point(
                 (new BordPositions()).GetPosition(this.trackBar1.Value).X * 65 + 453,
-                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 59 + 26
+                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 58 + 26
                 );
         }
 
