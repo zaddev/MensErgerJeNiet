@@ -17,12 +17,12 @@ namespace GUIWinForm.Screen
         {
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-
+            this.pictureBox2 = new PionImage(Color.rood);
             this.pictureBox2.Parent = this.pictureBox1;
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            //this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
 
 
-            PionImage pa1 = new PionImage(Color.rood);
+            //PionImage pa1 = new PionImage(Color.rood);
             //pa1.Parent = this.pictureBox1;//dit is niet nodig om dat je hem aan de controlls van de picturebox
             //let op de verhoudingen hierdoor zijn afhankelijk van de image
 
@@ -38,13 +38,22 @@ namespace GUIWinForm.Screen
             foreach(MensErgerJeNietLogic.Speler speler in Global.Spel.Spelers)
             {
                 LijstNaamLabels[speler.ID].Text = speler.Naam;
+                
+                foreach(MensErgerJeNietLogic.Pion pion in speler.Hand)
+                {
+                    //pion.Locatie.
+                    PionImage pionImage = new PionImage((Color)pion.Kleur);
+                    this.pictureBox1.Controls.Add(pionImage);
+                    VerplaatsPionNaar(pionImage, pion.Locatie);         
+                }
             }
         }
 
         private void DobbelsteenImage_Click(object sender, EventArgs e)
         {
             //logica gooi dobbelsteen
-            int gegooidewaard = (new Random()).Next(1, 7);
+            Global.Spel.DoeWorp();
+            int gegooidewaard = (Global.Spel.Dobbelsteen.Value);
 
             switch (gegooidewaard)
             {
@@ -104,6 +113,19 @@ namespace GUIWinForm.Screen
                 );
         }
 
+        /// <summary>
+        /// Verplaats de pion naar een nieuwe locatie.
+        /// </summary>
+        /// <param name="pion"></param>
+        /// <param name="nieuweLocatie"></param>
+        private void VerplaatsPionNaar(PionImage pion, int nieuweLocatie)
+        {
+            this.label2.Text = "" + (new BordPositions()).GetPosition(this.trackBar1.Value);
+
+            pion.Location = new Point(
+                    (new BordPositions()).GetPosition(nieuweLocatie).X * 65 + 453, -1 * 
+                    (new BordPositions()).GetPosition(nieuweLocatie).Y * 58 + 26);
+        }
    
     }
 }
