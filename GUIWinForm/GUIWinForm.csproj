@@ -145,6 +145,12 @@
   <ItemGroup>
     <None Include="Resources\EigenBord2.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MensErgerJeNietLogic\MensErgerJeNietLogic.csproj">
+      <Project>{b49e77cc-c15d-4b06-b606-047d5e533c23}</Project>
+      <Name>MensErgerJeNietLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
