@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="bord">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\bord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dobbelsteen">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\dobbelsteen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="hand">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\hand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MensErgerJeNiet">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAgAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\MensErgerJeNiet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pion">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAIgAAAAAAABAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\pion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Speler">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAgBAAAAAAAAIQAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>GeneratedCode\Speler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="VeldStatus">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAABAAQAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\VeldStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
