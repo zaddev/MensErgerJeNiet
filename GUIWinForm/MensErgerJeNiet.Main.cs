@@ -23,6 +23,7 @@ namespace GUIWinForm
 
             this.currentScreen = this.startScreen;
             this.Controls.Add(this.startScreen);
+
         }
 
         private void MensErgerJeNiet_Load(object sender, EventArgs e)
