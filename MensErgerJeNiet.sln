@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIWinForm", "GUIWinForm\GU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelingProjeCTLib", "ModelingProjeCTLib\ModelingProjeCTLib.csproj", "{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MensErgerJeNietLogic", "MensErgerJeNietLogic\MensErgerJeNietLogic.csproj", "{B49E77CC-C15D-4B06-B606-047D5E533C23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B9D6AD-6B0C-48A5-B6B4-F48B9D368E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49E77CC-C15D-4B06-B606-047D5E533C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49E77CC-C15D-4B06-B606-047D5E533C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49E77CC-C15D-4B06-B606-047D5E533C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49E77CC-C15D-4B06-B606-047D5E533C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MensErgerJeNietLogic.Bord">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Bord.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Fields" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MensErgerJeNietLogic.Pion">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAgAAAAAAAAAAAIAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MensErgerJeNietLogic.Speler">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Speler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Hand" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MensErgerJeNietLogic.Dobbelsteen">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAEAEAAAAgAAAAAgAAAAAAA=</HashCode>
+      <FileName>Dobbelsteen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MensErgerJeNietLogic.MensErgerJeNiet">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAACAACAAAAAQAQgAAAAACAgAAAAAAAAA=</HashCode>
+      <FileName>MensErgerJeNiet.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Dobbelsteen" />
+      <Property Name="Bord" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Spelers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="MensErgerJeNietLogic.VeldStatus">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAARAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>VeldStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
