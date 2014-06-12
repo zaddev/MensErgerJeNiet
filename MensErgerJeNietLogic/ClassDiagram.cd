@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="MensErgerJeNietLogic.Bord">
     <Position X="5.25" Y="2" Width="1.5" />
     <TypeIdentifier>
@@ -13,14 +13,14 @@
   <Class Name="MensErgerJeNietLogic.Pion">
     <Position X="11.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAgAAAAAAAAAAAIAQAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BAAAAAQAACAAgAAgAAAAAAAAAAQAAAAAAAAIAAAACgA=</HashCode>
       <FileName>Pion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNietLogic.Speler">
     <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAgAAgAAAABAAAAAQAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Speler.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -30,14 +30,14 @@
   <Class Name="MensErgerJeNietLogic.Dobbelsteen">
     <Position X="11.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAAAAAAAEAEAAAAgAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAEAEAAAAiAAAAAgAAAAAAA=</HashCode>
       <FileName>Dobbelsteen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNietLogic.MensErgerJeNiet">
     <Position X="8.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgBAACAACAAAAAQAQgAAAAACAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgBAACAADAAgAAQAQgIAAAACAgAAAAAAAAA=</HashCode>
       <FileName>MensErgerJeNiet.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

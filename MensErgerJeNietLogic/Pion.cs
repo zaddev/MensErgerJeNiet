@@ -7,30 +7,26 @@ namespace MensErgerJeNietLogic
 {
     public class Pion
     {
-        internal Pion()
+        #region private fields
+        int id;
+        int kleur;
+        int gelopen;
+        int locatie;
+        #endregion
+
+        internal Pion(int nummer, int kleur)
         {
-            throw new System.NotImplementedException();
-        }
-    
-        public int plek
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.id = kleur * 4 + nummer;
+            this.kleur = kleur;
+
+            locatie = 55 + this.id;
         }
 
         public int ID
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                return this.id;
             }
         }
 
@@ -38,32 +34,31 @@ namespace MensErgerJeNietLogic
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                return this.kleur;
             }
         }
 
-        public int gelopen
+        public int Gelopen
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.gelopen;
             }
             set
             {
+                this.gelopen = value;
             }
         }
 
-        public int locatie
+        public int Locatie
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.locatie;
             }
             set
             {
+                this.locatie = value;
             }
         }
 

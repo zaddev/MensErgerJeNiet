@@ -15,7 +15,6 @@ namespace MensErgerJeNietLogic
 
         internal Dobbelsteen()
         {
-            throw new System.NotImplementedException();
         }
     
         public int Value
