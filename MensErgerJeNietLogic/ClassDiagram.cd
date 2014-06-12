@@ -18,7 +18,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNietLogic.Speler">
-    <Position X="8" Y="4.5" Width="1.5" />
+    <Position X="8" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAgAAgAAAABAAAAAQAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Speler.cs</FileName>
@@ -35,14 +35,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNietLogic.MensErgerJeNiet">
-    <Position X="8.25" Y="1.25" Width="1.5" />
+    <Position X="8" Y="1.25" Width="2" />
+    <AssociationLine Name="ActueeleSpeler" Type="MensErgerJeNietLogic.Speler">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.058" Y="0.529" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgBAACAADAAgAAQAQgIAAAACAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgBAACAADAAgAAwAQgIAAAAGAgAAIAAAAAA=</HashCode>
       <FileName>MensErgerJeNiet.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Dobbelsteen" />
       <Property Name="Bord" />
+      <Property Name="ActueeleSpeler" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Spelers" />
