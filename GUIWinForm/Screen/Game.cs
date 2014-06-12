@@ -12,6 +12,7 @@ namespace GUIWinForm.Screen
 {
     public partial class Game : UserControl
     {
+        System.Collections.Generic.List<System.Windows.Forms.Label> LijstNaamLabels = new List<Label>();
         public Game()
         {
             InitializeComponent();
@@ -25,32 +26,19 @@ namespace GUIWinForm.Screen
             //pa1.Parent = this.pictureBox1;//dit is niet nodig om dat je hem aan de controlls van de picturebox
             //let op de verhoudingen hierdoor zijn afhankelijk van de image
 
-            this.pictureBox1.Controls.Add(pa1);
+            //this.pictureBox1.Controls.Add(pa1);
+
+            LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };
            
 
         }
 
-        private void Game_VisibleChanged(object sender, EventArgs e)
-        {
-            //spel benaderen voor namen
-
-            //tijdelijke namen
-            string[] namen = new string[]{ "jantje", "gerrit", "henk", "pietje" };
-
-            this.player1.Text = namen[0];
-            this.player2.Text = namen[1];
-            this.player3.Text = namen[2];
-            this.player4.Text = namen[3];
-        }
-
         private void Game_Load(object sender, EventArgs e)
         {
-            string[] namen = new string[] { "jantje", "gerrit", "henk", "pietje" };
-
-            this.player1.Text = namen[0];
-            this.player2.Text = namen[1];
-            this.player3.Text = namen[2];
-            this.player4.Text = namen[3];
+            foreach(MensErgerJeNietLogic.Speler speler in Global.Spel.Spelers)
+            {
+                LijstNaamLabels[speler.ID].Text = speler.Naam;
+            }
         }
 
         private void DobbelsteenImage_Click(object sender, EventArgs e)

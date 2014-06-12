@@ -16,7 +16,9 @@ namespace GUIWinForm
         {
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
+            
             Application.Run(Global.MainScreen);
+            Global.Start();
         }
     }
 }

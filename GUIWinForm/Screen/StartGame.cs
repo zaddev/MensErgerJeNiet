@@ -56,8 +56,13 @@ namespace GUIWinForm.Screen
                 }
             }
 
+            if (Global.Spel == null) Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
             //logica voor toevoegen spelers
             //TODO: Spelers werkelijk toevoegen
+            foreach (NewPlayer speler in this.splitContainer1.Panel2.Controls)
+            {
+                Global.Spel.AddNewSpeler(speler.SpelersNaam);
+            }
             
 
             //Wisselen van scherm
