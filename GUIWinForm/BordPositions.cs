@@ -44,6 +44,7 @@ namespace GUIWinForm
         {
             int y = 0;
             int x = 0;
+
             #region SpeelPositities
             //hokje in speelveld
             if (pos < 40)
