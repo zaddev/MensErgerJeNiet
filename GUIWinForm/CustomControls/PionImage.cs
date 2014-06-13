@@ -25,7 +25,7 @@ namespace GUIWinForm
             this.configPion();
 
             // Eventlisteners toevoegen
-            logicPion.Verplaatst += logicPion_Verplaatst;
+            logicPion.OnVerplaatst += logicPion_Verplaatst;
         }
 
         /// <summary>

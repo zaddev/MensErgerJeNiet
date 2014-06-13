@@ -7,10 +7,10 @@ namespace MensErgerJeNietLogic
 {
     public enum VeldStatus
     {
-        vrij,
         groen,
         rood,
         blauw,
-        geel
+        geel,
+        vrij
     }
 }

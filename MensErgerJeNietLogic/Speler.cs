@@ -14,15 +14,22 @@ namespace MensErgerJeNietLogic
         #endregion
 
         public event EventHandler AanDeBeurt;
+        private MensErgerJeNiet spel;
 
-        internal Speler(string spelersNaam, int id)
+        /// <summary>
+        /// maakt een virtueele speler aan die pionnen heeft
+        /// </summary>
+        /// <param name="spelersNaam"></param>
+        /// <param name="id"></param>
+        /// <param name="spel"></param>
+        internal Speler(string spelersNaam, int id, MensErgerJeNiet spel)
         {
             this.naam = spelersNaam;
             this.id = id;
             
             for(int i = 0; i<4;i++)
             {
-                this.hand.Add(new Pion(i, id));
+                this.hand.Add(new Pion(i, id, spel));
             }
         }
     
@@ -50,6 +57,23 @@ namespace MensErgerJeNietLogic
             get
             {
                 return this.id;
+            }
+        }
+
+        bool isAanDeBeurt;
+        internal bool IsAanDeBeurt
+        {
+            get
+            {
+                return this.isAanDeBeurt;
+            }
+            set
+            {
+                this.isAanDeBeurt = value;
+                if(value==true)
+                {
+                    if (this.AanDeBeurt != null) this.AanDeBeurt(this, null);
+                }
             }
         }
     }

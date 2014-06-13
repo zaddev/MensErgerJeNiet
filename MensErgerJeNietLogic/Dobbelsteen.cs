@@ -28,6 +28,8 @@ namespace MensErgerJeNietLogic
         internal void Rol()
         {
             this.value = this.rnd.Next(1, vlakken + 1);
+            //trigger event dat er gegooid is
+            if (Gegooid != null) Gegooid(this, null);
         }
     }
 }
