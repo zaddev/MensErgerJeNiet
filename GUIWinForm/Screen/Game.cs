@@ -17,7 +17,7 @@ namespace GUIWinForm.Screen
         {
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            this.pictureBox2 = new PionImage(Color.rood);
+            //this.pictureBox2 = new PionImage(Color.rood);
             this.pictureBox2.Parent = this.pictureBox1;
             //this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
 
@@ -55,7 +55,7 @@ namespace GUIWinForm.Screen
         void Spel_NewActSpeler(object sender, EventArgs e)
         {
             var actspeler = sender as MensErgerJeNietLogic.Speler;
-
+            
             this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", actspeler.Naam);
         }
 
@@ -119,7 +119,7 @@ namespace GUIWinForm.Screen
 
             this.pictureBox2.Location = new Point(
                 (new BordPositions()).GetPosition(this.trackBar1.Value).X * 65 + 453,
-                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 59 + 26
+                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 58 + 26
                 );
         }
 
