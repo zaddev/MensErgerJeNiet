@@ -14,6 +14,8 @@ namespace MensErgerJeNietLogic
         int locatie;
         #endregion
 
+        public event EventHandler Verplaatst;
+
         internal Pion(int nummer, int kleur)
         {
             this.id = kleur * 4 + nummer;
@@ -62,7 +64,17 @@ namespace MensErgerJeNietLogic
             }
         }
 
-        public void Verplaats(string stappen)
+        internal void Verplaats(string stappen)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        internal void VerplaatsNaarStart()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        internal void VerplaatsNaarThuis()
         {
             throw new System.NotImplementedException();
         }

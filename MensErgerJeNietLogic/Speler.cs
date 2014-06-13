@@ -13,6 +13,8 @@ namespace MensErgerJeNietLogic
         List<Pion> hand = new List<Pion>();
         #endregion
 
+        public event EventHandler AanDeBeurt;
+
         internal Speler(string spelersNaam, int id)
         {
             this.naam = spelersNaam;

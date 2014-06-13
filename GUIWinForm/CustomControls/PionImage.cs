@@ -9,6 +9,7 @@ namespace GUIWinForm
 {
     public class PionImage : PictureBox
     {
+        private MensErgerJeNietLogic.Pion lPion;
 
         #region constructors
         
@@ -16,9 +17,9 @@ namespace GUIWinForm
         /// maak een pion en bepaal de kleur
         /// </summary>
         /// <param name="kleur">kleur die hij in het spel krijgt</param>
-        public PionImage(Color kleur)
+        public PionImage(Color kleur, MensErgerJeNietLogic.Pion logicPion)
         {
-
+            this.lPion = logicPion;
             this.SetCollorImage(kleur);
             this.configPion();
         }

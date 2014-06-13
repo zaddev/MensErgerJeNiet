@@ -35,6 +35,9 @@ namespace GUIWinForm.Screen
 
         private void Game_Load(object sender, EventArgs e)
         {
+            Global.Spel.NewActSpeler += Spel_NewActSpeler;
+            this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", Global.Spel.Spelers[0].Naam);
+
             foreach(MensErgerJeNietLogic.Speler speler in Global.Spel.Spelers)
             {
                 LijstNaamLabels[speler.ID].Text = speler.Naam;
@@ -42,11 +45,18 @@ namespace GUIWinForm.Screen
                 foreach(MensErgerJeNietLogic.Pion pion in speler.Hand)
                 {
                     //pion.Locatie.
-                    PionImage pionImage = new PionImage((Color)pion.Kleur);
+                    PionImage pionImage = new PionImage((Color)pion.Kleur, pion);
                     this.pictureBox1.Controls.Add(pionImage);
                     VerplaatsPionNaar(pionImage, pion.Locatie);         
                 }
             }
+        }
+
+        void Spel_NewActSpeler(object sender, EventArgs e)
+        {
+            var actspeler = sender as MensErgerJeNietLogic.Speler;
+
+            this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", actspeler.Naam);
         }
 
         private void DobbelsteenImage_Click(object sender, EventArgs e)
