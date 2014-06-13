@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace GUIWinForm
 {
@@ -22,6 +23,25 @@ namespace GUIWinForm
             this.lPion = logicPion;
             this.SetCollorImage(kleur);
             this.configPion();
+
+            // Eventlisteners toevoegen
+            logicPion.Verplaatst += logicPion_Verplaatst;
+        }
+
+        /// <summary>
+        /// Verplaats de pion automatisch zodra het event "logicPion_Verplaatst" word aangeroepen 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void logicPion_Verplaatst(object sender, EventArgs e)
+        {
+            BordPositions bordPositions = new BordPositions();
+            Point nieuwelocatie = bordPositions.GetPosition(lPion.Locatie);
+
+            // x bewerking en y bewerking
+            nieuwelocatie.X *= 65 + 453;
+            nieuwelocatie.Y *= -1* 58 + 26;
+            this.Location = nieuwelocatie;
         }
 
         #endregion
@@ -55,6 +75,9 @@ namespace GUIWinForm
                     break;
             }
         }
+
+        // methode om de gebruiker te laten zien dat de pion selecteerbaar is 
+
     }
 }
 

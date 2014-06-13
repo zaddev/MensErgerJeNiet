@@ -64,7 +64,6 @@ namespace GUIWinForm.Screen
                 Global.Spel.AddNewSpeler(speler.SpelersNaam);
             }
             
-
             //Wisselen van scherm
             Global.MainScreen.SetGameScreen();
 
