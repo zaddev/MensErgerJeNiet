@@ -11,7 +11,10 @@ namespace MensErgerJeNietLogic
         Dobbelsteen dobbelsteen = new Dobbelsteen();
         List<Speler> spelers = new List<Speler>();
         Bord bord = new Bord();
+        int actspeler;
         #endregion
+
+        public event EventHandler NewActSpeler;
 
         public Dobbelsteen Dobbelsteen
         {
@@ -45,9 +48,26 @@ namespace MensErgerJeNietLogic
             }
         }
 
+        public Speler ActueeleSpeler
+        {
+            get
+            {
+                return this.spelers[actspeler];
+            }
+        }
+
+        /// <summary>
+        /// Gooit de dobbelsteen en het spel weet de mogelijkheden die nodig zijn
+        /// </summary>
+        /// <returns></returns>
         public int DoeWorp()
         {
             this.Dobbelsteen.Rol();
+
+            //tijdelijk is er bij iedere rol ook een nieuwe speler aan de beurt
+            this.actspeler = (this.actspeler + 1) % this.spelers.Count;
+            //event wordt getriggerd er is een nieuwe speler aan de beurt
+            if(NewActSpeler!=null)NewActSpeler(this.ActueeleSpeler, new EventArgs());
 
             return this.Dobbelsteen.Value;
         }
@@ -69,7 +89,7 @@ namespace MensErgerJeNietLogic
             return nieuweSpeler;
         }
 
-        public void VerPlaatsPion(int id)
+        public void VerplaatsPion(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -79,12 +99,22 @@ namespace MensErgerJeNietLogic
             throw new System.NotImplementedException();
         }
 
-        public void PlaatsNiewePion(string PionId)
+        public void PlaatsNieuwePion(string PionId)
         {
             throw new System.NotImplementedException();
         }
 
-        public void PlaatNieuwePion(Pion Pion)
+        public void PlaatsNieuwePion(Pion Pion)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        void SlaPion(int locatie)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void SlaPion(Pion pion)
         {
             throw new System.NotImplementedException();
         }
