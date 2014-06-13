@@ -27,6 +27,8 @@ namespace GUIWinForm
             // Eventlisteners toevoegen
             logicPion.Verplaatst += logicPion_Verplaatst;
         }
+        
+        #endregion
 
         /// <summary>
         /// Verplaats de pion automatisch zodra het event "logicPion_Verplaatst" word aangeroepen 
@@ -43,9 +45,6 @@ namespace GUIWinForm
             nieuwelocatie.Y *= -1* 58 + 26;
             this.Location = nieuwelocatie;
         }
-
-        #endregion
-
 
         private void configPion()
         {
