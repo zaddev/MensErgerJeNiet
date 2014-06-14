@@ -15,6 +15,7 @@ namespace MensErgerJeNietLogic
         List<Speler> spelers = new List<Speler>();
         Bord bord;
         int actspeler;
+        bool gameStarted = false;
         #endregion
 
         /// <summary>
@@ -78,6 +79,8 @@ namespace MensErgerJeNietLogic
         {
             get
             {
+                //game moet wel gestart zijn
+                if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
                 return this.spelers[actspeler];
             }
         }
@@ -88,12 +91,17 @@ namespace MensErgerJeNietLogic
         /// <returns>het aantal ogen dat gegooid is</returns>
         public int DoeWorp()
         {
+            //game moet wel gestart zijn
+            if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
             this.Dobbelsteen.Rol();
 
-            //tijdelijk is er bij iedere rol ook een nieuwe speler aan de beurt
-            this.actspeler = (this.actspeler + 1) % this.spelers.Count;
+            /*//tijdelijk is er bij iedere rol ook een nieuwe speler aan de beurt
+            this.actspeler = (this.actspeler + 1) % this.spelers.Count;*/
             //event wordt getriggerd er is een nieuwe speler aan de beurt
             if(NewActSpeler!=null)NewActSpeler(this.ActueeleSpeler, new EventArgs());
+
+            //speler mag in eerste instantie niet gooien omdat hij zoiezo niet meer mag of dat hij eerst nog iets met een pion moet doen
+            this.ActueeleSpeler.MagGooien = false;
 
             return this.Dobbelsteen.Value;
         }
@@ -105,6 +113,9 @@ namespace MensErgerJeNietLogic
         /// <returns></returns>
         public Speler AddNewSpeler(string spelersNaam)
         {
+            //spel mag nog niet gestart zijn
+            if (this.gameStarted) throw new InvalidOperationException("het spel is al gestart je kan geen spelers meer toevoegen");
+
             //check of er een collectie met speler is
             if (this.Spelers == null) 
                 this.Spelers = new List<Speler>();
@@ -124,17 +135,37 @@ namespace MensErgerJeNietLogic
         /// <param name="pion"></param>
         public void ActieMetPion(Pion pion)
         {
+            //game moet al wel gestart zijn
+            if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
+
             //kijk of er wel met de pion gespeeld mag worden
             if(pion.IsVerplaatsbaar )
             {
+                //scenario met speciale handelingen als er 6 gegooid is en er nog pionnen op de deadposition zitten
+                if(this.Dobbelsteen.Value == 6 && this.ActueeleSpeler.Hand.Exists(x=>x.Locatie>55))
+                {
+                    this.ActueeleSpeler.Hand.First(x => x.Locatie > 55).VerplaatsNaarStartVeld();
+                    //functie hoeft niet verder te gaan en kan stoppen
+                }
                 //kijk of de pion al mee doet in het spel
-                if(pion.Locatie>55)//56 is de eerste locatie dat een deadposition is
+                else if(pion.Locatie>55)//56 is de eerste locatie dat een deadposition is
                 {
                     this.PlaatsNieuwePion(pion);
                 }
                 else
                 {
                     this.VerplaatsPion(pion);
+                }
+
+                //kijk of de persoon nog een keer mag gooien
+                this.ActueeleSpeler.MagGooien = this.Dobbelsteen.Value == 6;
+                //als de persoon niet meer mag gooien is de volgende speler aan de beurt
+                if(!this.ActueeleSpeler.MagGooien)
+                {
+                    this.actspeler = (this.actspeler + 1) % this.spelers.Count;
+                    //deze speler mag weer gooien
+                    this.ActueeleSpeler.MagGooien = true;
+                    if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
                 }
             }
         }
@@ -236,6 +267,18 @@ namespace MensErgerJeNietLogic
                 }
             }
             throw new InvalidOperationException("er is geen vrij positie");
+        }
+
+        /// <summary>
+        /// Nadit comando is het spel oficieel begonnen en mogen er bijvoorbeeld geen spelers toegevoegd worden. maar juist wel dingen als gooien
+        /// </summary>
+        public void StartSpel()
+        {
+            this.gameStarted = true;
+
+            //eerste speler is aan de beurt
+            this.actspeler = 0;
+            if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
         }
     }
 }
