@@ -5,12 +5,15 @@ using System.Text;
 
 namespace MensErgerJeNietLogic
 {
+    /// <summary>
+    /// wat is de status van een speelveld
+    /// </summary>
     public enum VeldStatus
     {
-        vrij,
         groen,
         rood,
         blauw,
-        geel
+        geel,
+        vrij
     }
 }
