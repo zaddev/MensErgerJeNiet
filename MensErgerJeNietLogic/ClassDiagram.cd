@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="MensErgerJeNietLogic.Bord">
-    <Position X="3.75" Y="1" Width="2" />
+    <Position X="0.75" Y="0.5" Width="2" />
+    <AssociationLine Name="Fields" Type="MensErgerJeNietLogic.VeldStatus">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.911" Y="0.32" Height="0.182" Width="1.79" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AACAgAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Bord.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -11,16 +16,16 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNietLogic.Pion">
-    <Position X="11.25" Y="4.75" Width="1.5" />
+    <Position X="12.75" Y="2" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAQAACAAgAAgAAAAgAAAAAQAAgAAAAAIAAAADgA=</HashCode>
+      <HashCode>DAAAAAQAACIAgAAgAAAAAAAAAAQAAABgAAAIAAABDgA=</HashCode>
       <FileName>Pion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNietLogic.Speler">
-    <Position X="8" Y="5.5" Width="1.75" />
+    <Position X="8.75" Y="2.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAgAAgAAAABAAAAAQAAAAAAAAAAAAIAgA=</HashCode>
+      <HashCode>CAAAAAAAACAAgAAgIAAABCAAAAQAAAAAAAAAAAAIAgA=</HashCode>
       <FileName>Speler.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -28,16 +33,21 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MensErgerJeNietLogic.Dobbelsteen">
-    <Position X="11.25" Y="1" Width="1.5" />
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAEAEAAAAiAAAAAgAAAAAAA=</HashCode>
       <FileName>Dobbelsteen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MensErgerJeNietLogic.MensErgerJeNiet">
-    <Position X="7" Y="0.75" Width="3" />
+    <Position X="4" Y="0.5" Width="3" />
+    <AssociationLine Name="Spelers" Type="MensErgerJeNietLogic.Speler">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.058" Y="0.06" Height="0.182" Width="1.537" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAiAAASAABAAgAAwAQAIAAAAGAgAAIAAAAAA=</HashCode>
+      <HashCode>wAAACAAAAiAAASAAhAAgAA0AQAIAAAAGAgAAIAAAAAA=</HashCode>
       <FileName>MensErgerJeNiet.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -49,7 +59,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Enum Name="MensErgerJeNietLogic.VeldStatus">
-    <Position X="4" Y="3" Width="1.5" />
+    <Position X="0.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAARAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>VeldStatus.cs</FileName>
