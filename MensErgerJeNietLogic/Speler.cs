@@ -31,6 +31,8 @@ namespace MensErgerJeNietLogic
             {
                 this.hand.Add(new Pion(i, id, spel));
             }
+
+            this.MagGooien = false;
         }
     
         public List<Pion> Hand
@@ -76,5 +78,8 @@ namespace MensErgerJeNietLogic
                 }
             }
         }
+
+        //om bij te houden of iemand nog mag gooien
+        public bool MagGooien { get; internal set; }
     }
 }
