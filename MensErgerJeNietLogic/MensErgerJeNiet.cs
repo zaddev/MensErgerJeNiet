@@ -103,6 +103,17 @@ namespace MensErgerJeNietLogic
             //speler mag in eerste instantie niet gooien omdat hij zoiezo niet meer mag of dat hij eerst nog iets met een pion moet doen
             this.ActueeleSpeler.MagGooien = false;
 
+            //het is mogelijk dat de beurt nu al direct over is
+            //gekozen voor groter als 39 omdat je dan ook de pionnen die al op de thuisposite staan meeneemt
+
+            if(this.ActueeleSpeler.Hand.Count(x=>x.Locatie>39) == 4)
+            {
+                this.actspeler = (this.actspeler + 1) % this.spelers.Count;
+                //deze speler mag weer gooien
+                this.ActueeleSpeler.MagGooien = true;
+                if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
+            }
+
             return this.Dobbelsteen.Value;
         }
 
