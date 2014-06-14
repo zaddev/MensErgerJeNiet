@@ -24,6 +24,12 @@ namespace MensErgerJeNietLogic
         public event EventHandler OnVerplaatsbaar;
         #endregion
 
+        /// <summary>
+        /// object mag alleen door het spel worden aangemaakt zodat het direct bij een pel behoort
+        /// </summary>
+        /// <param name="nummer"></param>
+        /// <param name="kleur"></param>
+        /// <param name="spel"></param>
         internal Pion(int nummer, int kleur, MensErgerJeNiet spel)
         {
             this.id = kleur * 4 + nummer;
@@ -100,12 +106,23 @@ namespace MensErgerJeNietLogic
                 nieuweLocatie = this.spel.GeefVrijThuisHavenVlak(this.kleur);
             }
             //kijk of op nieuweLocatie Geen Pion aanwezig is
-            Pion pionOmTeSlaan = spel.PionOpLocation(nieuweLocatie);
+            
+
+            this.Locatie = nieuweLocatie;
+
+        }
+
+        /// <summary>
+        /// kijkt of er nog pionnen geslagen moeten worden
+        /// </summary>
+        /// <param name="locatie"></param>
+        private void CheckOmTeSlaan(int locatie)
+        {
+            Pion pionOmTeSlaan = spel.PionOpLocation(locatie);
 
             //als er een pion op locatie waar hij naar toe gaat een pion staat wordt er eerst een opdracht gegeven om deze er af te slaan
             if (pionOmTeSlaan != null)
                 spel.SlaPion(pionOmTeSlaan);
-
         }
 
         /// <summary>
@@ -114,12 +131,20 @@ namespace MensErgerJeNietLogic
         internal void VerplaatsNaarStartVeld()
         {
             this.LaatsteLocatie = this.Locatie;
+
+            //check of je een pion moet slaan
+            this.CheckOmTeSlaan(10 * this.Kleur);
+
             this.Locatie = 10 * this.Kleur;
         }
 
+        /// <summary>
+        /// actie die Volgt als iemand geslagen wordt hij wordt weer helemaal terug geplaatst
+        /// </summary>
         internal void VerplaatsNaarDeadposition()
         {
-            spel.GeefVrijDeadPosition(this);
+            this.LaatsteLocatie = this.Locatie;
+            this.Locatie = spel.GeefVrijDeadPosition(this);
         }
     }
 }
