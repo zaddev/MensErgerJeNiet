@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MensErgerJeNietLogic
 {
+    /// <summary>
+    /// Het object dat brug is tussen alle logica hiermee wordt gecomuniceerd met de GUI en de achterkant van alle logica
+    /// </summary>
     public class MensErgerJeNiet
     {
         #region private fields
@@ -14,13 +17,22 @@ namespace MensErgerJeNietLogic
         int actspeler;
         #endregion
 
+        /// <summary>
+        /// er is een nieuwe speler aan de beurt
+        /// </summary>
         public event EventHandler NewActSpeler;
 
+        /// <summary>
+        /// er wordt een nieuwe leeg spel aangemaakt
+        /// </summary>
         public MensErgerJeNiet()
         {
             this.bord = new Bord(this);
         }
 
+        /// <summary>
+        /// De dobbelsteen buiten de libary is hiervan alleen maar de value uit te lezen
+        /// </summary>
         public Dobbelsteen Dobbelsteen
         {
             get
@@ -29,6 +41,9 @@ namespace MensErgerJeNietLogic
             }
         }
 
+        /// <summary>
+        /// Een lijst met alle Spelers die aan spel meedoen
+        /// </summary>
         public List<Speler> Spelers
         {
             get
@@ -41,6 +56,9 @@ namespace MensErgerJeNietLogic
             }
         }
 
+        /// <summary>
+        /// Het bord met alle velden
+        /// </summary>
         internal Bord Bord
         {
             get
@@ -53,6 +71,9 @@ namespace MensErgerJeNietLogic
             }
         }
 
+        /// <summary>
+        /// speler die nu aan de beurt is
+        /// </summary>
         public Speler ActueeleSpeler
         {
             get
@@ -118,6 +139,10 @@ namespace MensErgerJeNietLogic
             }
         }
 
+        /// <summary>
+        /// verplaats een Pion en aantal stappen vooruit als er net gegooid is
+        /// </summary>
+        /// <param name="pion"></param>
         private void VerplaatsPion(Pion pion)
         {
             pion.Verplaats(this.dobbelsteen.Value);
@@ -160,8 +185,14 @@ namespace MensErgerJeNietLogic
             return 0;
         }
 
+        /// <summary>
+        /// geeft een Pion die met behulp van het id wordt teruggevonden
+        /// </summary>
+        /// <param name="PionId"></param>
+        /// <returns></returns>
         private Pion GetPionById(int PionId)
         {
+            if (PionId > 15) throw new ArgumentOutOfRangeException("er zijn niet zoveel pionnen");
             return spelers.First(
                 speler =>
                     speler.Hand.Exists
@@ -174,7 +205,7 @@ namespace MensErgerJeNietLogic
         }
 
         /// <summary>
-        /// 
+        /// geeft de pion terug op een bepaalde locatie als die aanwezig is.
         /// </summary>
         /// <param name="nieuweLocatie"></param>
         /// <returns>kan null returnnen als het niet aanwezig is</returns>
@@ -190,6 +221,11 @@ namespace MensErgerJeNietLogic
 
         }
 
+        /// <summary>
+        /// geef de eerste positie terug die bechikbaar is voor deze pion om terug te gaan
+        /// </summary>
+        /// <param name="pion"></param>
+        /// <returns></returns>
         internal int GeefVrijDeadPosition(Pion pion)
         {
             for (int i = 56 + 4 * pion.Kleur; i < 56 + 4 * pion.Kleur + 4; i++)
