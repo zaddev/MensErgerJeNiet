@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUIWinForm.CustomControls;
+using MensErgerJeNietLogic;
 
 namespace GUIWinForm.Screen
 {
@@ -66,6 +67,9 @@ namespace GUIWinForm.Screen
             
             //Wisselen van scherm
             Global.MainScreen.SetGameScreen();
+
+            //Start het spel
+            Global.Spel.StartSpel();
 
         }
     }

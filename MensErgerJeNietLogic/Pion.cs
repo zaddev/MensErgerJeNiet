@@ -21,7 +21,7 @@ namespace MensErgerJeNietLogic
         /// </summary>
         public event EventHandler OnVerplaatst;
 
-        public event EventHandler OnVerplaatsbaar;
+        public event EventHandler Verplaatsbaar;
         #endregion
 
         /// <summary>
