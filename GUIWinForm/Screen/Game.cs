@@ -50,6 +50,19 @@ namespace GUIWinForm.Screen
                     VerplaatsPionNaar(pionImage, pion.Locatie);         
                 }
             }
+
+            Global.Spel.StartSpel();
+            Global.Spel.MagGooien += Spel_MagGooien;
+        }
+
+        /// <summary>
+        /// maak de dobbelsteen weer beschikbaar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Spel_MagGooien(object sender, EventArgs e)
+        {
+            DobbelsteenImage.Click += this.DobbelsteenImage_Click;
         }
 
         void Spel_NewActSpeler(object sender, EventArgs e)
@@ -95,11 +108,6 @@ namespace GUIWinForm.Screen
 
             DobbelsteenImage.Click -= this.DobbelsteenImage_Click;              
             
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DobbelsteenImage.Click += this.DobbelsteenImage_Click;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

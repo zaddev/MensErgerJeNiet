@@ -15,7 +15,6 @@ namespace GUIWinForm
         private BordPositions bordPositions = new BordPositions();
         //PictureBox picturebox2;
 
-        public event EventHandler Click;
 
 
         #region constructors
@@ -29,11 +28,11 @@ namespace GUIWinForm
             this.lPion = logicPion;
             this.SetCollorImage(kleur);
             this.configPion();
-            this.SetSelectedPion();
+            //this.SetSelectedPion();
             
             // Eventlisteners toevoegen
             logicPion.OnVerplaatst += logicPion_Verplaatst;
-            logicPion.Verplaatsbaar += logicPion_Verplaatsbaar;
+            logicPion.VerplaatsbaarChange += logicPion_Verplaatsbaar;
         }
 
         public PionImage(Color kleur)
@@ -54,7 +53,10 @@ namespace GUIWinForm
         /// <param name="e"></param>
         void logicPion_Verplaatsbaar(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (this.lPion.IsVerplaatsbaar)
+                this.SetSelectedPion();
+            else
+                this.SetSelectedPionOff();
         }
 
         /// <summary>
@@ -68,8 +70,8 @@ namespace GUIWinForm
             Point nieuwelocatie = bordPositions.GetPosition(lPion.Locatie);
 
             // x bewerking en y bewerking
-            nieuwelocatie.X *= 65 + 453;
-            nieuwelocatie.Y *= -1* 58 + 26;
+            nieuwelocatie.X = nieuwelocatie.X * 65 + 453;
+            nieuwelocatie.Y = nieuwelocatie.Y * -1 * 58 + 26;
             this.Location = nieuwelocatie;
         }
 
@@ -110,11 +112,20 @@ namespace GUIWinForm
         {
             //MensErgerJeNietLogic.Pion pion;
             this.Click += PionImage_Click;
+            BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void SetSelectedPionOff()
+        {
+            //MensErgerJeNietLogic.Pion pion;
+            this.Click -= PionImage_Click;
+            BorderStyle = BorderStyle.None;
         }
 
         void PionImage_Click(object sender, EventArgs e)
         {
-            BorderStyle = BorderStyle.Fixed3D;
+            Global.Spel.ActieMetPion(this.lPion);
+            //BorderStyle = BorderStyle.Fixed3D;
            
         }
 
