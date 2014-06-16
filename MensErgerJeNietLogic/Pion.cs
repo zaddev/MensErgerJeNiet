@@ -13,6 +13,7 @@ namespace MensErgerJeNietLogic
         int gelopen;
         int locatie;
         MensErgerJeNiet spel;
+        bool isVerplaatsbaar = false;
         #endregion
 
         #region eventhandlers
@@ -21,7 +22,10 @@ namespace MensErgerJeNietLogic
         /// </summary>
         public event EventHandler OnVerplaatst;
 
-        public event EventHandler Verplaatsbaar;
+        /// <summary>
+        /// er moet gecheckt worden of het verandert is in wel of niet verplaatsbaar
+        /// </summary>
+        public event EventHandler VerplaatsbaarChange;
         #endregion
 
         /// <summary>
@@ -68,7 +72,20 @@ namespace MensErgerJeNietLogic
         }
 
         public int LaatsteLocatie { get; private set; }
-        public bool IsVerplaatsbaar { get; internal set; }
+        public bool IsVerplaatsbaar { 
+            get { return this.isVerplaatsbaar; }
+            internal set
+            {
+                //kijken of de waarde wel verandert
+                if(isVerplaatsbaar!=value)
+                {
+                    isVerplaatsbaar = value;
+                    //kijk of er wel iets aan het event hangt
+                    if (VerplaatsbaarChange != null) VerplaatsbaarChange(this, new EventArgs());
+
+                }
+            }
+        }
 
         /// <summary>
         /// unieke locatie op het bord die de pion heeft
@@ -99,14 +116,14 @@ namespace MensErgerJeNietLogic
             int nieuweLocatie=0;
             if (this.gelopen < 40)
             {
-                nieuweLocatie = this.gelopen - this.kleur * 10;
+                nieuweLocatie = (this.gelopen + this.kleur * 10)%40;
             }
             else if (this.gelopen > 39)
             {
                 nieuweLocatie = this.spel.GeefVrijThuisHavenVlak(this.kleur);
             }
             //kijk of op nieuweLocatie Geen Pion aanwezig is
-            
+            this.CheckOmTeSlaan(nieuweLocatie);
 
             this.Locatie = nieuweLocatie;
 

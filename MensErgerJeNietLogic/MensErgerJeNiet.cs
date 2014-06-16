@@ -23,6 +23,8 @@ namespace MensErgerJeNietLogic
         /// </summary>
         public event EventHandler NewActSpeler;
 
+        public event EventHandler MagGooien;
+
         /// <summary>
         /// er wordt een nieuwe leeg spel aangemaakt
         /// </summary>
@@ -93,17 +95,54 @@ namespace MensErgerJeNietLogic
         {
             //game moet wel gestart zijn
             if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
+            if(!this.ActueeleSpeler.MagGooien)throw new InvalidOperationException("er mag niet gegooid worden op dit moment");
             this.Dobbelsteen.Rol();
-
-            /*//tijdelijk is er bij iedere rol ook een nieuwe speler aan de beurt
-            this.actspeler = (this.actspeler + 1) % this.spelers.Count;*/
-            //event wordt getriggerd er is een nieuwe speler aan de beurt
-            if(NewActSpeler!=null)NewActSpeler(this.ActueeleSpeler, new EventArgs());
 
             //speler mag in eerste instantie niet gooien omdat hij zoiezo niet meer mag of dat hij eerst nog iets met een pion moet doen
             this.ActueeleSpeler.MagGooien = false;
 
+            //kijk welke pionnen geplaatst mogen worden
+            //er is 6 gegooid en er zijn nog pionnen die op het bord gezet kunnen worden
+            if (this.ActueeleSpeler.Hand.Count(x => x.Locatie > 55) >=1 && Dobbelsteen.Value == 6)
+            {
+                //zet pionnen beschikbaar om te verzetten die op de deadpositions staan
+                this.ActueeleSpeler.Hand.ForEach(x =>
+                {
+                    if (x.Locatie > 55)
+                    {
+                        x.IsVerplaatsbaar = true;
+                    }
+                });
+            }
+            //het is mogelijk dat de beurt nu al direct over is
+            //gekozen voor groter als 39 omdat je dan ook de pionnen die al op de thuisposite staan meeneemt
+            else if(this.ActueeleSpeler.Hand.Count(x=>x.Locatie>39) == 4)
+            {
+                this.NieweSpeler();
+            }
+            //is dit niet waar dan mogen de pionnen in het spel beschikbaar worden gesteld
+            else
+            {
+                this.ActueeleSpeler.Hand.ForEach(x =>
+                    {
+                        if (x.Locatie <= 39)
+                            x.IsVerplaatsbaar = true;
+                    }
+                    );
+            }
+
             return this.Dobbelsteen.Value;
+        }
+
+        private void NieweSpeler()
+        {
+            this.ActueeleSpeler.Hand.ForEach(x => x.IsVerplaatsbaar = false);
+
+            this.actspeler = (this.actspeler + 1) % this.spelers.Count;
+            //deze speler mag weer gooien
+            this.ActueeleSpeler.MagGooien = true;
+            if (MagGooien != null) MagGooien(this.Dobbelsteen, new EventArgs());
+            if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
         }
 
         /// <summary>
@@ -126,6 +165,8 @@ namespace MensErgerJeNietLogic
             Speler nieuweSpeler = new Speler(spelersNaam, this.Spelers.Count, this);
             this.Spelers.Add(nieuweSpeler);
 
+            this.bord.AddPions(nieuweSpeler);
+
             return nieuweSpeler;
         }
 
@@ -141,14 +182,14 @@ namespace MensErgerJeNietLogic
             //kijk of er wel met de pion gespeeld mag worden
             if(pion.IsVerplaatsbaar )
             {
-                //scenario met speciale handelingen als er 6 gegooid is en er nog pionnen op de deadposition zitten
+                /*//scenario met speciale handelingen als er 6 gegooid is en er nog pionnen op de deadposition zitten
                 if(this.Dobbelsteen.Value == 6 && this.ActueeleSpeler.Hand.Exists(x=>x.Locatie>55))
                 {
                     this.ActueeleSpeler.Hand.First(x => x.Locatie > 55).VerplaatsNaarStartVeld();
                     //functie hoeft niet verder te gaan en kan stoppen
                 }
-                //kijk of de pion al mee doet in het spel
-                else if(pion.Locatie>55)//56 is de eerste locatie dat een deadposition is
+                //kijk of de pion al mee doet in het spel*/
+                if(pion.Locatie>55)//56 is de eerste locatie dat een deadposition is
                 {
                     this.PlaatsNieuwePion(pion);
                 }
@@ -162,11 +203,15 @@ namespace MensErgerJeNietLogic
                 //als de persoon niet meer mag gooien is de volgende speler aan de beurt
                 if(!this.ActueeleSpeler.MagGooien)
                 {
-                    this.actspeler = (this.actspeler + 1) % this.spelers.Count;
-                    //deze speler mag weer gooien
-                    this.ActueeleSpeler.MagGooien = true;
-                    if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
+                    this.NieweSpeler();
                 }
+                else
+                {
+                    if (MagGooien != null) MagGooien(this.Dobbelsteen, new EventArgs());
+                }
+
+                //zorg dat de huidige speler niks meer met zijn pion mag doen
+                this.ActueeleSpeler.Hand.ForEach(x => x.IsVerplaatsbaar = false);
             }
         }
 
@@ -278,6 +323,7 @@ namespace MensErgerJeNietLogic
 
             //eerste speler is aan de beurt
             this.actspeler = 0;
+            this.ActueeleSpeler.MagGooien = true;
             if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
         }
     }

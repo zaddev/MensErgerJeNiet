@@ -38,6 +38,7 @@ namespace MensErgerJeNietLogic
             speler.Hand.ForEach(pion =>
                         {
                             pion.OnVerplaatst += pion_Verplaatst;
+                            Fields[pion.Locatie] = (VeldStatus)pion.Kleur;
                         }
                     );
         }
