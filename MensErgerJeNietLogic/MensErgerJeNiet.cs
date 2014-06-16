@@ -251,7 +251,7 @@ namespace MensErgerJeNietLogic
         {
             // kijkt voor de hoogste vrije positie in de thuishaven
             // is 40 + 4 * kleur vanaf + 3
-            for(int i = 40+4*kleur+3; i >= 40+4*kleur; i++)
+            for(int i = 40+4*kleur+3; i >= 40+4*kleur; i--)
             {
                 if(this.bord.Fields[i] == VeldStatus.vrij)
                 {
