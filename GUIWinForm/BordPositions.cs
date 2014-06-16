@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace GUIWinForm
 {
@@ -40,7 +41,7 @@ namespace GUIWinForm
             #endregion
         }
 
-        public System.Drawing.Point GetPosition(int pos)
+        public Point GetPosition(int pos)
         {
             int y = 0;
             int x = 0;
@@ -134,7 +135,7 @@ namespace GUIWinForm
                 }
             }
             #endregion
-            return new System.Drawing.Point(x, y);
+            return new Point(x, y);
         }
     }
 
