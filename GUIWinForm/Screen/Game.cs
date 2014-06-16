@@ -17,20 +17,20 @@ namespace GUIWinForm.Screen
         {
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+
             //this.pictureBox2 = new PionImage(Color.rood);
             this.pictureBox2.Parent = this.pictureBox1;
             //this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-
+            
+           
 
             //PionImage pa1 = new PionImage(Color.rood);
             //pa1.Parent = this.pictureBox1;//dit is niet nodig om dat je hem aan de controlls van de picturebox
             //let op de verhoudingen hierdoor zijn afhankelijk van de image
-
             //this.pictureBox1.Controls.Add(pa1);
 
-            LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };
-           
-
+            LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };    
+            
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -50,6 +50,19 @@ namespace GUIWinForm.Screen
                     VerplaatsPionNaar(pionImage, pion.Locatie);         
                 }
             }
+
+            Global.Spel.StartSpel();
+            Global.Spel.MagGooien += Spel_MagGooien;
+        }
+
+        /// <summary>
+        /// maak de dobbelsteen weer beschikbaar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Spel_MagGooien(object sender, EventArgs e)
+        {
+            DobbelsteenImage.Click += this.DobbelsteenImage_Click;
         }
 
         void Spel_NewActSpeler(object sender, EventArgs e)
@@ -95,11 +108,6 @@ namespace GUIWinForm.Screen
 
             DobbelsteenImage.Click -= this.DobbelsteenImage_Click;              
             
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DobbelsteenImage.Click += this.DobbelsteenImage_Click;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

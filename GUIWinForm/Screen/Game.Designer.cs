@@ -33,7 +33,6 @@
             this.player3 = new System.Windows.Forms.Label();
             this.player4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.BeurtSpeler = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -102,16 +101,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Klik op de dobbelsteen";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(913, 392);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Eindig Beurt";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // BeurtSpeler
             // 
             this.BeurtSpeler.AutoSize = true;
@@ -150,7 +139,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(831, 20);
+            this.pictureBox2.Location = new System.Drawing.Point(840, 250);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +178,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BeurtSpeler);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DobbelsteenImage);
             this.Controls.Add(this.player4);
@@ -218,7 +206,6 @@
         private System.Windows.Forms.Label player4;
         private System.Windows.Forms.PictureBox DobbelsteenImage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label BeurtSpeler;
         private System.Windows.Forms.Label label2;
