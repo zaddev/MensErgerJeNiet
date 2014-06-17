@@ -21,6 +21,8 @@ namespace GUIWinForm.Screen
             //this.pictureBox2 = new PionImage(Color.rood);
             this.pictureBox2.Parent = this.pictureBox1;
             //this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+
+            
             
            
 
@@ -31,6 +33,14 @@ namespace GUIWinForm.Screen
 
             LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };    
             
+        }
+
+        void Spel_EindeSpel(object sender, EventArgs e)
+        {
+            MensErgerJeNietLogic.Speler speler = sender as MensErgerJeNietLogic.Speler;
+
+            if (speler != null)
+                MessageBox.Show("het spel is afgelope, " + speler.Naam + " heeft gewonnen", "end game", MessageBoxButtons.OK);
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -53,6 +63,7 @@ namespace GUIWinForm.Screen
 
             Global.Spel.StartSpel();
             Global.Spel.MagGooien += Spel_MagGooien;
+            Global.Spel.EindeSpel += Spel_EindeSpel;
         }
 
         /// <summary>
