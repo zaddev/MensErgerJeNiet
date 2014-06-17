@@ -33,7 +33,7 @@ namespace MensErgerJeNietLogic
         /// voegt de pionnen toe zodat het bord kan opletten of er een pion zich verplaatst
         /// </summary>
         /// <param name="speler">speler heeft een hand met 4 pionnen</param>
-        public void AddPions(Speler speler)
+        internal void p(Speler speler)
         {
             speler.Hand.ForEach(pion =>
                         {
