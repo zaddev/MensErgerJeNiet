@@ -25,6 +25,8 @@ namespace MensErgerJeNietLogic
 
         public event EventHandler MagGooien;
 
+        public event EventHandler EindeSpel;
+
         /// <summary>
         /// er wordt een nieuwe leeg spel aangemaakt
         /// </summary>
@@ -182,13 +184,6 @@ namespace MensErgerJeNietLogic
             //kijk of er wel met de pion gespeeld mag worden
             if(pion.IsVerplaatsbaar )
             {
-                /*//scenario met speciale handelingen als er 6 gegooid is en er nog pionnen op de deadposition zitten
-                if(this.Dobbelsteen.Value == 6 && this.ActueeleSpeler.Hand.Exists(x=>x.Locatie>55))
-                {
-                    this.ActueeleSpeler.Hand.First(x => x.Locatie > 55).VerplaatsNaarStartVeld();
-                    //functie hoeft niet verder te gaan en kan stoppen
-                }
-                //kijk of de pion al mee doet in het spel*/
                 if(pion.Locatie>55)//56 is de eerste locatie dat een deadposition is
                 {
                     this.PlaatsNieuwePion(pion);
@@ -197,6 +192,9 @@ namespace MensErgerJeNietLogic
                 {
                     this.VerplaatsPion(pion);
                 }
+
+                //check of speler gewonnen heeft
+                this.CheckVoorWinst(this.ActueeleSpeler);
 
                 //kijk of de persoon nog een keer mag gooien
                 this.ActueeleSpeler.MagGooien = this.Dobbelsteen.Value == 6;
@@ -212,6 +210,17 @@ namespace MensErgerJeNietLogic
 
                 //zorg dat de huidige speler niks meer met zijn pion mag doen
                 this.ActueeleSpeler.Hand.ForEach(x => x.IsVerplaatsbaar = false);
+            }
+        }
+
+        private void CheckVoorWinst(Speler speler)
+        {
+            if(speler.Hand.Count(x=>x.Locatie > 39 && x.Locatie < 56) == 4)
+            {
+                //alle pionnen staan thuis de speler heeft gewonnen
+                if (this.EindeSpel != null) 
+                    EindeSpel(speler, new EventArgs());
+
             }
         }
 
@@ -251,7 +260,7 @@ namespace MensErgerJeNietLogic
         {
             // kijkt voor de hoogste vrije positie in de thuishaven
             // is 40 + 4 * kleur vanaf + 3
-            for(int i = 40+4*kleur+3; i >= 40+4*kleur; i++)
+            for(int i = 40+4*kleur+3; i >= 40+4*kleur; i--)
             {
                 if(this.bord.Fields[i] == VeldStatus.vrij)
                 {
