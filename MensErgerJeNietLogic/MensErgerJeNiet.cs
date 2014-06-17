@@ -103,9 +103,14 @@ namespace MensErgerJeNietLogic
             //speler mag in eerste instantie niet gooien omdat hij zoiezo niet meer mag of dat hij eerst nog iets met een pion moet doen
             this.ActueeleSpeler.MagGooien = false;
 
+
+            if (this.ActueeleSpeler.Hand.Exists(pion => pion.Locatie == pion.Kleur *10) && this.ActueeleSpeler.Hand.Exists(pion => pion.Locatie > 55))
+            {
+                this.ActueeleSpeler.Hand.First(pion => pion.Locatie == pion.Kleur * 10).IsVerplaatsbaar = true;
+            }
             //kijk welke pionnen geplaatst mogen worden
             //er is 6 gegooid en er zijn nog pionnen die op het bord gezet kunnen worden
-            if (this.ActueeleSpeler.Hand.Count(x => x.Locatie > 55) >=1 && Dobbelsteen.Value == 6)
+            else if (this.ActueeleSpeler.Hand.Count(x => x.Locatie > 55) >=1 && Dobbelsteen.Value == 6)
             {
                 //zet pionnen beschikbaar om te verzetten die op de deadpositions staan
                 this.ActueeleSpeler.Hand.ForEach(x =>
@@ -167,7 +172,7 @@ namespace MensErgerJeNietLogic
             Speler nieuweSpeler = new Speler(spelersNaam, this.Spelers.Count, this);
             this.Spelers.Add(nieuweSpeler);
 
-            this.bord.AddPions(nieuweSpeler);
+            this.bord.p(nieuweSpeler);
 
             return nieuweSpeler;
         }
