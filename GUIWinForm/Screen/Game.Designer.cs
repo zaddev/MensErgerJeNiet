@@ -34,14 +34,8 @@
             this.player4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BeurtSpeler = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DobbelsteenImage = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DobbelsteenImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,41 +105,6 @@
             this.BeurtSpeler.TabIndex = 9;
             this.BeurtSpeler.Text = "Boot is aan de beurt";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(957, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "label2";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(913, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(886, 170);
-            this.trackBar1.Maximum = 71;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(235, 45);
-            this.trackBar1.TabIndex = 72;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(840, 250);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(42, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
             // DobbelsteenImage
             // 
             this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_1;
@@ -173,11 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.BeurtSpeler);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DobbelsteenImage);
             this.Controls.Add(this.player4);
@@ -188,8 +143,6 @@
             this.Name = "Game";
             this.Size = new System.Drawing.Size(1124, 863);
             this.Load += new System.EventHandler(this.Game_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DobbelsteenImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -206,10 +159,6 @@
         private System.Windows.Forms.Label player4;
         private System.Windows.Forms.PictureBox DobbelsteenImage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label BeurtSpeler;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TrackBar trackBar1;
     }
 }

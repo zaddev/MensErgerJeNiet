@@ -16,23 +16,9 @@ namespace GUIWinForm.Screen
         public Game()
         {
             InitializeComponent();
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);   
 
-            //this.pictureBox2 = new PionImage(Color.rood);
-            this.pictureBox2.Parent = this.pictureBox1;
-            //this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-
-            
-            
-           
-
-            //PionImage pa1 = new PionImage(Color.rood);
-            //pa1.Parent = this.pictureBox1;//dit is niet nodig om dat je hem aan de controlls van de picturebox
-            //let op de verhoudingen hierdoor zijn afhankelijk van de image
-            //this.pictureBox1.Controls.Add(pa1);
-
-            LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };    
-            
+            LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };       
         }
 
         void Spel_EindeSpel(object sender, EventArgs e)
@@ -40,7 +26,17 @@ namespace GUIWinForm.Screen
             MensErgerJeNietLogic.Speler speler = sender as MensErgerJeNietLogic.Speler;
 
             if (speler != null)
-                MessageBox.Show("het spel is afgelope, " + speler.Naam + " heeft gewonnen", "end game", MessageBoxButtons.OK);
+            {
+                DialogResult clickedAnswer = MessageBox.Show(speler.Naam + " heeft gewonnen \n Wilt u een nieuwe spel starten", "Gefeliciteerd", MessageBoxButtons.YesNo);
+                if (DialogResult.Yes == clickedAnswer)
+                {
+                    Global.MainScreen.StartNieuwSpel();
+                }
+                else 
+                {
+                    Global.MainScreen.Close();
+                }
+            }
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -74,6 +70,7 @@ namespace GUIWinForm.Screen
         void Spel_MagGooien(object sender, EventArgs e)
         {
             DobbelsteenImage.Click += this.DobbelsteenImage_Click;
+            label1.Text = "Klik op de dobbelsteen";
         }
 
         void Spel_NewActSpeler(object sender, EventArgs e)
@@ -86,7 +83,9 @@ namespace GUIWinForm.Screen
         private void DobbelsteenImage_Click(object sender, EventArgs e)
         {
             //logica gooi dobbelsteen
+            label1.Text = "Kies een pion";  
             Global.Spel.DoeWorp();
+            
             int gegooidewaard = (Global.Spel.Dobbelsteen.Value);
 
             switch (gegooidewaard)
@@ -116,32 +115,11 @@ namespace GUIWinForm.Screen
                     break;
 
             }
-
-            DobbelsteenImage.Click -= this.DobbelsteenImage_Click;              
-            
+            DobbelsteenImage.Click -= this.DobbelsteenImage_Click;
+             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            this.label2.Text = ""+(new BordPositions()).GetPosition(int.Parse(this.textBox1.Text));
-
-            this.pictureBox2.Location = new Point(
-                (new BordPositions()).GetPosition(int.Parse(this.textBox1.Text)).X * 66 + 432, 
-                -1*(new BordPositions()).GetPosition(int.Parse(this.textBox1.Text)).Y * 66 + 3
-                );
-
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            this.label2.Text = "" + (new BordPositions()).GetPosition(this.trackBar1.Value);
-
-            this.pictureBox2.Location = new Point(
-                (new BordPositions()).GetPosition(this.trackBar1.Value).X * 65 + 453,
-                -1 * (new BordPositions()).GetPosition(this.trackBar1.Value).Y * 58 + 26
-                );
-        }
-
+       
         /// <summary>
         /// Verplaats de pion naar een nieuwe locatie.
         /// </summary>
@@ -149,8 +127,6 @@ namespace GUIWinForm.Screen
         /// <param name="nieuweLocatie"></param>
         private void VerplaatsPionNaar(PionImage pion, int nieuweLocatie)
         {
-            this.label2.Text = "" + (new BordPositions()).GetPosition(this.trackBar1.Value);
-
             pion.Location = new Point(
                     (new BordPositions()).GetPosition(nieuweLocatie).X * 65 + 453, -1 * 
                     (new BordPositions()).GetPosition(nieuweLocatie).Y * 58 + 26);

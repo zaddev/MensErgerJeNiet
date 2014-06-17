@@ -39,5 +39,16 @@ namespace GUIWinForm
             this.Controls.Add(this.currentScreen);
         }
 
+
+        internal void StartNieuwSpel()
+        {
+            Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
+            this.gameScreen = new Screen.Game();
+
+            this.Controls.Remove(this.currentScreen);
+            this.currentScreen = this.startScreen;
+
+            this.Controls.Add(this.currentScreen);
+        }
     }
 }
