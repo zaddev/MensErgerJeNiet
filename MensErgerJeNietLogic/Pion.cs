@@ -147,6 +147,7 @@ namespace MensErgerJeNietLogic
         /// </summary>
         internal void VerplaatsNaarStartVeld()
         {
+            this.gelopen = 0;//zorg ervoor dat een pion altijd 0 heeft gelopen dit moet omdat je kan hebt dat een pion al heeft gelopen en dit niet gewist heeft
             this.LaatsteLocatie = this.Locatie;
 
             //check of je een pion moet slaan
