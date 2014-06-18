@@ -49,6 +49,7 @@ namespace GUIWinForm.Screen
         /// <param name="e"></param>
         private void ButtonStartGame_Click(object sender, EventArgs e)
         {
+            int aantalBots = 0;
             foreach (NewPlayer speler in  this.splitContainer1.Panel2.Controls)
             {
                 if(string.IsNullOrWhiteSpace(speler.SpelersNaam))
@@ -56,6 +57,17 @@ namespace GUIWinForm.Screen
                     MessageBox.Show("Één of meerdere velden zijn niet goed ingevuld");
                     return;
                 }
+
+                if (speler.IsBot)
+                {
+                    aantalBots += 1;
+                }
+            }
+
+            if (aantalBots == this.splitContainer1.Panel2.Controls.Count)
+            {
+                MessageBox.Show("Er moet minimaal 1 speler zijn");
+                return;
             }
 
             if (Global.Spel == null) Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
