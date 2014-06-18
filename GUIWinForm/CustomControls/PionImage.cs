@@ -16,6 +16,7 @@ namespace GUIWinForm
         private MensErgerJeNietLogic.Pion lPion;
         private BordPositions bordPositions = new BordPositions();
         BackgroundWorker animatedPion = new BackgroundWorker();
+        static bool isAnimating = false;
         //PictureBox picturebox2;
 
         #region constructors
@@ -35,8 +36,14 @@ namespace GUIWinForm
             this.animatedPion.DoWork += animatedPion_DoWork;
             this.animatedPion.WorkerReportsProgress = true;
             this.animatedPion.ProgressChanged += animatedPion_ProgressChanged;
+            this.animatedPion.RunWorkerCompleted += animatedPion_RunWorkerCompleted;
             logicPion.OnVerplaatst += logicPion_Verplaatst;
             logicPion.VerplaatsbaarChange += logicPion_Verplaatsbaar;
+        }
+
+        void animatedPion_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            PionImage.isAnimating = false;
         }
 
         void animatedPion_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -46,14 +53,20 @@ namespace GUIWinForm
 
         void animatedPion_DoWork(object sender, DoWorkEventArgs e)
         {
+            //blijf wachten toch hij niet meer bezig is
+            while(PionImage.isAnimating)
+            {
+                System.Threading.Thread.Sleep(300);
+            }
+            PionImage.isAnimating = true;
             MensErgerJeNietLogic.Pion pion = e.Argument as MensErgerJeNietLogic.Pion;
-            if (pion.LaatsteLocatie > 55 || pion.LaatsteLocatie > 39)
+            if (pion.LaatsteLocatie > 55 || pion.Locatie > 39)
             {
                 animatedPion.ReportProgress(pion.Locatie);
             }
             else if(pion.Locatie < pion.LaatsteLocatie)
             {
-                int stappen = 40 - pion.LaatsteLocatie + pion.Locatie;
+                int stappen = 40 + pion.Locatie;
                 for(int i = pion.LaatsteLocatie; i <= stappen; i++)
                 {
                     animatedPion.ReportProgress(i % 40);
@@ -62,7 +75,8 @@ namespace GUIWinForm
             }
             else if (pion.LaatsteLocatie < 40)
             {
-                for (int i = pion.LaatsteLocatie; i <= pion.Locatie; i++)
+                int eindlocatie = pion.Locatie;//expres hier gereseveerd omdat door het asynchrone karakter de value terwijl de loop nog wordt uitgevoerd kan wijzigen
+                for (int i = pion.LaatsteLocatie; i <= eindlocatie; i++)
                 {
                     animatedPion.ReportProgress(i);
                     System.Threading.Thread.Sleep(250);
