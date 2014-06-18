@@ -146,6 +146,10 @@
     <None Include="Resources\EigenBord2.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MensErgerJeNietBot\MensErgerJeNietBot.csproj">
+      <Project>{dcb19c23-808c-4eda-a522-a0975d8c9a02}</Project>
+      <Name>MensErgerJeNietBot</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MensErgerJeNietLogic\MensErgerJeNietLogic.csproj">
       <Project>{b49e77cc-c15d-4b06-b606-047d5e533c23}</Project>
       <Name>MensErgerJeNietLogic</Name>
