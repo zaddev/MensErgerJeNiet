@@ -41,6 +41,11 @@ namespace GUIWinForm
             #endregion
         }
 
+        /// <summary>
+        /// geeft de coordinaten terug van een gevraagd hokje op het veld
+        /// </summary>
+        /// <param name="pos">positie op bord</param>
+        /// <returns>coordinaten ten opzichte van 0</returns>
         public Point GetPosition(int pos)
         {
             int y = 0;

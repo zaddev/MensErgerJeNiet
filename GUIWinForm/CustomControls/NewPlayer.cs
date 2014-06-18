@@ -37,6 +37,10 @@ namespace GUIWinForm.CustomControls
 
 
         #region constructors
+        /// <summary>
+        /// maak een spelersInvoer controller aan
+        /// </summary>
+        /// <param name="nummer"></param>
         public NewPlayer(int nummer)
         {
             Color kleur = (Color)nummer;

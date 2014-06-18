@@ -220,8 +220,13 @@ namespace MensErgerJeNietLogic
             }
         }
 
+        /// <summary>
+        /// kijk of deze speler mischien al gewonnen heeft
+        /// </summary>
+        /// <param name="speler"></param>
         private void CheckVoorWinst(Speler speler)
         {
+            //alle thuis posities zijn van 40 tm 55 dus als daar al je pionnen zich tussen bevinden dan heeft diegene gewonnen
             if(speler.Hand.Count(x=>x.Locatie > 39 && x.Locatie < 56) == 4)
             {
                 //alle pionnen staan thuis de speler heeft gewonnen
