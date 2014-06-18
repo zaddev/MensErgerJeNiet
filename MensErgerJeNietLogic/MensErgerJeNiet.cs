@@ -144,12 +144,14 @@ namespace MensErgerJeNietLogic
         private void NieweSpeler()
         {
             this.ActueeleSpeler.Hand.ForEach(x => x.IsVerplaatsbaar = false);
+            this.ActueeleSpeler.IsAanDeBeurt = false;
 
             this.actspeler = (this.actspeler + 1) % this.spelers.Count;
             //deze speler mag weer gooien
             this.ActueeleSpeler.MagGooien = true;
             if (MagGooien != null) MagGooien(this.Dobbelsteen, new EventArgs());
             if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
+            this.ActueeleSpeler.IsAanDeBeurt = true;
         }
 
         /// <summary>
@@ -338,6 +340,7 @@ namespace MensErgerJeNietLogic
             //eerste speler is aan de beurt
             this.actspeler = 0;
             this.ActueeleSpeler.MagGooien = true;
+            this.ActueeleSpeler.IsAanDeBeurt = true;
             if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
         }
     }

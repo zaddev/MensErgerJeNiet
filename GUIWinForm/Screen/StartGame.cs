@@ -15,6 +15,7 @@ namespace GUIWinForm.Screen
     public partial class StartGame : UserControl
     {
         List<NewPlayer> NewPlayers = new List<NewPlayer>();
+        List<MensErgerJeNietBot.Bot> bots = new List<MensErgerJeNietBot.Bot>();
 
         public StartGame()
         {
@@ -35,7 +36,7 @@ namespace GUIWinForm.Screen
             for(int i = 0; i<spelers;i++)
             {
                 NewPlayer t = new NewPlayer(i);
-                t.Top += i * 55;
+                t.Top += i * 70;
                 this.splitContainer1.Panel2.Controls.Add(t);
             }
 
@@ -62,7 +63,12 @@ namespace GUIWinForm.Screen
             //TODO: Spelers werkelijk toevoegen
             foreach (NewPlayer speler in this.splitContainer1.Panel2.Controls)
             {
-                Global.Spel.AddNewSpeler(speler.SpelersNaam);
+                MensErgerJeNietLogic.Speler logicSpeler = Global.Spel.AddNewSpeler(speler.SpelersNaam);
+                if(speler.IsBot)
+                {
+                    bots.Add( new MensErgerJeNietBot.Bot(Global.Spel, logicSpeler));
+                }
+                
             }
             
             //Wisselen van scherm

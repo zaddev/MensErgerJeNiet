@@ -13,7 +13,9 @@ namespace GUIWinForm.CustomControls
         #region private fields
 
         Label lNaam = new Label();
+        Label cBTitel = new Label();
         TextBox tNaam = new TextBox();
+        CheckBox computerCheck = new CheckBox();
 
         #endregion
 
@@ -25,6 +27,14 @@ namespace GUIWinForm.CustomControls
             }
         }
 
+        public bool IsBot
+        {
+            get 
+            { 
+                return this.computerCheck.Checked; 
+            }
+        }
+
 
         #region constructors
         public NewPlayer(int nummer)
@@ -32,7 +42,7 @@ namespace GUIWinForm.CustomControls
             Color kleur = (Color)nummer;
             this.Top = 40;
             this.Text = string.Format("Speler {0}", kleur);
-            this.Size = new System.Drawing.Size(200, 50);
+            this.Size = new System.Drawing.Size(200, 65);
 
             //lnaam is een label met de text
             this.lNaam.Text = "Naam:";
@@ -45,6 +55,16 @@ namespace GUIWinForm.CustomControls
             this.tNaam.Left = 80;
             this.tNaam.Top = 15;
             this.Controls.Add(this.tNaam);
+            
+            //checkbox
+            this.cBTitel.Text = "Bot: ";
+            this.cBTitel.Top = 40;
+            this.cBTitel.Left = 10;
+            this.cBTitel.Width = 70;
+            this.Controls.Add(this.cBTitel);
+            this.computerCheck.Top = 35;
+            this.computerCheck.Left = 80;
+            this.Controls.Add(this.computerCheck);
 
             this.tNaam.Text = "bootstrap";
         }
