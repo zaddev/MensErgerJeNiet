@@ -21,6 +21,11 @@ namespace GUIWinForm.Screen
             LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };       
         }
 
+        /// <summary>
+        /// deze methode wordt uitgevoerd naar aanleiding van het event uit de logica dat het spel is afgelopen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Spel_EindeSpel(object sender, EventArgs e)
         {
             MensErgerJeNietLogic.Speler speler = sender as MensErgerJeNietLogic.Speler;
@@ -39,6 +44,11 @@ namespace GUIWinForm.Screen
             }
         }
 
+        /// <summary>
+        /// uitgevoerd zodra het scherm zichtbaar wordt dit is ook het moment dat informatie als spelers bekend zijn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Game_Load(object sender, EventArgs e)
         {
             Global.Spel.NewActSpeler += Spel_NewActSpeler;
@@ -53,7 +63,7 @@ namespace GUIWinForm.Screen
                     //pion.Locatie.
                     PionImage pionImage = new PionImage((Color)pion.Kleur, pion);
                     this.pictureBox1.Controls.Add(pionImage);
-                    VerplaatsPionNaar(pionImage, pion.Locatie);         
+                    pionImage.verplaatsNaar(pion.Locatie);
                 }
             }
 
@@ -73,6 +83,11 @@ namespace GUIWinForm.Screen
             label1.Text = "Klik op de dobbelsteen";
         }
 
+        /// <summary>
+        /// De volgende speler is aan de beurt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Spel_NewActSpeler(object sender, EventArgs e)
         {
             var actspeler = sender as MensErgerJeNietLogic.Speler;
@@ -80,6 +95,11 @@ namespace GUIWinForm.Screen
             this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", actspeler.Naam);
         }
 
+        /// <summary>
+        /// op het moment dat een speler maag gooien wordt de opdracht doorgestuurd naar de backend
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DobbelsteenImage_Click(object sender, EventArgs e)
         {
             //logica gooi dobbelsteen
@@ -117,20 +137,6 @@ namespace GUIWinForm.Screen
             }
             DobbelsteenImage.Click -= this.DobbelsteenImage_Click;
              
-        }
-
-       
-        /// <summary>
-        /// Verplaats de pion naar een nieuwe locatie.
-        /// </summary>
-        /// <param name="pion"></param>
-        /// <param name="nieuweLocatie"></param>
-        private void VerplaatsPionNaar(PionImage pion, int nieuweLocatie)
-        {
-            pion.Location = new Point(
-                    (new BordPositions()).GetPosition(nieuweLocatie).X * 65 + 453, -1 * 
-                    (new BordPositions()).GetPosition(nieuweLocatie).Y * 58 + 26);
-        }
-   
+        }   
     }
 }

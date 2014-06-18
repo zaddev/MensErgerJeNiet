@@ -66,8 +66,13 @@ namespace GUIWinForm
         /// <param name="e"></param>
         void logicPion_Verplaatst(object sender, EventArgs e)
         {
+            this.verplaatsNaar(lPion.Locatie);
             
-            Point nieuwelocatie = bordPositions.GetPosition(lPion.Locatie);
+        }
+
+        internal void verplaatsNaar(int naar)
+        {
+            Point nieuwelocatie = bordPositions.GetPosition(naar);
 
             // x bewerking en y bewerking
             nieuwelocatie.X = nieuwelocatie.X * 65 + 453;
