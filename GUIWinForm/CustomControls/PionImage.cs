@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using GUIWinForm.Screen;
+using System.ComponentModel;
+
 
 namespace GUIWinForm
 {
@@ -13,9 +15,8 @@ namespace GUIWinForm
     {
         private MensErgerJeNietLogic.Pion lPion;
         private BordPositions bordPositions = new BordPositions();
+        BackgroundWorker animatedPion = new BackgroundWorker();
         //PictureBox picturebox2;
-
-
 
         #region constructors
         
@@ -27,12 +28,47 @@ namespace GUIWinForm
         {
             this.lPion = logicPion;
             this.SetCollorImage(kleur);
-            this.configPion();
+            this.configPion();         
             //this.SetSelectedPion();
             
             // Eventlisteners toevoegen
+            this.animatedPion.DoWork += animatedPion_DoWork;
+            this.animatedPion.WorkerReportsProgress = true;
+            this.animatedPion.ProgressChanged += animatedPion_ProgressChanged;
             logicPion.OnVerplaatst += logicPion_Verplaatst;
             logicPion.VerplaatsbaarChange += logicPion_Verplaatsbaar;
+        }
+
+        void animatedPion_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            VerplaatsNaar(e.ProgressPercentage);
+        }
+
+        void animatedPion_DoWork(object sender, DoWorkEventArgs e)
+        {
+            MensErgerJeNietLogic.Pion pion = e.Argument as MensErgerJeNietLogic.Pion;
+            if (pion.LaatsteLocatie > 55 || pion.LaatsteLocatie > 39)
+            {
+                animatedPion.ReportProgress(pion.Locatie);
+            }
+            else if(pion.Locatie < pion.LaatsteLocatie)
+            {
+                int stappen = 40 - pion.LaatsteLocatie + pion.Locatie;
+                for(int i = pion.LaatsteLocatie; i <= stappen; i++)
+                {
+                    animatedPion.ReportProgress(i % 40);
+                    System.Threading.Thread.Sleep(250);
+                }
+            }
+            else if (pion.LaatsteLocatie < 40)
+            {
+                for (int i = pion.LaatsteLocatie; i <= pion.Locatie; i++)
+                {
+                    animatedPion.ReportProgress(i);
+                    System.Threading.Thread.Sleep(250);
+                }
+            }
+            
         }
 
         public PionImage(Color kleur)
@@ -66,15 +102,24 @@ namespace GUIWinForm
         /// <param name="e"></param>
         void logicPion_Verplaatst(object sender, EventArgs e)
         {
+            if (!animatedPion.IsBusy)
+            {
+                animatedPion.RunWorkerAsync(this.lPion);
+            }
             
-            Point nieuwelocatie = bordPositions.GetPosition(lPion.Locatie);
+        }
 
+        /// <summary>
+        /// verplaats de pion naar de des betreffende lokatie
+        /// </summary>
+        void VerplaatsNaar(int locatie)
+        {
+            Point nieuwelocatie = bordPositions.GetPosition(locatie);
             // x bewerking en y bewerking
             nieuwelocatie.X = nieuwelocatie.X * 65 + 453;
             nieuwelocatie.Y = nieuwelocatie.Y * -1 * 58 + 26;
             this.Location = nieuwelocatie;
         }
-
         private void configPion()
         {
             this.Size = new System.Drawing.Size(42, 60);

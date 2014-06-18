@@ -60,32 +60,11 @@ namespace GUIWinForm.Screen
             Global.Spel.StartSpel();
             Global.Spel.MagGooien += Spel_MagGooien;
             Global.Spel.EindeSpel += Spel_EindeSpel;
+            Global.Spel.Dobbelsteen.Gegooid += Dobbelsteen_Gegooid;
         }
 
-        /// <summary>
-        /// maak de dobbelsteen weer beschikbaar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Spel_MagGooien(object sender, EventArgs e)
+        void Dobbelsteen_Gegooid(object sender, EventArgs e)
         {
-            DobbelsteenImage.Click += this.DobbelsteenImage_Click;
-            label1.Text = "Klik op de dobbelsteen";
-        }
-
-        void Spel_NewActSpeler(object sender, EventArgs e)
-        {
-            var actspeler = sender as MensErgerJeNietLogic.Speler;
-            
-            this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", actspeler.Naam);
-        }
-
-        private void DobbelsteenImage_Click(object sender, EventArgs e)
-        {
-            //logica gooi dobbelsteen
-            label1.Text = "Kies een pion";  
-            Global.Spel.DoeWorp();
-            
             int gegooidewaard = (Global.Spel.Dobbelsteen.Value);
 
             switch (gegooidewaard)
@@ -116,6 +95,33 @@ namespace GUIWinForm.Screen
 
             }
             DobbelsteenImage.Click -= this.DobbelsteenImage_Click;
+        }
+
+        /// <summary>
+        /// maak de dobbelsteen weer beschikbaar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Spel_MagGooien(object sender, EventArgs e)
+        {
+            DobbelsteenImage.Click += this.DobbelsteenImage_Click;
+            label1.Text = "Klik op de dobbelsteen";
+        }
+
+        void Spel_NewActSpeler(object sender, EventArgs e)
+        {
+            var actspeler = sender as MensErgerJeNietLogic.Speler;
+            
+            this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", actspeler.Naam);
+        }
+
+        private void DobbelsteenImage_Click(object sender, EventArgs e)
+        {
+            //logica gooi dobbelsteen
+            label1.Text = "Kies een pion";  
+            Global.Spel.DoeWorp();
+            
+            
              
         }
 
