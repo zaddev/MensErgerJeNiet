@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,37 +43,19 @@ namespace MensErgerJeNietLogic
             locatie = 56 + this.id;
         }
 
-        public int ID
-        {
-            get
-            {
-                return this.id;
-            }
-        }
+        public int ID => this.id;
 
-        public int Kleur
-        {
-            get
-            {
-                return this.kleur;
-            }
-        }
+        public int Kleur => this.kleur;
 
         public int Gelopen
         {
-            get
-            {
-                return this.gelopen;
-            }
-            private set
-            {
-                this.gelopen = value;
-            }
+            get => this.gelopen;
+            private set => this.gelopen = value;
         }
 
         public int LaatsteLocatie { get; private set; }
         public bool IsVerplaatsbaar { 
-            get { return this.isVerplaatsbaar; }
+            get => this.isVerplaatsbaar;
             internal set
             {
                 //kijken of de waarde wel verandert
@@ -81,8 +63,7 @@ namespace MensErgerJeNietLogic
                 {
                     isVerplaatsbaar = value;
                     //kijk of er wel iets aan het event hangt
-                    if (VerplaatsbaarChange != null) VerplaatsbaarChange(this, new EventArgs());
-
+                    VerplaatsbaarChange?.Invoke(this, new EventArgs());
                 }
             }
         }
@@ -92,15 +73,12 @@ namespace MensErgerJeNietLogic
         /// </summary>
         public int Locatie
         {
-            get
-            {
-                return this.locatie;
-            }
+            get => this.locatie;
             private set
             {
                 this.locatie = value;
                 //trigger event dat de pion op een nieuwe locatie staat
-                if (this.OnVerplaatst != null) this.OnVerplaatst(this, null);
+                OnVerplaatst?.Invoke(this, null);
             }
         }
 
@@ -126,7 +104,6 @@ namespace MensErgerJeNietLogic
             this.CheckOmTeSlaan(nieuweLocatie);
 
             this.Locatie = nieuweLocatie;
-
         }
 
         /// <summary>

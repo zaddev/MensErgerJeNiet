@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,19 +48,19 @@ namespace GUIWinForm
         /// <returns>coordinaten ten opzichte van 0</returns>
         public Point GetPosition(int pos)
         {
-            int y = 0;
-            int x = 0;
+            var y = 0;
+            var x = 0;
 
             #region SpeelPositities
             //hokje in speelveld
             if (pos < 40)
             {
-                int item = 0;
+                var item = 0;
                 while (pos > 0)
                 {
                     if (Math.Abs(this.lafwijkingen[item].afwijking) > pos)
                     {
-                        int positief = 1;
+                        var positief = 1;
                         if (this.lafwijkingen[item].afwijking < 0)
                             positief = -1;
 
@@ -119,7 +119,7 @@ namespace GUIWinForm
             #region BasePosities
             else
             {
-                int tempPos = pos % 4;
+                var tempPos = pos % 4;
 
                 if (pos > 59 && pos < 68)
                 {

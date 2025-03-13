@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +11,8 @@ namespace MensErgerJeNietLogic
     public class MensErgerJeNiet
     {
         #region private fields
-        Dobbelsteen dobbelsteen = new Dobbelsteen();
-        List<Speler> spelers = new List<Speler>();
+        readonly Dobbelsteen dobbelsteen = new();
+        List<Speler> spelers = new();
         Bord bord;
         int actspeler;
         bool gameStarted = false;
@@ -38,27 +38,15 @@ namespace MensErgerJeNietLogic
         /// <summary>
         /// De dobbelsteen buiten de libary is hiervan alleen maar de value uit te lezen
         /// </summary>
-        public Dobbelsteen Dobbelsteen
-        {
-            get
-            {
-                return this.dobbelsteen;
-            }
-        }
+        public Dobbelsteen Dobbelsteen => this.dobbelsteen;
 
         /// <summary>
         /// Een lijst met alle Spelers die aan spel meedoen
         /// </summary>
         public List<Speler> Spelers
         {
-            get
-            {
-                return this.spelers;
-            }
-            private set
-            {
-                this.spelers = value;
-            }
+            get => this.spelers;
+            private set => this.spelers = value;
         }
 
         /// <summary>
@@ -66,14 +54,8 @@ namespace MensErgerJeNietLogic
         /// </summary>
         internal Bord Bord
         {
-            get
-            {
-                return this.bord;
-            }
-            set
-            {
-                this.bord = value;
-            }
+            get => this.bord;
+            set => this.bord = value;
         }
 
         /// <summary>
@@ -171,7 +153,7 @@ namespace MensErgerJeNietLogic
             if (this.Spelers.Count >= 4) 
                 throw new System.InvalidOperationException("er zijn al 4 spelers");
 
-            Speler nieuweSpeler = new Speler(spelersNaam, this.Spelers.Count, this);
+            Speler nieuweSpeler = new(spelersNaam, this.Spelers.Count, this);
             this.Spelers.Add(nieuweSpeler);
 
             this.bord.p(nieuweSpeler);
