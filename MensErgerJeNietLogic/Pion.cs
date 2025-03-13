@@ -5,141 +5,141 @@ using System.Text;
 
 namespace MensErgerJeNietLogic
 {
-    public class Pion
+    public class Pawn
     {
         #region private fields
         int id;
-        int kleur;
-        int gelopen;
-        int locatie;
-        MensErgerJeNiet spel;
-        bool isVerplaatsbaar = false;
+        int color;
+        int steps;
+        int location;
+        DontGetAngry game;
+        bool isMovable = false;
         #endregion
 
         #region eventhandlers
         /// <summary>
-        /// de pion is verplaatst naar een andere locatie het geeft zijn eigen object mee
+        /// The pawn has moved to a different location, it passes its own object
         /// </summary>
-        public event EventHandler OnVerplaatst;
+        public event EventHandler OnMoved;
 
         /// <summary>
-        /// er moet gecheckt worden of het verandert is in wel of niet verplaatsbaar
+        /// It must be checked whether it has changed to movable or not
         /// </summary>
-        public event EventHandler VerplaatsbaarChange;
+        public event EventHandler MovableChange;
         #endregion
 
         /// <summary>
-        /// object mag alleen door het spel worden aangemaakt zodat het direct bij een pel behoort
+        /// Object can only be created by the game so that it directly belongs to a game
         /// </summary>
-        /// <param name="nummer"></param>
-        /// <param name="kleur"></param>
-        /// <param name="spel"></param>
-        internal Pion(int nummer, int kleur, MensErgerJeNiet spel)
+        /// <param name="number"></param>
+        /// <param name="color"></param>
+        /// <param name="game"></param>
+        internal Pawn(int number, int color, DontGetAngry game)
         {
-            this.id = kleur * 4 + nummer;
-            this.kleur = kleur;
-            this.spel = spel;
+            this.id = color * 4 + number;
+            this.color = color;
+            this.game = game;
 
-            locatie = 56 + this.id;
+            location = 56 + this.id;
         }
 
         public int ID => this.id;
 
-        public int Kleur => this.kleur;
+        public int Color => this.color;
 
-        public int Gelopen
+        public int Steps
         {
-            get => this.gelopen;
-            private set => this.gelopen = value;
+            get => this.steps;
+            private set => this.steps = value;
         }
 
-        public int LaatsteLocatie { get; private set; }
-        public bool IsVerplaatsbaar { 
-            get => this.isVerplaatsbaar;
+        public int LastLocation { get; private set; }
+        public bool IsMovable { 
+            get => this.isMovable;
             internal set
             {
-                //kijken of de waarde wel verandert
-                if(isVerplaatsbaar!=value)
+                // Check if the value has changed
+                if(isMovable != value)
                 {
-                    isVerplaatsbaar = value;
-                    //kijk of er wel iets aan het event hangt
-                    VerplaatsbaarChange?.Invoke(this, new EventArgs());
+                    isMovable = value;
+                    // Check if there is something attached to the event
+                    MovableChange?.Invoke(this, new EventArgs());
                 }
             }
         }
 
         /// <summary>
-        /// unieke locatie op het bord die de pion heeft
+        /// Unique location on the board that the pawn has
         /// </summary>
-        public int Locatie
+        public int Location
         {
-            get => this.locatie;
+            get => this.location;
             private set
             {
-                this.locatie = value;
-                //trigger event dat de pion op een nieuwe locatie staat
-                OnVerplaatst?.Invoke(this, null);
+                this.location = value;
+                // Trigger event that the pawn is at a new location
+                OnMoved?.Invoke(this, null);
             }
         }
 
         /// <summary>
-        /// veplaats de pion de gewenste aantal stappen binnen het spel
+        /// Move the pawn the desired number of steps within the game
         /// </summary>
-        /// <param name="stappen"></param>
-        internal void Verplaats(int stappen)
+        /// <param name="steps"></param>
+        internal void Move(int steps)
         {
-            //men kan later terug vinden waar hij stond en kan die plek vrij maken
-            this.LaatsteLocatie = this.Locatie;
-            this.gelopen += stappen;
-            int nieuweLocatie=0;
-            if (this.gelopen < 40)
+            // One can later find out where it stood and can free that spot
+            this.LastLocation = this.Location;
+            this.steps += steps;
+            int newLocation = 0;
+            if (this.steps < 40)
             {
-                nieuweLocatie = (this.gelopen + this.kleur * 10)%40;
+                newLocation = (this.steps + this.color * 10) % 40;
             }
-            else if (this.gelopen > 39)
+            else if (this.steps > 39)
             {
-                nieuweLocatie = this.spel.GeefVrijThuisHavenVlak(this.kleur);
+                newLocation = this.game.GetFreeHomeAreaField(this.color);
             }
-            //kijk of op nieuweLocatie Geen Pion aanwezig is
-            this.CheckOmTeSlaan(nieuweLocatie);
+            // Check if there is no pawn at the new location
+            this.CheckToHit(newLocation);
 
-            this.Locatie = nieuweLocatie;
+            this.Location = newLocation;
         }
 
         /// <summary>
-        /// kijkt of er nog pionnen geslagen moeten worden
+        /// Check if there are any pawns that need to be hit
         /// </summary>
-        /// <param name="locatie"></param>
-        private void CheckOmTeSlaan(int locatie)
+        /// <param name="location"></param>
+        private void CheckToHit(int location)
         {
-            Pion pionOmTeSlaan = spel.PionOpLocation(locatie);
+            Pawn pawnToHit = game.PawnAtLocation(location);
 
-            //als er een pion op locatie waar hij naar toe gaat een pion staat wordt er eerst een opdracht gegeven om deze er af te slaan
-            if (pionOmTeSlaan != null)
-                spel.SlaPion(pionOmTeSlaan);
+            // If there is a pawn at the location it is going to, first give a command to hit it
+            if (pawnToHit != null)
+                game.HitPawn(pawnToHit);
         }
 
         /// <summary>
-        /// verplaatt de pion naar hun eige start veld
+        /// Move the pawn to their own start field
         /// </summary>
-        internal void VerplaatsNaarStartVeld()
+        internal void MoveToStartField()
         {
-            this.gelopen = 0;//zorg ervoor dat een pion altijd 0 heeft gelopen dit moet omdat je kan hebt dat een pion al heeft gelopen en dit niet gewist heeft
-            this.LaatsteLocatie = this.Locatie;
+            this.steps = 0; // Ensure that a pawn always has 0 steps, this is necessary because there is a chance that a pawn has already moved and this has not been reset
+            this.LastLocation = this.Location;
 
-            //check of je een pion moet slaan
-            this.CheckOmTeSlaan(10 * this.Kleur);
+            // Check if you need to hit a pawn
+            this.CheckToHit(10 * this.Color);
 
-            this.Locatie = 10 * this.Kleur;
+            this.Location = 10 * this.Color;
         }
 
         /// <summary>
-        /// actie die Volgt als iemand geslagen wordt hij wordt weer helemaal terug geplaatst
+        /// Action that follows when someone is hit, it is moved all the way back
         /// </summary>
-        internal void VerplaatsNaarDeadposition()
+        internal void MoveToDeadPosition()
         {
-            this.LaatsteLocatie = this.Locatie;
-            this.Locatie = spel.GeefVrijDeadPosition(this);
+            this.LastLocation = this.Location;
+            this.Location = game.GetFreeDeadPosition(this);
         }
     }
 }

@@ -7,106 +7,106 @@ using System.Drawing;
 
 namespace GUIWinForm
 {
-    public class BordPositions
+    public class BoardPositions
     {
-        private List<posafwijking> lafwijkingen = new List<posafwijking>();
+        private List<posDeviation> deviations = new List<posDeviation>();
 
-        public BordPositions()
+        public BoardPositions()
         {
-            this.SetAfwijkingen();
+            this.SetDeviations();
         }
 
         /// <summary>
-        /// word een keer door de constructor aangeroepen
+        /// Called once by the constructor
         /// </summary>
-        void SetAfwijkingen()
+        void SetDeviations()
         {
-            #region omslagpunten
-            //defineer lijst met 4 spelers bord
-            lafwijkingen = new List<posafwijking>
+            #region turningPoints
+            //define list with 4 players board
+            deviations = new List<posDeviation>
             {
-                new posafwijking("y", -4),
-                new posafwijking("x", 4),
-                new posafwijking("y", -2),
-                new posafwijking("x", -4),
-                new posafwijking("y", -4),
-                new posafwijking("x", -2),
-                new posafwijking("y", 4),
-                new posafwijking("x", -4),
-                new posafwijking("y", 2),
-                new posafwijking("x", 4),
-                new posafwijking("y", 4),
-                new posafwijking("x", 1)
+                new posDeviation("y", -4),
+                new posDeviation("x", 4),
+                new posDeviation("y", -2),
+                new posDeviation("x", -4),
+                new posDeviation("y", -4),
+                new posDeviation("x", -2),
+                new posDeviation("y", 4),
+                new posDeviation("x", -4),
+                new posDeviation("y", 2),
+                new posDeviation("x", 4),
+                new posDeviation("y", 4),
+                new posDeviation("x", 1)
             };
             #endregion
         }
 
         /// <summary>
-        /// geeft de coordinaten terug van een gevraagd hokje op het veld
+        /// Returns the coordinates of a requested square on the board
         /// </summary>
-        /// <param name="pos">positie op bord</param>
-        /// <returns>coordinaten ten opzichte van 0</returns>
+        /// <param name="pos">position on board</param>
+        /// <returns>coordinates relative to 0</returns>
         public Point GetPosition(int pos)
         {
             var y = 0;
             var x = 0;
 
-            #region SpeelPositities
-            //hokje in speelveld
+            #region PlayPositions
+            //square in playfield
             if (pos < 40)
             {
                 var item = 0;
                 while (pos > 0)
                 {
-                    if (Math.Abs(this.lafwijkingen[item].afwijking) > pos)
+                    if (Math.Abs(this.deviations[item].deviation) > pos)
                     {
-                        var positief = 1;
-                        if (this.lafwijkingen[item].afwijking < 0)
-                            positief = -1;
+                        var positive = 1;
+                        if (this.deviations[item].deviation < 0)
+                            positive = -1;
 
-                        if (this.lafwijkingen[item].vorm == "x")
+                        if (this.deviations[item].shape == "x")
                         {
-                            x += pos * positief;
+                            x += pos * positive;
                         }
                         else
                         {
-                            y += pos * positief;
+                            y += pos * positive;
                         }
                         pos = 0;
                         break;
                     }
                     else
                     {
-                        if (this.lafwijkingen[item].vorm == "x")
+                        if (this.deviations[item].shape == "x")
                         {
-                            x += this.lafwijkingen[item].afwijking;
+                            x += this.deviations[item].deviation;
                         }
                         else
                         {
-                            y += this.lafwijkingen[item].afwijking;
+                            y += this.deviations[item].deviation;
                         }
-                        pos -= (int)Math.Abs(this.lafwijkingen[item].afwijking);
+                        pos -= (int)Math.Abs(this.deviations[item].deviation);
                     }
                     item++;
                 }
             }
             #endregion
-            #region ThuishavenPosities
+            #region HomePositions
             else if (pos > 39 && pos < 56)
             {
                 if (pos > 39 && pos < 44)
                 {
-                    y = 39 -pos;
+                    y = 39 - pos;
                     x = -1;
                 }
                 else if (pos > 43 && pos < 48)
                 {
                     y = -5;
-                    x = 47 -pos;
+                    x = 47 - pos;
                 }
                 else if (pos > 47 && pos < 52)
                 {
-                    y = pos -57;
+                    y = pos - 57;
                     x = -1;
                 }
                 else if (pos > 51 && pos < 56)
@@ -116,7 +116,7 @@ namespace GUIWinForm
                 }
             }
             #endregion
-            #region BasePosities
+            #region BasePositions
             else
             {
                 var tempPos = pos % 4;
@@ -144,16 +144,15 @@ namespace GUIWinForm
         }
     }
 
-    class posafwijking
+    class posDeviation
     {
-        public string vorm;
-        public int afwijking;
+        public string shape;
+        public int deviation;
 
-        public posafwijking(string vorm, int afwijking)
+        public posDeviation(string shape, int deviation)
         {
-            this.vorm = vorm;
-            this.afwijking = afwijking;
+            this.shape = shape;
+            this.deviation = deviation;
         }
     }
-    
 }

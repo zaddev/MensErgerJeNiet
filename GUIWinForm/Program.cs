@@ -16,8 +16,8 @@ namespace GUIWinForm
         {
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            Global.MainScreen = new MensErgerJeNiet();
-            Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
+            Global.MainScreen = new DontGetAngry();
+            Global.Game = new DontGetAngryLogic.DontGetAngry();
             Application.Run(Global.MainScreen);
             //Global.Start();
         }

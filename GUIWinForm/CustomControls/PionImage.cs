@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,127 +10,127 @@ using System.ComponentModel;
 
 namespace GUIWinForm
 {
-    public class PionImage : PictureBox
+    public class PawnImage : PictureBox
     {
-        private MensErgerJeNietLogic.Pion lPion;
-        private BordPositions bordPositions = new();
-        BackgroundWorker animatedPion = new();
+        private MensErgerJeNietLogic.Pawn lPawn;
+        private BoardPositions boardPositions = new();
+        BackgroundWorker animatedPawn = new();
         static bool isAnimating = false;
 
         #region constructors
 
         /// <summary>
-        /// maak een pion en bepaal de kleur
+        /// Create a pawn and determine its color
         /// </summary>
-        /// <param name="kleur">kleur die hij in het spel krijgt</param>
-        public PionImage(Color kleur, MensErgerJeNietLogic.Pion logicPion)
+        /// <param name="color">color it gets in the game</param>
+        public PawnImage(Color color, MensErgerJeNietLogic.Pawn logicPawn)
         {
-            this.lPion = logicPion;
-            this.SetCollorImage(kleur);
-            this.configPion();
+            this.lPawn = logicPawn;
+            this.SetColorImage(color);
+            this.configPawn();
 
-            // Eventlisteners toevoegen
-            this.animatedPion.DoWork += animatedPion_DoWork;
-            this.animatedPion.WorkerReportsProgress = true;
-            this.animatedPion.ProgressChanged += animatedPion_ProgressChanged;
-            this.animatedPion.RunWorkerCompleted += animatedPion_RunWorkerCompleted;
-            logicPion.OnVerplaatst += logicPion_Verplaatst;
-            logicPion.VerplaatsbaarChange += logicPion_Verplaatsbaar;
+            // Add event listeners
+            this.animatedPawn.DoWork += animatedPawn_DoWork;
+            this.animatedPawn.WorkerReportsProgress = true;
+            this.animatedPawn.ProgressChanged += animatedPawn_ProgressChanged;
+            this.animatedPawn.RunWorkerCompleted += animatedPawn_RunWorkerCompleted;
+            logicPawn.OnMoved += logicPawn_Moved;
+            logicPawn.MovableChange += logicPawn_Movable;
         }
 
-        void animatedPion_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) => PionImage.isAnimating = false;
+        void animatedPawn_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) => PawnImage.isAnimating = false;
 
-        void animatedPion_ProgressChanged(object sender, ProgressChangedEventArgs e) => VerplaatsNaar(e.ProgressPercentage);
+        void animatedPawn_ProgressChanged(object sender, ProgressChangedEventArgs e) => MoveTo(e.ProgressPercentage);
 
-        void animatedPion_DoWork(object sender, DoWorkEventArgs e)
+        void animatedPawn_DoWork(object sender, DoWorkEventArgs e)
         {
-            //blijf wachten toch hij niet meer bezig is
-            while (PionImage.isAnimating)
+            // Keep waiting until it is no longer busy
+            while (PawnImage.isAnimating)
             {
                 System.Threading.Thread.Sleep(300);
             }
-            PionImage.isAnimating = true;
-            var pion = e.Argument as MensErgerJeNietLogic.Pion;
+            PawnImage.isAnimating = true;
+            var pawn = e.Argument as MensErgerJeNietLogic.Pawn;
 
-            //er kan ondertussen nog een verandering zijn deze moet dus ook nog worden doorgevoerd
-            var stoplocatie = 0;
+            // There may have been another change in the meantime, which must also be implemented
+            var stopLocation = 0;
             do
             {
 
-                if (pion.LaatsteLocatie > 55 || pion.Locatie > 39)
+                if (pawn.LastLocation > 55 || pawn.Location > 39)
                 {
-                    animatedPion.ReportProgress(pion.Locatie);
-                    stoplocatie = pion.Locatie;
+                    animatedPawn.ReportProgress(pawn.Location);
+                    stopLocation = pawn.Location;
                 }
-                else if (pion.Locatie < pion.LaatsteLocatie)
+                else if (pawn.Location < pawn.LastLocation)
                 {
-                    var stappen = 40 + pion.Locatie;
-                    for (var i = pion.LaatsteLocatie; i <= stappen; i++)
+                    var steps = 40 + pawn.Location;
+                    for (var i = pawn.LastLocation; i <= steps; i++)
                     {
-                        animatedPion.ReportProgress(i % 40);
+                        animatedPawn.ReportProgress(i % 40);
                         System.Threading.Thread.Sleep(250);
-                        stoplocatie = i % 40;
+                        stopLocation = i % 40;
                     }
                 }
-                else if (pion.LaatsteLocatie < 40)
+                else if (pawn.LastLocation < 40)
                 {
-                    var eindlocatie = pion.Locatie;//expres hier gereseveerd omdat door het asynchrone karakter de value terwijl de loop nog wordt uitgevoerd kan wijzigen
-                    for (var i = pion.LaatsteLocatie; i <= eindlocatie; i++)
+                    var endLocation = pawn.Location; // Reserved here on purpose because the value can change while the loop is still running due to the asynchronous nature
+                    for (var i = pawn.LastLocation; i <= endLocation; i++)
                     {
-                        animatedPion.ReportProgress(i);
+                        animatedPawn.ReportProgress(i);
                         System.Threading.Thread.Sleep(250);
-                        stoplocatie = i;
+                        stopLocation = i;
                     }
                 }
             }
-            while (stoplocatie != pion.Locatie);
+            while (stopLocation != pawn.Location);
         }
 
-        public PionImage(Color kleur)
+        public PawnImage(Color color)
         {
-            this.SetCollorImage(kleur);
-            this.configPion();
+            this.SetColorImage(color);
+            this.configPawn();
         }
         #endregion
 
         /// <summary>
-        /// Zorgt dat de pion verandert zodat de gebruiker weet dat de pion klikbaar is. Gebeurt zodra "logicgpion_verplaatsbaar" wordt aangeroepen 
+        /// Ensures that the pawn changes so that the user knows the pawn is clickable. Happens as soon as "logicPawn_Movable" is called
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void logicPion_Verplaatsbaar(object sender, EventArgs e)
+        void logicPawn_Movable(object sender, EventArgs e)
         {
-            if (this.lPion.IsVerplaatsbaar)
-                this.SetSelectedPion();
+            if (this.lPawn.IsMovable)
+                this.SetSelectedPawn();
             else
-                this.SetSelectedPionOff();
+                this.SetSelectedPawnOff();
         }
 
         /// <summary>
-        /// Verplaats de pion automatisch zodra het event "logicPion_Verplaatst" word aangeroepen 
+        /// Automatically move the pawn when the event "logicPawn_Moved" is called
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void logicPion_Verplaatst(object sender, EventArgs e)
+        void logicPawn_Moved(object sender, EventArgs e)
         {
-            if (!animatedPion.IsBusy)
+            if (!animatedPawn.IsBusy)
             {
-                animatedPion.RunWorkerAsync(this.lPion);
+                animatedPawn.RunWorkerAsync(this.lPawn);
             }
         }
 
         /// <summary>
-        /// verplaats de pion naar de des betreffende lokatie
+        /// Move the pawn to the specified location
         /// </summary>
-        void VerplaatsNaar(int locatie)
+        void MoveTo(int location)
         {
-            var nieuwelocatie = bordPositions.GetPosition(locatie);
-            // x bewerking en y bewerking
-            nieuwelocatie.X = nieuwelocatie.X * 65 + 453;
-            nieuwelocatie.Y = nieuwelocatie.Y * -1 * 58 + 26;
-            this.Location = nieuwelocatie;
+            var newLocation = boardPositions.GetPosition(location);
+            // x operation and y operation
+            newLocation.X = newLocation.X * 65 + 453;
+            newLocation.Y = newLocation.Y * -1 * 58 + 26;
+            this.Location = newLocation;
         }
-        private void configPion()
+        private void configPawn()
         {
             this.Size = new System.Drawing.Size(42, 60);
             this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,41 +139,41 @@ namespace GUIWinForm
             this.BackColor = System.Drawing.Color.Transparent;
         }
 
-        void SetCollorImage(Color kleur)
+        void SetColorImage(Color color)
         {
-            switch (kleur)
+            switch (color)
             {
-                case Color.blauw:
-                    this.Image = global::GUIWinForm.Properties.Resources.pion_blauw;
+                case Color.blue:
+                    this.Image = global::GUIWinForm.Properties.Resources.pawn_blue;
                     break;
-                case Color.geel:
-                    this.Image = global::GUIWinForm.Properties.Resources.pion_geel;
+                case Color.yellow:
+                    this.Image = global::GUIWinForm.Properties.Resources.pawn_yellow;
                     break;
-                case Color.groen:
-                    this.Image = global::GUIWinForm.Properties.Resources.pion_groen;
+                case Color.green:
+                    this.Image = global::GUIWinForm.Properties.Resources.pawn_green;
                     break;
-                case Color.rood:
-                    this.Image = global::GUIWinForm.Properties.Resources.pion_rood;
+                case Color.red:
+                    this.Image = global::GUIWinForm.Properties.Resources.pawn_red;
                     break;
             }
         }
 
-        // methode om de gebruiker te laten zien dat de pion selecteerbaar is 
+        // Method to show the user that the pawn is selectable
         /// <summary>
-        /// Om de gebruiker te laten zien dat de pion selecteerbaar is 
+        /// To show the user that the pawn is selectable
         /// </summary>
-        private void SetSelectedPion()
+        private void SetSelectedPawn()
         {
-            this.Click += PionImage_Click;
+            this.Click += PawnImage_Click;
             BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void SetSelectedPionOff()
+        private void SetSelectedPawnOff()
         {
-            this.Click -= PionImage_Click;
+            this.Click -= PawnImage_Click;
             BorderStyle = BorderStyle.None;
         }
 
-        void PionImage_Click(object sender, EventArgs e) => Global.Spel.ActieMetPion(this.lPion);
+        void PawnImage_Click(object sender, EventArgs e) => Global.Game.ActionWithPawn(this.lPawn);
     }
 }

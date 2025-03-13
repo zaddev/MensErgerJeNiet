@@ -7,55 +7,55 @@ namespace MensErgerJeNietBot
 {
     public class Bot
     {
-        private MensErgerJeNietLogic.Speler speler;
-        private MensErgerJeNietLogic.MensErgerJeNiet spel;
+        private MensErgerJeNietLogic.Player player;
+        private MensErgerJeNietLogic.DontGetAngry game;
         private Random rnd = new();
 
         /// <summary>
-        /// configureren van het object.
+        /// Configures the object.
         /// </summary>
-        /// <param name="spel"></param>
-        /// <param name="speler"></param>
-        public Bot(MensErgerJeNietLogic.MensErgerJeNiet spel, MensErgerJeNietLogic.Speler speler)
+        /// <param name="game"></param>
+        /// <param name="player"></param>
+        public Bot(MensErgerJeNietLogic.DontGetAngry game, MensErgerJeNietLogic.Player player)
         {
-            this.spel = spel;
-            this.speler = speler;
-            // event oproepen als speler aan de beurt is 
-            speler.AanDeBeurt += speler_AanDeBeurt;
+            this.game = game;
+            this.player = player;
+            // Event is triggered when the player is up
+            player.OnTurn += player_OnTurn;
         }
 
         /// <summary>
-        /// dit event word getrigegrd wanneer de speler aan de beurt is
+        /// This event is triggered when the player is up
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void speler_AanDeBeurt(object sender, EventArgs e)
+        void player_OnTurn(object sender, EventArgs e)
         {
-            if (speler.MagGooien)
+            if (player.CanRoll)
             {
                 do
                 {
-                    DoeWorp();
-                    if (speler.Hand.Exists(pion => pion.IsVerplaatsbaar))
+                    RollDice();
+                    if (player.Hand.Exists(pawn => pawn.IsMovable))
                     {
-                        ActieMetRndPion();
+                        ActionWithRandomPawn();
                     }
                 }
-                while (this.spel.Dobbelsteen.Value == 6);   
+                while (this.game.Dice.Value == 6);   
             }       
         }
 
         /// <summary>
-        /// speler doet een worp als de speler aan de beurt is 
+        /// Player rolls the dice when it is their turn
         /// </summary>
-        private void DoeWorp() => spel.DoeWorp();
+        private void RollDice() => game.RollDice();
 
-        private void ActieMetRndPion() =>
-            spel.ActieMetPion
+        private void ActionWithRandomPawn() =>
+            game.ActionWithPawn
             (
-                this.speler.Hand.Where(pion => pion.IsVerplaatsbaar) // selecteer pion die verplaatsbaar zijn
-                .OrderBy(pion => rnd.Next())    // sorteer de verplaatsbare pionnen willekeurig
-                .First()                        // Pak dan de eerste pion uit die reeks 
+                this.player.Hand.Where(pawn => pawn.IsMovable) // Select pawns that are movable
+                .OrderBy(pawn => rnd.Next())    // Sort the movable pawns randomly
+                .First()                        // Then take the first pawn from that sequence
             );
     }
 }

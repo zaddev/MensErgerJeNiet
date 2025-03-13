@@ -1,68 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="MensErgerJeNietLogic.Bord">
+  <Class Name="MensErgerJeNietLogic.Board">
     <Position X="0.75" Y="0.5" Width="2" />
-    <AssociationLine Name="Fields" Type="MensErgerJeNietLogic.VeldStatus">
+    <AssociationLine Name="Fields" Type="MensErgerJeNietLogic.FieldStatus">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="-0.911" Y="0.32" Height="0.182" Width="1.79" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AACAgAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAgAA=</HashCode>
-      <FileName>Bord.cs</FileName>
+      <FileName>Board.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Fields" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="MensErgerJeNietLogic.Pion">
+  <Class Name="MensErgerJeNietLogic.Pawn">
     <Position X="12.75" Y="2" Width="2.5" />
     <TypeIdentifier>
       <HashCode>DAAAAAQAACIAgAAgAAAAAAAAAAQAAABgAAAIAAABDgA=</HashCode>
-      <FileName>Pion.cs</FileName>
+      <FileName>Pawn.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MensErgerJeNietLogic.Speler">
+  <Class Name="MensErgerJeNietLogic.Player">
     <Position X="8.75" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAACAAgAAgIAAABCAAAAQAAAAAAAAAAAAIAgA=</HashCode>
-      <FileName>Speler.cs</FileName>
+      <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Hand" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="MensErgerJeNietLogic.Dobbelsteen">
+  <Class Name="MensErgerJeNietLogic.Dice">
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAEAEAAAAiAAAAAgAAAAAAA=</HashCode>
-      <FileName>Dobbelsteen.cs</FileName>
+      <FileName>Dice.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MensErgerJeNietLogic.MensErgerJeNiet">
+  <Class Name="MensErgerJeNietLogic.DontGetAngry">
     <Position X="4" Y="0.5" Width="3" />
-    <AssociationLine Name="Spelers" Type="MensErgerJeNietLogic.Speler">
+    <AssociationLine Name="Players" Type="MensErgerJeNietLogic.Player">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.058" Y="0.06" Height="0.182" Width="1.537" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>wAAACAAAAiAAASAAhAAgAA0AQAIAAAAGAgAAIAAAAAA=</HashCode>
-      <FileName>MensErgerJeNiet.cs</FileName>
+      <FileName>DontGetAngry.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Dobbelsteen" />
-      <Property Name="Bord" />
+      <Property Name="Dice" />
+      <Property Name="Board" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="Spelers" />
+      <Property Name="Players" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Enum Name="MensErgerJeNietLogic.VeldStatus">
+  <Enum Name="MensErgerJeNietLogic.FieldStatus">
     <Position X="0.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAARAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAA=</HashCode>
-      <FileName>VeldStatus.cs</FileName>
+      <FileName>FieldStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

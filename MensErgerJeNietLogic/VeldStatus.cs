@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +6,14 @@ using System.Text;
 namespace MensErgerJeNietLogic
 {
     /// <summary>
-    /// wat is de status van een speelveld
+    /// what is the status of a playing field
     /// </summary>
-    public enum VeldStatus
+    public enum FieldStatus
     {
-        groen,
-        rood,
-        blauw,
-        geel,
-        vrij
+        green,
+        red,
+        blue,
+        yellow,
+        free
     }
 }

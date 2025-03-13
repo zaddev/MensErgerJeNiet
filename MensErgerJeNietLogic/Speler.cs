@@ -1,41 +1,41 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace MensErgerJeNietLogic
 {
-    public class Speler
+    public class Player
     {
         #region private fields
-        string naam;
+        string name;
         int id;
-        List<Pion> hand = new List<Pion>();
+        List<Pawn> hand = new List<Pawn>();
         #endregion
 
-        public event EventHandler AanDeBeurt;
-        private MensErgerJeNiet spel;
+        public event EventHandler OnTurn;
+        private DontGetAngry game;
 
         /// <summary>
-        /// maakt een virtueele speler aan die pionnen heeft
+        /// Creates a virtual player who has pawns
         /// </summary>
-        /// <param name="spelersNaam"></param>
+        /// <param name="playerName"></param>
         /// <param name="id"></param>
-        /// <param name="spel"></param>
-        internal Speler(string spelersNaam, int id, MensErgerJeNiet spel)
+        /// <param name="game"></param>
+        internal Player(string playerName, int id, DontGetAngry game)
         {
-            this.naam = spelersNaam;
+            this.name = playerName;
             this.id = id;
             
             for(int i = 0; i<4;i++)
             {
-                this.hand.Add(new Pion(i, id, spel));
+                this.hand.Add(new Pawn(i, id, game));
             }
 
-            this.MagGooien = false;
+            this.CanRoll = false;
         }
     
-        public List<Pion> Hand
+        public List<Pawn> Hand
         {
             get
             {
@@ -43,16 +43,16 @@ namespace MensErgerJeNietLogic
             }
         }
 
-        public string Naam
+        public string Name
         {
             get
             {
-                return this.naam;
+                return this.name;
             }
         }
 
         /// <summary>
-        /// gelijk aan kleur
+        /// Equal to color
         /// </summary>
         public int ID
         {
@@ -62,24 +62,24 @@ namespace MensErgerJeNietLogic
             }
         }
 
-        bool isAanDeBeurt;
-        internal bool IsAanDeBeurt
+        bool isUp;
+        internal bool IsUp
         {
             get
             {
-                return this.isAanDeBeurt;
+                return this.isUp;
             }
             set
             {
-                this.isAanDeBeurt = value;
+                this.isUp = value;
                 if(value==true)
                 {
-                    if (this.AanDeBeurt != null) this.AanDeBeurt(this, null);
+                    if (this.OnTurn != null) this.OnTurn(this, null);
                 }
             }
         }
 
-        //om bij te houden of iemand nog mag gooien
-        public bool MagGooien { get; internal set; }
+        //to keep track of whether someone can still roll
+        public bool CanRoll { get; internal set; }
     }
 }

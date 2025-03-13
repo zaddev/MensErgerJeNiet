@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="MensErgerJeNietBot.Bot">
+  <Class Name="DontGetAngryBot.Bot">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAEAAAAAAgABAAAAAAAAAAAAAAAAAAAAgACAAAAAAA=</HashCode>
       <FileName>Bot.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="speler" />
-      <Field Name="spel" />
+      <Field Name="player" />
+      <Field Name="game" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="MensErgerJeNietLogic.Speler">
+  <Class Name="DontGetAngryLogic.Player">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="MensErgerJeNietLogic.MensErgerJeNiet">
+  <Class Name="DontGetAngryLogic.DontGetAngry">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>

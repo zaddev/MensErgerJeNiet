@@ -5,15 +5,15 @@ using System.Text;
 
 namespace MensErgerJeNietLogic
 {
-    public class Dobbelsteen
+    public class Dice
     {
         private readonly Random rnd = new();
-        const int vlakken = 6;
+        const int sides = 6;
         private int value;
 
-        public event EventHandler Gegooid;
+        public event EventHandler Rolled;
 
-        internal Dobbelsteen()
+        internal Dice()
         {
         }
     
@@ -23,10 +23,10 @@ namespace MensErgerJeNietLogic
             set
             {
                 this.value = value;
-                Gegooid?.Invoke(this, new EventArgs());
+                Rolled?.Invoke(this, new EventArgs());
             }
         }
 
-        internal void Rol() => this.Value = this.rnd.Next(1, vlakken + 1);
+        internal void Roll() => this.Value = this.rnd.Next(1, sides + 1);
     }
 }
