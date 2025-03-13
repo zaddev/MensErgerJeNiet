@@ -8,19 +8,17 @@ using System.Drawing;
 using GUIWinForm.Screen;
 using System.ComponentModel;
 
-
 namespace GUIWinForm
 {
     public class PionImage : PictureBox
     {
         private MensErgerJeNietLogic.Pion lPion;
-        private BordPositions bordPositions = new BordPositions();
-        BackgroundWorker animatedPion = new BackgroundWorker();
+        private BordPositions bordPositions = new();
+        BackgroundWorker animatedPion = new();
         static bool isAnimating = false;
-        //PictureBox picturebox2;
 
         #region constructors
-        
+
         /// <summary>
         /// maak een pion en bepaal de kleur
         /// </summary>
@@ -29,9 +27,8 @@ namespace GUIWinForm
         {
             this.lPion = logicPion;
             this.SetCollorImage(kleur);
-            this.configPion();         
-            //this.SetSelectedPion();
-            
+            this.configPion();
+
             // Eventlisteners toevoegen
             this.animatedPion.DoWork += animatedPion_DoWork;
             this.animatedPion.WorkerReportsProgress = true;
@@ -41,50 +38,44 @@ namespace GUIWinForm
             logicPion.VerplaatsbaarChange += logicPion_Verplaatsbaar;
         }
 
-        void animatedPion_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            PionImage.isAnimating = false;
-        }
+        void animatedPion_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) => PionImage.isAnimating = false;
 
-        void animatedPion_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            VerplaatsNaar(e.ProgressPercentage);
-        }
+        void animatedPion_ProgressChanged(object sender, ProgressChangedEventArgs e) => VerplaatsNaar(e.ProgressPercentage);
 
         void animatedPion_DoWork(object sender, DoWorkEventArgs e)
         {
             //blijf wachten toch hij niet meer bezig is
-            while(PionImage.isAnimating)
+            while (PionImage.isAnimating)
             {
                 System.Threading.Thread.Sleep(300);
             }
             PionImage.isAnimating = true;
-            MensErgerJeNietLogic.Pion pion = e.Argument as MensErgerJeNietLogic.Pion;
+            var pion = e.Argument as MensErgerJeNietLogic.Pion;
 
             //er kan ondertussen nog een verandering zijn deze moet dus ook nog worden doorgevoerd
-            int stoplocatie = 0;
+            var stoplocatie = 0;
             do
             {
-                
+
                 if (pion.LaatsteLocatie > 55 || pion.Locatie > 39)
                 {
                     animatedPion.ReportProgress(pion.Locatie);
                     stoplocatie = pion.Locatie;
                 }
-                else if(pion.Locatie < pion.LaatsteLocatie)
+                else if (pion.Locatie < pion.LaatsteLocatie)
                 {
-                    int stappen = 40 + pion.Locatie;
-                    for(int i = pion.LaatsteLocatie; i <= stappen; i++)
+                    var stappen = 40 + pion.Locatie;
+                    for (var i = pion.LaatsteLocatie; i <= stappen; i++)
                     {
                         animatedPion.ReportProgress(i % 40);
                         System.Threading.Thread.Sleep(250);
-                        stoplocatie = i%40;
+                        stoplocatie = i % 40;
                     }
                 }
                 else if (pion.LaatsteLocatie < 40)
                 {
-                    int eindlocatie = pion.Locatie;//expres hier gereseveerd omdat door het asynchrone karakter de value terwijl de loop nog wordt uitgevoerd kan wijzigen
-                    for (int i = pion.LaatsteLocatie; i <= eindlocatie; i++)
+                    var eindlocatie = pion.Locatie;//expres hier gereseveerd omdat door het asynchrone karakter de value terwijl de loop nog wordt uitgevoerd kan wijzigen
+                    for (var i = pion.LaatsteLocatie; i <= eindlocatie; i++)
                     {
                         animatedPion.ReportProgress(i);
                         System.Threading.Thread.Sleep(250);
@@ -92,19 +83,13 @@ namespace GUIWinForm
                     }
                 }
             }
-            while(stoplocatie != pion.Locatie);
-            
-            
+            while (stoplocatie != pion.Locatie);
         }
 
         public PionImage(Color kleur)
         {
-            
             this.SetCollorImage(kleur);
             this.configPion();
-            
-
- 
         }
         #endregion
 
@@ -132,7 +117,6 @@ namespace GUIWinForm
             {
                 animatedPion.RunWorkerAsync(this.lPion);
             }
-            
         }
 
         /// <summary>
@@ -140,7 +124,7 @@ namespace GUIWinForm
         /// </summary>
         void VerplaatsNaar(int locatie)
         {
-            Point nieuwelocatie = bordPositions.GetPosition(locatie);
+            var nieuwelocatie = bordPositions.GetPosition(locatie);
             // x bewerking en y bewerking
             nieuwelocatie.X = nieuwelocatie.X * 65 + 453;
             nieuwelocatie.Y = nieuwelocatie.Y * -1 * 58 + 26;
@@ -153,12 +137,11 @@ namespace GUIWinForm
             this.TabIndex = 8;
             this.TabStop = false;
             this.BackColor = System.Drawing.Color.Transparent;
-
         }
 
         void SetCollorImage(Color kleur)
         {
-            switch(kleur)
+            switch (kleur)
             {
                 case Color.blauw:
                     this.Image = global::GUIWinForm.Properties.Resources.pion_blauw;
@@ -181,34 +164,16 @@ namespace GUIWinForm
         /// </summary>
         private void SetSelectedPion()
         {
-            //MensErgerJeNietLogic.Pion pion;
             this.Click += PionImage_Click;
             BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void SetSelectedPionOff()
         {
-            //MensErgerJeNietLogic.Pion pion;
             this.Click -= PionImage_Click;
             BorderStyle = BorderStyle.None;
         }
 
-        void PionImage_Click(object sender, EventArgs e)
-        {
-            Global.Spel.ActieMetPion(this.lPion);
-            //BorderStyle = BorderStyle.Fixed3D;
-           
-        }
-
+        void PionImage_Click(object sender, EventArgs e) => Global.Spel.ActieMetPion(this.lPion);
     }
 }
-
-/*
-this.pictureBox2.Image = global::GUIWinForm.Properties.Resources.pion_rood;
-            this.pictureBox2.Location = new System.Drawing.Point(679, 88);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(42, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-*/

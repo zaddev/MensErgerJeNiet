@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +12,10 @@ namespace GUIWinForm
 {
     public partial class MensErgerJeNiet : Form
     {
-        Screen.StartGame startScreen = new Screen.StartGame();
-        Screen.Game gameScreen = new Screen.Game();
+        Screen.StartGame startScreen = new();
+        Screen.Game gameScreen = new();
 
-        Control currentScreen = new Control();
+        Control currentScreen = new();
 
         public MensErgerJeNiet()
         {
@@ -43,7 +43,7 @@ namespace GUIWinForm
         internal void StartNieuwSpel()
         {
             Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
-            this.gameScreen = new Screen.Game();
+            this.gameScreen = new();
 
             this.Controls.Remove(this.currentScreen);
             this.currentScreen = this.startScreen;

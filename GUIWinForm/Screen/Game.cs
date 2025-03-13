@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -12,22 +12,22 @@ namespace GUIWinForm.Screen
 {
     public partial class Game : UserControl
     {
-        System.Collections.Generic.List<System.Windows.Forms.Label> LijstNaamLabels = new List<Label>();
+        List<Label> LijstNaamLabels = new();
         public Game()
         {
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);   
 
-            LijstNaamLabels = new System.Collections.Generic.List<System.Windows.Forms.Label>() { player1, player2, player3, player4 };       
+            LijstNaamLabels = new List<Label>() { player1, player2, player3, player4 };       
         }
 
         void Spel_EindeSpel(object sender, EventArgs e)
         {
-            MensErgerJeNietLogic.Speler speler = sender as MensErgerJeNietLogic.Speler;
+            var speler = sender as MensErgerJeNietLogic.Speler;
 
             if (speler != null)
             {
-                DialogResult clickedAnswer = MessageBox.Show(speler.Naam + " heeft gewonnen \n Wilt u een nieuwe spel starten", "Gefeliciteerd", MessageBoxButtons.YesNo);
+                var clickedAnswer = MessageBox.Show(speler.Naam + " heeft gewonnen \n Wilt u een nieuwe spel starten", "Gefeliciteerd", MessageBoxButtons.YesNo);
                 if (DialogResult.Yes == clickedAnswer)
                 {
                     Global.MainScreen.StartNieuwSpel();
@@ -44,14 +44,14 @@ namespace GUIWinForm.Screen
             Global.Spel.NewActSpeler += Spel_NewActSpeler;
             this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", Global.Spel.Spelers[0].Naam);
 
-            foreach(MensErgerJeNietLogic.Speler speler in Global.Spel.Spelers)
+            foreach(var speler in Global.Spel.Spelers)
             {
                 LijstNaamLabels[speler.ID].Text = speler.Naam;
                 
-                foreach(MensErgerJeNietLogic.Pion pion in speler.Hand)
+                foreach(var pion in speler.Hand)
                 {
                     //pion.Locatie.
-                    PionImage pionImage = new PionImage((Color)pion.Kleur, pion);
+                    var pionImage = new PionImage((Color)pion.Kleur, pion);
                     this.pictureBox1.Controls.Add(pionImage);
                     VerplaatsPionNaar(pionImage, pion.Locatie);         
                 }
@@ -65,7 +65,7 @@ namespace GUIWinForm.Screen
 
         void Dobbelsteen_Gegooid(object sender, EventArgs e)
         {
-            int gegooidewaard = (Global.Spel.Dobbelsteen.Value);
+            var gegooidewaard = (Global.Spel.Dobbelsteen.Value);
 
             switch (gegooidewaard)
             {

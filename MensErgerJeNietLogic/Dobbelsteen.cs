@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ namespace MensErgerJeNietLogic
 {
     public class Dobbelsteen
     {
-        private Random rnd = new Random();
+        private readonly Random rnd = new();
         const int vlakken = 6;
         private int value;
 
@@ -19,20 +19,14 @@ namespace MensErgerJeNietLogic
     
         public int Value
         {
-            get
-            {
-                return this.value;
-            }
+            get => this.value;
             set
             {
                 this.value = value;
-                if (Gegooid != null) Gegooid(this, new EventArgs());
+                Gegooid?.Invoke(this, new EventArgs());
             }
         }
 
-        internal void Rol()
-        {
-            this.Value = this.rnd.Next(1, vlakken + 1);
-        }
+        internal void Rol() => this.Value = this.rnd.Next(1, vlakken + 1);
     }
 }

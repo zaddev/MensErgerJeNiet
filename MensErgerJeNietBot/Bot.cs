@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,7 @@ namespace MensErgerJeNietBot
     {
         private MensErgerJeNietLogic.Speler speler;
         private MensErgerJeNietLogic.MensErgerJeNiet spel;
-        private Random rnd = new Random(); 
+        private Random rnd = new();
 
         /// <summary>
         /// configureren van het object.
@@ -48,22 +48,14 @@ namespace MensErgerJeNietBot
         /// <summary>
         /// speler doet een worp als de speler aan de beurt is 
         /// </summary>
-        private void DoeWorp()
-        {
-            spel.DoeWorp();
-        }
+        private void DoeWorp() => spel.DoeWorp();
 
-        private void ActieMetRndPion()
-        {
-           
+        private void ActieMetRndPion() =>
             spel.ActieMetPion
-                (
-                    this.speler.Hand.Where(pion => pion.IsVerplaatsbaar) // selecteer pion die verplaatsbaar zijn
-                    .OrderBy(pion => rnd.Next())    // sorteer de verplaatsbare pionnen willekeurig
-                    .First()                        // Pak dan de eerste pion uit die reeks 
-                );
-
-        }
-
+            (
+                this.speler.Hand.Where(pion => pion.IsVerplaatsbaar) // selecteer pion die verplaatsbaar zijn
+                .OrderBy(pion => rnd.Next())    // sorteer de verplaatsbare pionnen willekeurig
+                .First()                        // Pak dan de eerste pion uit die reeks 
+            );
     }
 }

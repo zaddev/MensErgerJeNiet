@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,29 +12,16 @@ namespace GUIWinForm.CustomControls
     {
         #region private fields
 
-        Label lNaam = new Label();
-        Label cBTitel = new Label();
-        TextBox tNaam = new TextBox();
-        CheckBox computerCheck = new CheckBox();
+        Label lNaam = new();
+        Label cBTitel = new();
+        TextBox tNaam = new();
+        CheckBox computerCheck = new();
 
         #endregion
 
-        public string SpelersNaam
-        {
-            get
-            {
-                return this.tNaam.Text;
-            }
-        }
+        public string SpelersNaam => this.tNaam.Text;
 
-        public bool IsBot
-        {
-            get 
-            { 
-                return this.computerCheck.Checked; 
-            }
-        }
-
+        public bool IsBot => this.computerCheck.Checked;
 
         #region constructors
         /// <summary>
@@ -43,7 +30,7 @@ namespace GUIWinForm.CustomControls
         /// <param name="nummer"></param>
         public NewPlayer(int nummer)
         {
-            Color kleur = (Color)nummer;
+            var kleur = (Color)nummer;
             this.Top = 40;
             this.Text = string.Format("Speler {0}", kleur);
             this.Size = new System.Drawing.Size(200, 65);
