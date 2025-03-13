@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProjeCT", "ModelingProjeCT\ModelingProjeCT.modelproj", "{098670D0-64AC-4C03-907B-BBC9F6ABBB2B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIWinForm", "GUIWinForm\GUIWinForm.csproj", "{0C98832D-2DFF-4D5E-A524-D143F7EF1382}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MensErgerJeNietLogic", "MensErgerJeNietLogic\MensErgerJeNietLogic.csproj", "{B49E77CC-C15D-4B06-B606-047D5E533C23}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{098670D0-64AC-4C03-907B-BBC9F6ABBB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{098670D0-64AC-4C03-907B-BBC9F6ABBB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{098670D0-64AC-4C03-907B-BBC9F6ABBB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{098670D0-64AC-4C03-907B-BBC9F6ABBB2B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C98832D-2DFF-4D5E-A524-D143F7EF1382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0C98832D-2DFF-4D5E-A524-D143F7EF1382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C98832D-2DFF-4D5E-A524-D143F7EF1382}.Release|Any CPU.ActiveCfg = Release|Any CPU
