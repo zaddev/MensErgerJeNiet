@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUIWinForm.CustomControls;
-using MensErgerJeNietLogic;
+using DontGetAngryLogic;
 
 namespace GUIWinForm.Screen
 {
     public partial class StartGame : UserControl
     {
         List<NewPlayer> NewPlayers = new();
-        List<MensErgerJeNietBot.Bot> bots = new();
+        List<DontGetAngryBot.Bot> bots = new();
 
         public StartGame()
         {
@@ -24,13 +24,13 @@ namespace GUIWinForm.Screen
             setPlayers(2);
         }
 
-        private void AantalSpelers_TextChanged(object sender, EventArgs e) => setPlayers(int.Parse(this.AantalSpelers.Text));
+        private void NumberOfPlayers_TextChanged(object sender, EventArgs e) => setPlayers(int.Parse(this.NumberOfPlayers.Text));
 
-        private void setPlayers(int spelers)
+        private void setPlayers(int players)
         {
             this.splitContainer1.Panel2.Controls.Clear();
 
-            for (var i = 0; i < spelers; i++)
+            for (var i = 0; i < players; i++)
             {
                 var t = new NewPlayer(i);
                 t.Top += i * 70;
@@ -39,50 +39,49 @@ namespace GUIWinForm.Screen
         }
 
         /// <summary>
-        /// het af vangen van de button click er wordt gekeken of je een game mag starten en als alles klopt mag je verder
+        /// Catching the button click, it is checked whether you can start a game and if everything is correct you can continue
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ButtonStartGame_Click(object sender, EventArgs e)
         {
-            var aantalBots = 0;
-            foreach (NewPlayer speler in this.splitContainer1.Panel2.Controls)
+            var numberOfBots = 0;
+            foreach (NewPlayer player in this.splitContainer1.Panel2.Controls)
             {
-                if (string.IsNullOrWhiteSpace(speler.SpelersNaam))
+                if (string.IsNullOrWhiteSpace(player.PlayerName))
                 {
-                    MessageBox.Show("Één of meerdere velden zijn niet goed ingevuld");
+                    MessageBox.Show("One or more fields are not filled in correctly");
                     return;
                 }
 
-                if (speler.IsBot)
+                if (player.IsBot)
                 {
-                    aantalBots += 1;
+                    numberOfBots += 1;
                 }
             }
 
-            if (aantalBots == this.splitContainer1.Panel2.Controls.Count)
+            if (numberOfBots == this.splitContainer1.Panel2.Controls.Count)
             {
-                MessageBox.Show("Er moet minimaal 1 speler zijn");
+                MessageBox.Show("There must be at least 1 player");
                 return;
             }
 
-            if (Global.Spel == null) Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
-            //logica voor toevoegen spelers
-            //TODO: Spelers werkelijk toevoegen
-            foreach (NewPlayer speler in this.splitContainer1.Panel2.Controls)
+            if (Global.Game == null) Global.Game = new DontGetAngryLogic.DontGetAngry();
+            // logic for adding players
+            foreach (NewPlayer player in this.splitContainer1.Panel2.Controls)
             {
-                var logicSpeler = Global.Spel.AddNewSpeler(speler.SpelersNaam);
-                if (speler.IsBot)
+                var logicPlayer = Global.Game.AddNewPlayer(player.PlayerName);
+                if (player.IsBot)
                 {
-                    bots.Add(new MensErgerJeNietBot.Bot(Global.Spel, logicSpeler));
+                    bots.Add(new DontGetAngryBot.Bot(Global.Game, logicPlayer));
                 }
             }
 
-            //Wisselen van scherm
+            // Switch screens
             Global.MainScreen.SetGameScreen();
 
-            //Start het spel
-            Global.Spel.StartSpel();
+            // Start the game
+            Global.Game.StartGame();
         }
     }
 }

@@ -6,257 +6,256 @@ using System.Text;
 namespace MensErgerJeNietLogic
 {
     /// <summary>
-    /// Het object dat brug is tussen alle logica hiermee wordt gecomuniceerd met de GUI en de achterkant van alle logica
+    /// The object that bridges all logic, allowing communication between the GUI and the backend logic.
     /// </summary>
-    public class MensErgerJeNiet
+    public class DontGetAngry
     {
         #region private fields
-        readonly Dobbelsteen dobbelsteen = new();
-        List<Speler> spelers = new();
-        Bord bord;
-        int actspeler;
+        readonly Dice dice = new();
+        List<Player> players = new();
+        Board board;
+        int currentPlayer;
         bool gameStarted = false;
         #endregion
 
         /// <summary>
-        /// er is een nieuwe speler aan de beurt
+        /// A new player is up.
         /// </summary>
-        public event EventHandler NewActSpeler;
+        public event EventHandler NewCurrentPlayer;
 
-        public event EventHandler MagGooien;
+        public event EventHandler CanRoll;
 
-        public event EventHandler EindeSpel;
+        public event EventHandler EndGame;
 
         /// <summary>
-        /// er wordt een nieuwe leeg spel aangemaakt
+        /// A new empty game is created.
         /// </summary>
-        public MensErgerJeNiet()
+        public DontGetAngry()
         {
-            this.bord = new Bord(this);
+            this.board = new Board(this);
         }
 
         /// <summary>
-        /// De dobbelsteen buiten de libary is hiervan alleen maar de value uit te lezen
+        /// The dice, only the value can be read from outside the library.
         /// </summary>
-        public Dobbelsteen Dobbelsteen => this.dobbelsteen;
+        public Dice Dice => this.dice;
 
         /// <summary>
-        /// Een lijst met alle Spelers die aan spel meedoen
+        /// A list of all players participating in the game.
         /// </summary>
-        public List<Speler> Spelers
+        public List<Player> Players
         {
-            get => this.spelers;
-            private set => this.spelers = value;
+            get => this.players;
+            private set => this.players = value;
         }
 
         /// <summary>
-        /// Het bord met alle velden
+        /// The board with all fields.
         /// </summary>
-        internal Bord Bord
+        internal Board Board
         {
-            get => this.bord;
-            set => this.bord = value;
+            get => this.board;
+            set => this.board = value;
         }
 
         /// <summary>
-        /// speler die nu aan de beurt is
+        /// The player who is currently up.
         /// </summary>
-        public Speler ActueeleSpeler
+        public Player CurrentPlayer
         {
             get
             {
-                //game moet wel gestart zijn
-                if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
-                return this.spelers[actspeler];
+                // The game must be started.
+                if (!this.gameStarted) throw new InvalidOperationException("The game has not started yet.");
+                return this.players[currentPlayer];
             }
         }
 
         /// <summary>
-        /// Gooit de dobbelsteen en het spel weet de mogelijkheden die nodig zijn
+        /// Rolls the dice and the game knows the necessary possibilities.
         /// </summary>
-        /// <returns>het aantal ogen dat gegooid is</returns>
-        public int DoeWorp()
+        /// <returns>The number of eyes rolled.</returns>
+        public int RollDice()
         {
-            //game moet wel gestart zijn
-            if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
-            if(!this.ActueeleSpeler.MagGooien)throw new InvalidOperationException("er mag niet gegooid worden op dit moment");
-            this.Dobbelsteen.Rol();
+            // The game must be started.
+            if (!this.gameStarted) throw new InvalidOperationException("The game has not started yet.");
+            if(!this.CurrentPlayer.CanRoll) throw new InvalidOperationException("Rolling is not allowed at this moment.");
+            this.Dice.Roll();
 
-            //speler mag in eerste instantie niet gooien omdat hij zoiezo niet meer mag of dat hij eerst nog iets met een pion moet doen
-            this.ActueeleSpeler.MagGooien = false;
+            // The player is initially not allowed to roll because they either cannot roll anymore or they need to do something with a pawn first.
+            this.CurrentPlayer.CanRoll = false;
 
-
-            if (this.ActueeleSpeler.Hand.Exists(pion => pion.Locatie == pion.Kleur *10) && this.ActueeleSpeler.Hand.Exists(pion => pion.Locatie > 55))
+            if (this.CurrentPlayer.Hand.Exists(pawn => pawn.Location == pawn.Color * 10) && this.CurrentPlayer.Hand.Exists(pawn => pawn.Location > 55))
             {
-                this.ActueeleSpeler.Hand.First(pion => pion.Locatie == pion.Kleur * 10).IsVerplaatsbaar = true;
+                this.CurrentPlayer.Hand.First(pawn => pawn.Location == pawn.Color * 10).IsMovable = true;
             }
-            //kijk welke pionnen geplaatst mogen worden
-            //er is 6 gegooid en er zijn nog pionnen die op het bord gezet kunnen worden
-            else if (this.ActueeleSpeler.Hand.Count(x => x.Locatie > 55) >=1 && Dobbelsteen.Value == 6)
+            // Check which pawns can be placed.
+            // A 6 is rolled and there are still pawns that can be placed on the board.
+            else if (this.CurrentPlayer.Hand.Count(x => x.Location > 55) >= 1 && Dice.Value == 6)
             {
-                //zet pionnen beschikbaar om te verzetten die op de deadpositions staan
-                this.ActueeleSpeler.Hand.ForEach(x =>
+                // Make pawns available to move that are on the dead positions.
+                this.CurrentPlayer.Hand.ForEach(x =>
                 {
-                    if (x.Locatie > 55)
+                    if (x.Location > 55)
                     {
-                        x.IsVerplaatsbaar = true;
+                        x.IsMovable = true;
                     }
                 });
             }
-            //het is mogelijk dat de beurt nu al direct over is
-            //gekozen voor groter als 39 omdat je dan ook de pionnen die al op de thuisposite staan meeneemt
-            else if(this.ActueeleSpeler.Hand.Count(x=>x.Locatie>39) == 4)
+            // It is possible that the turn is already over.
+            // Chosen for greater than 39 because it also includes pawns that are already on the home position.
+            else if(this.CurrentPlayer.Hand.Count(x => x.Location > 39) == 4)
             {
-                this.NieweSpeler();
+                this.NewPlayer();
             }
-            //is dit niet waar dan mogen de pionnen in het spel beschikbaar worden gesteld
+            // If this is not true, the pawns in the game can be made available.
             else
             {
-                this.ActueeleSpeler.Hand.ForEach(x =>
+                this.CurrentPlayer.Hand.ForEach(x =>
                     {
-                        if (x.Locatie <= 39)
-                            x.IsVerplaatsbaar = true;
+                        if (x.Location <= 39)
+                            x.IsMovable = true;
                     }
                     );
             }
 
-            return this.Dobbelsteen.Value;
+            return this.Dice.Value;
         }
 
-        private void NieweSpeler()
+        private void NewPlayer()
         {
-            this.ActueeleSpeler.Hand.ForEach(x => x.IsVerplaatsbaar = false);
-            this.ActueeleSpeler.IsAanDeBeurt = false;
+            this.CurrentPlayer.Hand.ForEach(x => x.IsMovable = false);
+            this.CurrentPlayer.IsUp = false;
 
-            this.actspeler = (this.actspeler + 1) % this.spelers.Count;
-            //deze speler mag weer gooien
-            this.ActueeleSpeler.MagGooien = true;
-            if (MagGooien != null) MagGooien(this.Dobbelsteen, new EventArgs());
-            if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
-            this.ActueeleSpeler.IsAanDeBeurt = true;
+            this.currentPlayer = (this.currentPlayer + 1) % this.players.Count;
+            // This player can roll again.
+            this.CurrentPlayer.CanRoll = true;
+            if (CanRoll != null) CanRoll(this.Dice, new EventArgs());
+            if (NewCurrentPlayer != null) NewCurrentPlayer(this.CurrentPlayer, new EventArgs());
+            this.CurrentPlayer.IsUp = true;
         }
 
         /// <summary>
-        /// maak een nieuwe speler dit is de enige plek waarvandaan je een nieuwe speler mag aanmaken
+        /// Creates a new player, this is the only place where a new player can be created.
         /// </summary>
-        /// <param name="spelersNaam"></param>
+        /// <param name="playerName"></param>
         /// <returns></returns>
-        public Speler AddNewSpeler(string spelersNaam)
+        public Player AddNewPlayer(string playerName)
         {
-            //spel mag nog niet gestart zijn
-            if (this.gameStarted) throw new InvalidOperationException("het spel is al gestart je kan geen spelers meer toevoegen");
+            // The game must not be started yet.
+            if (this.gameStarted) throw new InvalidOperationException("The game has already started, you cannot add more players.");
 
-            //check of er een collectie met speler is
-            if (this.Spelers == null) 
-                this.Spelers = new List<Speler>();
-            //check of er nie meer als 4 spelers zijn.
-            if (this.Spelers.Count >= 4) 
-                throw new System.InvalidOperationException("er zijn al 4 spelers");
+            // Check if there is a collection of players.
+            if (this.Players == null) 
+                this.Players = new List<Player>();
+            // Check if there are no more than 4 players.
+            if (this.Players.Count >= 4) 
+                throw new System.InvalidOperationException("There are already 4 players.");
 
-            Speler nieuweSpeler = new(spelersNaam, this.Spelers.Count, this);
-            this.Spelers.Add(nieuweSpeler);
+            Player newPlayer = new(playerName, this.Players.Count, this);
+            this.Players.Add(newPlayer);
 
-            this.bord.p(nieuweSpeler);
+            this.board.AddPawns(newPlayer);
 
-            return nieuweSpeler;
+            return newPlayer;
         }
 
         /// <summary>
-        /// Deze Pion is gekozen om de actie uit te voeren die mogelijk is op dit moment
+        /// This pawn is chosen to perform the action that is possible at this moment.
         /// </summary>
-        /// <param name="pion"></param>
-        public void ActieMetPion(Pion pion)
+        /// <param name="pawn"></param>
+        public void ActionWithPawn(Pawn pawn)
         {
-            //game moet al wel gestart zijn
-            if (!this.gameStarted) throw new InvalidOperationException("het spel is nog niet gestart");
+            // The game must be started.
+            if (!this.gameStarted) throw new InvalidOperationException("The game has not started yet.");
 
-            //kijk of er wel met de pion gespeeld mag worden
-            if(pion.IsVerplaatsbaar )
+            // Check if the pawn can be played with.
+            if(pawn.IsMovable)
             {
-                if(pion.Locatie>55)//56 is de eerste locatie dat een deadposition is
+                if(pawn.Location > 55) // 56 is the first location that is a dead position.
                 {
-                    this.PlaatsNieuwePion(pion);
+                    this.PlaceNewPawn(pawn);
                 }
                 else
                 {
-                    this.VerplaatsPion(pion);
+                    this.MovePawn(pawn);
                 }
 
-                //check of speler gewonnen heeft
-                this.CheckVoorWinst(this.ActueeleSpeler);
+                // Check if the player has won.
+                this.CheckForWin(this.CurrentPlayer);
 
-                //kijk of de persoon nog een keer mag gooien
-                this.ActueeleSpeler.MagGooien = this.Dobbelsteen.Value == 6;
-                //als de persoon niet meer mag gooien is de volgende speler aan de beurt
-                if(!this.ActueeleSpeler.MagGooien)
+                // Check if the player can roll again.
+                this.CurrentPlayer.CanRoll = this.Dice.Value == 6;
+                // If the player cannot roll again, the next player is up.
+                if(!this.CurrentPlayer.CanRoll)
                 {
-                    this.NieweSpeler();
+                    this.NewPlayer();
                 }
                 else
                 {
-                    if (MagGooien != null) MagGooien(this.Dobbelsteen, new EventArgs());
+                    if (CanRoll != null) CanRoll(this.Dice, new EventArgs());
                 }
 
-                //zorg dat de huidige speler niks meer met zijn pion mag doen
-                this.ActueeleSpeler.Hand.ForEach(x => x.IsVerplaatsbaar = false);
+                // Ensure that the current player cannot do anything with their pawns anymore.
+                this.CurrentPlayer.Hand.ForEach(x => x.IsMovable = false);
             }
         }
 
         /// <summary>
-        /// kijk of deze speler mischien al gewonnen heeft
+        /// Check if this player might have already won.
         /// </summary>
-        /// <param name="speler"></param>
-        private void CheckVoorWinst(Speler speler)
+        /// <param name="player"></param>
+        private void CheckForWin(Player player)
         {
-            //alle thuis posities zijn van 40 tm 55 dus als daar al je pionnen zich tussen bevinden dan heeft diegene gewonnen
-            if(speler.Hand.Count(x=>x.Locatie > 39 && x.Locatie < 56) == 4)
+            // All home positions are from 40 to 55, so if all your pawns are between those positions, you have won.
+            if(player.Hand.Count(x => x.Location > 39 && x.Location < 56) == 4)
             {
-                //alle pionnen staan thuis de speler heeft gewonnen
-                if (this.EindeSpel != null) 
-                    EindeSpel(speler, new EventArgs());
+                // All pawns are home, the player has won.
+                if (this.EndGame != null) 
+                    EndGame(player, new EventArgs());
 
             }
         }
 
         /// <summary>
-        /// verplaats een Pion en aantal stappen vooruit als er net gegooid is
+        /// Move a pawn a number of steps forward if it has just been rolled.
         /// </summary>
-        /// <param name="pion"></param>
-        private void VerplaatsPion(Pion pion)
+        /// <param name="pawn"></param>
+        private void MovePawn(Pawn pawn)
         {
-            pion.Verplaats(this.dobbelsteen.Value);
+            pawn.Move(this.dice.Value);
         }
 
         /// <summary>
-        /// verplaats een pion de deadpositions naar het begin veld
+        /// Move a pawn from the dead positions to the starting field.
         /// </summary>
-        /// <param name="pion"></param>
-        private void PlaatsNieuwePion(Pion pion)
+        /// <param name="pawn"></param>
+        private void PlaceNewPawn(Pawn pawn)
         {
-            if(pion.IsVerplaatsbaar)
+            if(pawn.IsMovable)
             {
-                pion.VerplaatsNaarStartVeld();
+                pawn.MoveToStartField();
             }
         }
 
-        //verplaats de pion weer naar de deadpositions
-        internal void SlaPion(Pion pion)
+        // Move the pawn back to the dead positions.
+        internal void HitPawn(Pawn pawn)
         {
-            pion.VerplaatsNaarDeadposition();
+            pawn.MoveToDeadPosition();
         }
 
         /// <summary>
-        /// kijkt voor de hoogste vrije positie in de thuishaven
+        /// Checks for the highest free position in the home area.
         /// </summary>
-        /// <param name="kleur"></param>
+        /// <param name="color"></param>
         /// <returns></returns>
-        internal int GeefVrijThuisHavenVlak(int kleur)
+        internal int GetFreeHomeAreaField(int color)
         {
-            // kijkt voor de hoogste vrije positie in de thuishaven
-            // is 40 + 4 * kleur vanaf + 3
-            for(int i = 40+4*kleur+3; i >= 40+4*kleur; i--)
+            // Checks for the highest free position in the home area.
+            // It is 40 + 4 * color from + 3.
+            for(int i = 40 + 4 * color + 3; i >= 40 + 4 * color; i--)
             {
-                if(this.bord.Fields[i] == VeldStatus.vrij)
+                if(this.board.Fields[i] == FieldStatus.free)
                 {
                     return i;
                 }
@@ -265,70 +264,70 @@ namespace MensErgerJeNietLogic
         }
 
         /// <summary>
-        /// geeft een Pion die met behulp van het id wordt teruggevonden
+        /// Returns a pawn found by its ID.
         /// </summary>
-        /// <param name="PionId"></param>
+        /// <param name="pawnId"></param>
         /// <returns></returns>
-        private Pion GetPionById(int PionId)
+        private Pawn GetPawnById(int pawnId)
         {
-            if (PionId > 15) throw new ArgumentOutOfRangeException("er zijn niet zoveel pionnen");
-            return spelers.First(
-                speler =>
-                    speler.Hand.Exists
-                    (pion =>
-                        pion.ID == PionId
+            if (pawnId > 15) throw new ArgumentOutOfRangeException("There are not that many pawns.");
+            return players.First(
+                player =>
+                    player.Hand.Exists
+                    (pawn =>
+                        pawn.ID == pawnId
                         )
                         ).Hand.First(x =>
-                            x.ID == PionId
+                            x.ID == pawnId
                             );
         }
 
         /// <summary>
-        /// geeft de pion terug op een bepaalde locatie als die aanwezig is.
+        /// Returns the pawn at a certain location if present.
         /// </summary>
-        /// <param name="nieuweLocatie"></param>
-        /// <returns>kan null returnnen als het niet aanwezig is</returns>
-        internal Pion PionOpLocation(int nieuweLocatie)
+        /// <param name="newLocation"></param>
+        /// <returns>Can return null if not present.</returns>
+        internal Pawn PawnAtLocation(int newLocation)
         {
-            //kijk eerst even snel of hij mischien vrij is
-            if(bord.Fields[nieuweLocatie] == VeldStatus.vrij)
+            // First quickly check if it might be free.
+            if(board.Fields[newLocation] == FieldStatus.free)
             {
                 return null;
             }
-            //hij komt hier hij dus er is een pion de plaats
-            return this.spelers.First(speler => speler.Hand.Exists(pion => pion.Locatie == nieuweLocatie)).Hand.First(x => x.Locatie == nieuweLocatie);
+            // It comes here, so there is a pawn at the place.
+            return this.players.First(player => player.Hand.Exists(pawn => pawn.Location == newLocation)).Hand.First(x => x.Location == newLocation);
 
         }
 
         /// <summary>
-        /// geef de eerste positie terug die bechikbaar is voor deze pion om terug te gaan
+        /// Returns the first available position for this pawn to go back to.
         /// </summary>
-        /// <param name="pion"></param>
+        /// <param name="pawn"></param>
         /// <returns></returns>
-        internal int GeefVrijDeadPosition(Pion pion)
+        internal int GetFreeDeadPosition(Pawn pawn)
         {
-            for (int i = 56 + 4 * pion.Kleur; i < 56 + 4 * pion.Kleur + 4; i++)
+            for (int i = 56 + 4 * pawn.Color; i < 56 + 4 * pawn.Color + 4; i++)
             {
-                if(this.Bord.Fields[i] == VeldStatus.vrij)
+                if(this.Board.Fields[i] == FieldStatus.free)
                 {
                     return i;
                 }
             }
-            throw new InvalidOperationException("er is geen vrij positie");
+            throw new InvalidOperationException("There is no free position.");
         }
 
         /// <summary>
-        /// Nadit comando is het spel oficieel begonnen en mogen er bijvoorbeeld geen spelers toegevoegd worden. maar juist wel dingen als gooien
+        /// After this command, the game is officially started and, for example, no more players can be added, but things like rolling can be done.
         /// </summary>
-        public void StartSpel()
+        public void StartGame()
         {
             this.gameStarted = true;
 
-            //eerste speler is aan de beurt
-            this.actspeler = 0;
-            this.ActueeleSpeler.MagGooien = true;
-            this.ActueeleSpeler.IsAanDeBeurt = true;
-            if (NewActSpeler != null) NewActSpeler(this.ActueeleSpeler, new EventArgs());
+            // The first player is up.
+            this.currentPlayer = 0;
+            this.CurrentPlayer.CanRoll = true;
+            this.CurrentPlayer.IsUp = true;
+            if (NewCurrentPlayer != null) NewCurrentPlayer(this.CurrentPlayer, new EventArgs());
         }
     }
 }

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GUIWinForm
 {
-    public partial class MensErgerJeNiet : Form
+    public partial class DontGetAngry : Form
     {
         Screen.StartGame startScreen = new();
         Screen.Game gameScreen = new();
 
         Control currentScreen = new();
 
-        public MensErgerJeNiet()
+        public DontGetAngry()
         {
             InitializeComponent();
 
@@ -26,7 +26,7 @@ namespace GUIWinForm
 
         }
 
-        private void MensErgerJeNiet_Load(object sender, EventArgs e)
+        private void DontGetAngry_Load(object sender, EventArgs e)
         {
         }
 
@@ -40,9 +40,9 @@ namespace GUIWinForm
         }
 
 
-        internal void StartNieuwSpel()
+        internal void StartNewGame()
         {
-            Global.Spel = new MensErgerJeNietLogic.MensErgerJeNiet();
+            Global.Game = new DontGetAngryLogic.DontGetAngry();
             this.gameScreen = new();
 
             this.Controls.Remove(this.currentScreen);

@@ -5,61 +5,61 @@ using System.Text;
 
 namespace MensErgerJeNietLogic
 {
-    public class Bord
+    public class Board
     {
-        private List<VeldStatus> fields = new();
-        /// <summahy>
-        /// het bord heeft als belangerijkste funtionaliteit een collectie van speelvelden opgeslagen als Enum veldstatus
+        private List<FieldStatus> fields = new();
+        /// <summary>
+        /// The board has as its main functionality a collection of playing fields stored as Enum field status
         /// </summary>
-        internal Bord(MensErgerJeNiet spel)
+        internal Board(DontGetAngry game)
         {
-            //vul alle velden
+            // Fill all fields
             for (var i = 0; i < 72; i++)
             {
-                //in eerste instatie zijn ze leeg omdat er op dit moment nog geen spelers zijn
-                this.fields.Add(VeldStatus.vrij);
+                // Initially they are empty because there are no players yet
+                this.fields.Add(FieldStatus.free);
             }
         }
 
-        public List<VeldStatus> Fields => this.fields;
+        public List<FieldStatus> Fields => this.fields;
 
         /// <summary>
-        /// voegt de pionnen toe zodat het bord kan opletten of er een pion zich verplaatst
+        /// Adds the pawns so that the board can keep track of whether a pawn is moving
         /// </summary>
-        /// <param name="speler">speler heeft een hand met 4 pionnen</param>
-        internal void p(Speler speler)
+        /// <param name="player">player has a hand with 4 pawns</param>
+        internal void AddPawns(Player player)
         {
-            speler.Hand.ForEach(pion =>
+            player.Hand.ForEach(pawn =>
             {
-                pion.OnVerplaatst += pion_Verplaatst;
-                Fields[pion.Locatie] = (VeldStatus)pion.Kleur;
+                pawn.OnMoved += pawn_Moved;
+                Fields[pawn.Location] = (FieldStatus)pawn.Color;
             }
             );
         }
 
         /// <summary>
-        /// er is een pion verplaats op het bord word er geregeld dat het bord weer de juiste status heeft op de vlakken
+        /// A pawn has moved on the board, it is ensured that the board has the correct status on the fields again
         /// </summary>
-        /// <param name="sender">is de pion die verplaatst is en het event getriggerd heeft</param>
+        /// <param name="sender">is the pawn that has moved and triggered the event</param>
         /// <param name="e"></param>
-        void pion_Verplaatst(object sender, EventArgs e)
+        void pawn_Moved(object sender, EventArgs e)
         {
-            var pion = sender as Pion;
-            //oude positie is weer vrij
-            this.ChangeStatus(pion.LaatsteLocatie, VeldStatus.vrij);
-            //verander nu de nieuwe locatie van de pion naar bezet met de kleur van de pion
-            this.ChangeStatus(pion.Locatie, (VeldStatus)pion.Kleur);
+            var pawn = sender as Pawn;
+            // Old position is free again
+            this.ChangeStatus(pawn.LastLocation, FieldStatus.free);
+            // Now change the new location of the pawn to occupied with the color of the pawn
+            this.ChangeStatus(pawn.Location, (FieldStatus)pawn.Color);
 
         }
 
         /// <summary>
-        /// geef de opdracht om een van de velden 0 tm 71 te wijzigen
+        /// Give the command to change one of the fields 0 to 71
         /// </summary>
-        /// <param name="positie"></param>
+        /// <param name="position"></param>
         /// <param name="status"></param>
-        internal void ChangeStatus(int positie, VeldStatus status)
+        internal void ChangeStatus(int position, FieldStatus status)
         {
-            this.fields[positie] = status;
+            this.fields[position] = status;
         }
     }
 }

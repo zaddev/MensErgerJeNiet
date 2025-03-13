@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35828.75 d17.13
@@ -8,6 +7,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MensErgerJeNietLogic", "MensErgerJeNietLogic\MensErgerJeNietLogic.csproj", "{B49E77CC-C15D-4B06-B606-047D5E533C23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MensErgerJeNietBot", "MensErgerJeNietBot\MensErgerJeNietBot.csproj", "{DCB19C23-808C-4EDA-A522-A0975D8C9A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MensErgerJeNietTests", "MensErgerJeNietTests\MensErgerJeNietTests.csproj", "{E1A1C23D-4B06-4D5E-A524-D143F7EF1382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +28,10 @@ Global
 		{DCB19C23-808C-4EDA-A522-A0975D8C9A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCB19C23-808C-4EDA-A522-A0975D8C9A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCB19C23-808C-4EDA-A522-A0975D8C9A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A1C23D-4B06-4D5E-A524-D143F7EF1382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A1C23D-4B06-4D5E-A524-D143F7EF1382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A1C23D-4B06-4D5E-A524-D143F7EF1382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A1C23D-4B06-4D5E-A524-D143F7EF1382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

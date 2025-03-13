@@ -12,52 +12,52 @@ namespace GUIWinForm.CustomControls
     {
         #region private fields
 
-        Label lNaam = new();
-        Label cBTitel = new();
-        TextBox tNaam = new();
+        Label lName = new();
+        Label cBTitle = new();
+        TextBox tName = new();
         CheckBox computerCheck = new();
 
         #endregion
 
-        public string SpelersNaam => this.tNaam.Text;
+        public string PlayerName => this.tName.Text;
 
         public bool IsBot => this.computerCheck.Checked;
 
         #region constructors
         /// <summary>
-        /// maak een spelersInvoer controller aan
+        /// create a player input controller
         /// </summary>
-        /// <param name="nummer"></param>
-        public NewPlayer(int nummer)
+        /// <param name="number"></param>
+        public NewPlayer(int number)
         {
-            var kleur = (Color)nummer;
+            var color = (Color)number;
             this.Top = 40;
-            this.Text = string.Format("Speler {0}", kleur);
+            this.Text = string.Format("Player {0}", color);
             this.Size = new System.Drawing.Size(200, 65);
 
-            //lnaam is een label met de text
-            this.lNaam.Text = "Naam:";
-            this.lNaam.Top = 15;
-            this.lNaam.Left = 10;
-            this.lNaam.Width = 70;
-            this.Controls.Add(this.lNaam);
+            // lName is a label with the text
+            this.lName.Text = "Name:";
+            this.lName.Top = 15;
+            this.lName.Left = 10;
+            this.lName.Width = 70;
+            this.Controls.Add(this.lName);
 
-            //tnaam
-            this.tNaam.Left = 80;
-            this.tNaam.Top = 15;
-            this.Controls.Add(this.tNaam);
+            // tName
+            this.tName.Left = 80;
+            this.tName.Top = 15;
+            this.Controls.Add(this.tName);
             
-            //checkbox
-            this.cBTitel.Text = "Bot: ";
-            this.cBTitel.Top = 40;
-            this.cBTitel.Left = 10;
-            this.cBTitel.Width = 70;
-            this.Controls.Add(this.cBTitel);
+            // checkbox
+            this.cBTitle.Text = "Bot: ";
+            this.cBTitle.Top = 40;
+            this.cBTitle.Left = 10;
+            this.cBTitle.Width = 70;
+            this.Controls.Add(this.cBTitle);
             this.computerCheck.Top = 35;
             this.computerCheck.Left = 80;
             this.Controls.Add(this.computerCheck);
 
-            this.tNaam.Text = "bootstrap";
+            this.tName.Text = "bootstrap";
         }
 
         #endregion

@@ -12,25 +12,25 @@ namespace GUIWinForm.Screen
 {
     public partial class Game : UserControl
     {
-        List<Label> LijstNaamLabels = new();
+        List<Label> ListNameLabels = new();
         public Game()
         {
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);   
 
-            LijstNaamLabels = new List<Label>() { player1, player2, player3, player4 };       
+            ListNameLabels = new List<Label>() { player1, player2, player3, player4 };       
         }
 
-        void Spel_EindeSpel(object sender, EventArgs e)
+        void Game_EndGame(object sender, EventArgs e)
         {
-            var speler = sender as MensErgerJeNietLogic.Speler;
+            var player = sender as MensErgerJeNietLogic.Player;
 
-            if (speler != null)
+            if (player != null)
             {
-                var clickedAnswer = MessageBox.Show(speler.Naam + " heeft gewonnen \n Wilt u een nieuwe spel starten", "Gefeliciteerd", MessageBoxButtons.YesNo);
+                var clickedAnswer = MessageBox.Show(player.Name + " has won \n Do you want to start a new game", "Congratulations", MessageBoxButtons.YesNo);
                 if (DialogResult.Yes == clickedAnswer)
                 {
-                    Global.MainScreen.StartNieuwSpel();
+                    Global.MainScreen.StartNewGame();
                 }
                 else 
                 {
@@ -41,56 +41,55 @@ namespace GUIWinForm.Screen
 
         private void Game_Load(object sender, EventArgs e)
         {
-            Global.Spel.NewActSpeler += Spel_NewActSpeler;
-            this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", Global.Spel.Spelers[0].Naam);
+            Global.Game.NewActPlayer += Game_NewActPlayer;
+            this.BeurtSpeler.Text = string.Format("{0} is up", Global.Game.Players[0].Name);
 
-            foreach(var speler in Global.Spel.Spelers)
+            foreach(var player in Global.Game.Players)
             {
-                LijstNaamLabels[speler.ID].Text = speler.Naam;
+                ListNameLabels[player.ID].Text = player.Name;
                 
-                foreach(var pion in speler.Hand)
+                foreach(var pawn in player.Hand)
                 {
-                    //pion.Locatie.
-                    var pionImage = new PionImage((Color)pion.Kleur, pion);
-                    this.pictureBox1.Controls.Add(pionImage);
-                    VerplaatsPionNaar(pionImage, pion.Locatie);         
+                    var pawnImage = new PawnImage((Color)pawn.Color, pawn);
+                    this.pictureBox1.Controls.Add(pawnImage);
+                    MovePawnTo(pawnImage, pawn.Location);         
                 }
             }
 
-            Global.Spel.StartSpel();
-            Global.Spel.MagGooien += Spel_MagGooien;
-            Global.Spel.EindeSpel += Spel_EindeSpel;
-            Global.Spel.Dobbelsteen.Gegooid += Dobbelsteen_Gegooid;
+            Global.Game.StartGame();
+            Global.Game.CanRoll += Game_CanRoll;
+            Global.Game.EndGame += Game_EndGame;
+            Global.Game.Dice.Rolled += Dice_Rolled;
         }
 
-        void Dobbelsteen_Gegooid(object sender, EventArgs e)
+        void Dice_Rolled(object sender, EventArgs e)
         {
-            var gegooidewaard = (Global.Spel.Dobbelsteen.Value);
+            var rolledValue = (Global.Game.Dice.Value);
 
-            switch (gegooidewaard)
+            switch (rolledValue)
             {
                 case 1:
-                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_1;
+                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dice_1;
                     break;
 
                 case 2:
-                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_2;
+                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dice_2;
                     break;
 
                 case 3:
-                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_3;
+                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dice_3;
                     break;
 
                 case 4:
-                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_4;
+                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dice_4;
                     break;
 
                 case 5:
-                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_5;
+                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dice_5;
                     break;
 
                 case 6:
-                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dobbelsteen_6;
+                    this.DobbelsteenImage.Image = global::GUIWinForm.Properties.Resources.dice_6;
                     break;
 
             }
@@ -98,45 +97,40 @@ namespace GUIWinForm.Screen
         }
 
         /// <summary>
-        /// maak de dobbelsteen weer beschikbaar
+        /// make the dice available again
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Spel_MagGooien(object sender, EventArgs e)
+        void Game_CanRoll(object sender, EventArgs e)
         {
             DobbelsteenImage.Click += this.DobbelsteenImage_Click;
-            label1.Text = "Klik op de dobbelsteen";
+            label1.Text = "Click on the dice";
         }
 
-        void Spel_NewActSpeler(object sender, EventArgs e)
+        void Game_NewActPlayer(object sender, EventArgs e)
         {
-            var actspeler = sender as MensErgerJeNietLogic.Speler;
+            var actPlayer = sender as MensErgerJeNietLogic.Player;
             
-            this.BeurtSpeler.Text = string.Format("{0} is aan de beurt", actspeler.Naam);
+            this.BeurtSpeler.Text = string.Format("{0} is up", actPlayer.Name);
         }
 
         private void DobbelsteenImage_Click(object sender, EventArgs e)
         {
-            //logica gooi dobbelsteen
-            label1.Text = "Kies een pion";  
-            Global.Spel.DoeWorp();
-            
-            
-             
+            // logic to roll the dice
+            label1.Text = "Choose a pawn";  
+            Global.Game.RollDice();
         }
 
-       
         /// <summary>
-        /// Verplaats de pion naar een nieuwe locatie.
+        /// Move the pawn to a new location.
         /// </summary>
-        /// <param name="pion"></param>
-        /// <param name="nieuweLocatie"></param>
-        private void VerplaatsPionNaar(PionImage pion, int nieuweLocatie)
+        /// <param name="pawn"></param>
+        /// <param name="newLocation"></param>
+        private void MovePawnTo(PawnImage pawn, int newLocation)
         {
-            pion.Location = new Point(
-                    (new BordPositions()).GetPosition(nieuweLocatie).X * 65 + 453, -1 * 
-                    (new BordPositions()).GetPosition(nieuweLocatie).Y * 58 + 26);
+            pawn.Location = new Point(
+                    (new BoardPositions()).GetPosition(newLocation).X * 65 + 453, -1 * 
+                    (new BoardPositions()).GetPosition(newLocation).Y * 58 + 26);
         }
-   
     }
 }
